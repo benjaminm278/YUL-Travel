@@ -7,7 +7,7 @@ TextView
 Scroll view
 ImageViews
 TextViews
-Weather API
+Volley API
 Browser Activity
 
 ## Plans Schedule
@@ -24,7 +24,7 @@ Menus
 EditText
 Buttons
 
-# Hot Spots
+## Hot Spots
 ImageViews
 Google Maps API
 Fragment
@@ -32,11 +32,25 @@ Java object
 Local database
 Weekly hotspots/seasonal/daily/general
 
+## Directions
+RecyclerView
+SQL database
+ImageViews
+Buttons
+EditText
+Volley
 
-Image view
-Text views
-Broadcast and receivers
-Notifications 
-Menus 
-Pickers 
-Browser
+## Directions (Google Map API)
+Two choices: Directions (recycler) or directions w/ visuals
+TextViews
+Map
+RecyclerView
+Volley
+
+## Set up
+EditTexts
+Translate (language option)
+Checkboxes
+Buttons
+Drop down menus
+Scrollview
