@@ -1,3 +1,5 @@
+# Concepts
+
 ## Home screen
 * ImageViews
 * Browser Activity
@@ -10,7 +12,6 @@
 * Volley API
 * Browser Activity
 
-
 ## Plans Schedule
 * Recycler view
 * FAB button / buttons
@@ -18,14 +19,12 @@
 * Notifications
 * Java object (remind option, time, name, checkbox)
 * On hold -> edit
-* SQL database (local) *New*
-
+* SQL database (local)
 
 ## Plans/Schedule (fragment)
 * Menus
 * EditText
 * Buttons
-
 
 ## Hot Spots
 * ImageViews
@@ -33,7 +32,6 @@
 * Fragment
 * Java object
 * Local database
-* Weekly hotspots/seasonal/daily/general
 
 ## Directions
 * RecyclerView
@@ -57,3 +55,8 @@
 * Buttons
 * Drop down menus
 * Scrollview
+
+## Settings
+* Fragments
+* Preferences
+* Translation option *Concept not explored in class*
