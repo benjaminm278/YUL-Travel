@@ -1,0 +1,10 @@
+Recycler view
+Calendar fragment
+Scroll view 
+Image view
+Text views
+Broadcast and receivers
+Notifications 
+Menus 
+Pickers 
+Browser  
