@@ -12,7 +12,7 @@
 * Volley API
 * Browser Activity
 
-## Plans Schedule
+## Plans/Schedule
 * Recycler view
 * FAB button / buttons
 * Calendar fragment (date picker)
