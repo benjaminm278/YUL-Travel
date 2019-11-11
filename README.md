@@ -44,7 +44,6 @@ be anyone above the age of 13.
 1.  	So Montreal
 2.  	Mon guide officiel de Montreal
 
-
 ## Visuals
 ### Home Screen:
 ![Home_Screen](/uploads/6cc507dd07f5a63a1a1a0d40be46c20f/Home_Screen.PNG)
@@ -52,3 +51,21 @@ be anyone above the age of 13.
 ![HotSpots](/uploads/bcc66a80ddf1dfee7488334352c0955b/HotSpots.PNG)
 ### Plan Activity:
 ![Plan_Activity](/uploads/ec9de3fc003f2ea3e07bbaccee84fae4/Plan_Activity.PNG)
+
+## Roadmap
+### Milestone #1
+Milestone #1 involves setting up the project and conceptualizing the layouts.
+Some parts of the settings activity will be implemented. Some activities will
+be created, but somewhat implemented.
+
+### Milestone #2
+In some of the activities, we will further develop the layout and add further
+implementations as well such as API calls. We will also add validation checks to
+data.
+
+### Milestone #3
+This is the milestone where we will implement all features. We will include a
+SQL database and polish all layouts and features.
+
+## Authors
+Sidney Gadosy, Abid Hussain, Benjamin Mah 
