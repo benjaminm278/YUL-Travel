@@ -53,19 +53,29 @@ be anyone above the age of 13.
 ![Plan_Activity](/uploads/ec9de3fc003f2ea3e07bbaccee84fae4/Plan_Activity.PNG)
 
 ## Roadmap
-### Milestone #1
-Milestone #1 involves setting up the project and conceptualizing the layouts.
-Some parts of the settings activity will be implemented. Some activities will
-be created, but somewhat implemented.
+1st milestone:
+* Home screen: ImageButtons (no set images) take the user to other activities.
+Rough layout of screen would be developed.
+* Setup: Contains a form with labels, edittexts, spinners and button.
+* Directions: Layout of categories for directions. Category buttons successfully
+trigger a toast or log event.
+* Plan: Ability to save text on cardviews; button to call a dialog
+* Weather: Successful retrieval of data from weather API; displays temperature
 
-### Milestone #2
-In some of the activities, we will further develop the layout and add further
-implementations as well such as API calls. We will also add validation checks to
-data.
+2nd milestone:
+* Home screen: ImageButtons have images
+* Setup: Contains imageview at top; edittexts, spinners and checkboxes have their data saved successfully
+* Directions: Successful call to Google Maps API
+* Plan: Implementation of layout
+* Weather: Display pictures based on weather
+* ImageView headers implementation
 
-### Milestone #3
-This is the milestone where we will implement all features. We will include a
-SQL database and polish all layouts and features.
+3rd milestone:
+* Home screen: Detect if the app has been setup. If it hasn’t, display setup application button
+* Setup: Store data in database
+* Directions: Display map, from/to boxes, methods of transportation and instructions
+* Plan: Store plan in database (with dialog implemented)
+* Weather: Provides suggestions based on weather
 
 ## Authors
 Sidney Gadosy, Abid Hussain, Benjamin Mah 
