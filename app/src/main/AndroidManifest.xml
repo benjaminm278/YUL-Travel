@@ -19,7 +19,7 @@
         </activity>
         <activity android:name=".DirectionsActivity" />
         <activity android:name=".WeatherActivity" />
-        <activity android:name=".PlansActivity" />
+        <activity android:name=".Plans.PlansActivity" />
         <activity android:name=".SpotsActivity" />
         <activity android:name=".SetupActivity" />
         <activity android:name=".HomeActivity" />
