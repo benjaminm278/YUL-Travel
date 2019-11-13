@@ -33,12 +33,13 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/setupActivityButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="8dp"
+                android:onClick="openActivity"
                 android:text="Setup application" />
 
             <android.support.constraint.ConstraintLayout
