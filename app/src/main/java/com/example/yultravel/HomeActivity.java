@@ -2,8 +2,12 @@ package com.example.yultravel;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -45,5 +49,14 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         startActivity(activityIntent);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater i = getMenuInflater();
+        i.inflate(R.menu.app_menu, menu);
+        return true;
+    }
+
+    public void openMenuActivity(MenuItem item) {
     }
 }
