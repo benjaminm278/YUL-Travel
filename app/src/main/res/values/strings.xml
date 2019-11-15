@@ -20,4 +20,7 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="setup_application">Setup application</string>
     <string name="weather">Weather</string>
+    <string name="name">Name:</string>
+    <string name="where_are_you_from">Where are you from</string>
+    <string name="interest">Interest</string>
 </resources>
