@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Plans;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -6,6 +6,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.yultravel.R;
 
 import java.util.ArrayList;
 
@@ -31,6 +33,7 @@ public class PlansActivity extends AppCompatActivity {
     private void initializeData() {
         planArrayList = new ArrayList<>();
         planArrayList.add(new Plan("Hiking"));
+        planArrayList.add(new Plan("Biking"));
 
     }
     private void initializeAdapter() {
