@@ -53,7 +53,8 @@ be anyone above the age of 13.
 ![Plan_Activity](/uploads/ec9de3fc003f2ea3e07bbaccee84fae4/Plan_Activity.PNG)
 
 ## Roadmap
-1st milestone:
+**1st milestone:** The first milestone focuses on creating the layouts of all
+screens of the application.
 * Home screen: ImageButtons (no set images) take the user to other activities.
 Rough layout of screen would be developed.
 * Setup: Contains a form with labels, edittexts, spinners and button.
@@ -62,18 +63,25 @@ trigger a toast or log event.
 * Plan: Ability to save text on cardviews; button to call a dialog
 * Weather: Successful retrieval of data from weather API; displays temperature
 
-2nd milestone:
-* Home screen: ImageButtons have images
-* Setup: Contains imageview at top; edittexts, spinners and checkboxes have their data saved successfully
-* Directions: Successful call to Google Maps API
-* Plan: Implementation of layout
-* Weather: Display pictures based on weather
+**2nd milestone:** The second milestone will continually add more design
+elements to the screens, as well as calling various APIs.
+* Determine colors to use for various elements of the application
+* Home screen: Place actual images on the image buttons
+* Setup: Contains imageview at top; edittexts, spinners and checkboxes have 
+their data saved successfully
+* Directions: Use the Google Maps intent to plot out directions
+* Plan: Successful call to Eventful API.
+* Weather: Successful call to weather API
 * ImageView headers implementation
 
-3rd milestone:
-* Home screen: Detect if the app has been setup. If it hasn’t, display setup application button
+**3rd milestone:** The third milestone will implement a local database,
+fine-tune the aesthetics and design of the application, and modify the
+behavior of the application based on certain conditions.
+* Home screen: Detect if the app has been setup. If it hasn’t, display setup 
+application button. Utilize Sharedpreferences.
 * Setup: Store data in database
-* Directions: Display map, from/to boxes, methods of transportation and instructions
+* Directions: Display map, from/to boxes, methods of transportation and 
+instructions
 * Plan: Store plan in database (with dialog implemented)
 * Weather: Provides suggestions based on weather
 
