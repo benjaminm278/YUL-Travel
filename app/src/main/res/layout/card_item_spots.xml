@@ -14,7 +14,7 @@
         app:cardUseCompatPadding="true">
 
         <TextView
-            android:id="@+id/textViewPlan"
+            android:id="@+id/textViewSpots"
             android:layout_width="wrap_content"
             android:layout_height="41dp"
             android:layout_marginStart="116dp"
