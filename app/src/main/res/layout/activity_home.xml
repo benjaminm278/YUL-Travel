@@ -69,7 +69,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_marginStart="44dp"
-                    android:contentDescription="Plans"
+                    android:contentDescription="@string/plans"
                     android:onClick="openActivity"
                     android:src="@color/colorPrimary"
                     app:layout_constraintBottom_toBottomOf="@+id/weatherImageButton"
@@ -83,7 +83,7 @@
                     android:layout_width="150dp"
                     android:layout_height="150dp"
                     android:layout_marginTop="52dp"
-                    android:contentDescription="Spots"
+                    android:contentDescription="@string/spots"
                     android:onClick="openActivity"
                     android:src="@android:color/holo_blue_bright"
                     app:layout_constraintStart_toStartOf="@+id/weatherImageButton"
@@ -94,7 +94,7 @@
                     android:id="@+id/directionsImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:contentDescription="Directions"
+                    android:contentDescription="@string/directions"
                     android:onClick="openActivity"
                     android:src="@android:color/holo_purple"
                     app:layout_constraintBottom_toBottomOf="@+id/spotsImageButton"
@@ -107,7 +107,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Weather"
+                    android:text="@string/weather"
                     app:layout_constraintStart_toStartOf="@+id/weatherImageButton"
                     app:layout_constraintTop_toBottomOf="@+id/weatherImageButton" />
 
@@ -115,7 +115,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Plans"
+                    android:text="@string/plans"
                     app:layout_constraintStart_toStartOf="@+id/plansImageButton"
                     app:layout_constraintTop_toBottomOf="@+id/plansImageButton" />
 
@@ -123,7 +123,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Directions"
+                    android:text="@string/directions"
                     app:layout_constraintStart_toStartOf="@+id/directionsImageButton"
                     app:layout_constraintTop_toBottomOf="@+id/directionsImageButton" />
 
@@ -131,7 +131,7 @@
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Spots"
+                    android:text="@string/spots"
                     app:layout_constraintStart_toStartOf="@+id/spotsImageButton"
                     app:layout_constraintTop_toBottomOf="@+id/spotsImageButton" />
             </androidx.constraintlayout.widget.ConstraintLayout>
