@@ -38,7 +38,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     @NonNull
     @Override
     public SpotsAdapter.SpotsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View mItemView = mInflater.inflate(R.layout.card_item_spots,viewGroup,false);
+        View mItemView = mInflater.inflate(R.layout.card_item_spots, viewGroup,false);
         return new SpotsAdapter.SpotsViewHolder(mItemView,this);
     }
 
