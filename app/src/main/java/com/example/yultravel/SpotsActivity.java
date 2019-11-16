@@ -29,7 +29,7 @@ public class SpotsActivity extends AppCompatActivity {
     ArrayList<Spot> spotArrayList;
     TextView title;
 
-    private static final String EVENTFUL_BASE_URL = "http://api.eventful.com/json/events/search?";
+    private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
     private static final String EVENTFUL_APP_KEY_ARG = "app_key";
     private static final String EVENTFUL_LOCATION_ARG = "location";
 
