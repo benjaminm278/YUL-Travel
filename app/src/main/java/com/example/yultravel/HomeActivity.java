@@ -53,12 +53,32 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(activityIntent);
     }
 
+    /**
+     * Inflates the menu on the app bar
+     * @param menu
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater i = getMenuInflater();
         i.inflate(R.menu.app_menu, menu);
         return true;
     }
 
+    /**
+     * Opens activity based on menu item clicked
+     * @param item
+     */
     public void openMenuActivity(MenuItem item) {
+        Intent activity;
+        
+        switch (item.getItemId()) {
+            case R.id.settings:
+                activity = new Intent(this, SettingsActivity.class);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + item.getItemId());
+        }
+        
+        startActivity(activity);
     }
 }
