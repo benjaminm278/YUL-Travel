@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Spots;
 
 public class Spot {
     private String title;
