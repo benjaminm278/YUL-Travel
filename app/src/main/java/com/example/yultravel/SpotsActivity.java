@@ -1,6 +1,5 @@
 package com.example.yultravel;
 
-import android.app.DownloadManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,11 +15,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.yultravel.Plans.Plan;
-import com.example.yultravel.Plans.PlanAdapter;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -46,16 +43,22 @@ public class SpotsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spots);
 
-        /*
-        recyclerView = findViewById(R.id.recyclerviewSpots);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
+        ArrayList<Spot> a = new ArrayList<>();
+        a.add(new Spot("Mont-Royal"));
+        a.add(new Spot("Hockey night"));
+
+        recyclerView = findViewById(R.id.RecyclerViewSpots);
+        SpotsAdapter spotsAdapter = new SpotsAdapter(this, a);
+        recyclerView.setAdapter(spotsAdapter);
+        LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
+                false);
         recyclerView.setLayoutManager(llm);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         initializeData();
-        initializeAdapter();*/
+        initializeAdapter();
 
         // Volley code
-        final TextView t = (TextView) findViewById(R.id.textView26);
+        final TextView t = (TextView) findViewById(R.id.titleOfSpot);
 
         try {
             final RequestQueue queue = Volley.newRequestQueue(this);
@@ -90,26 +93,6 @@ public class SpotsActivity extends AppCompatActivity {
             });
 
             queue.add(jsonObjReq);
-
-            /*
-            StringRequest sr = new StringRequest(Request.Method.GET, url,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-                            Log.d("bangbang", "response stored" + response);
-                            //interpretJSONData(response);
-                            queue.stop();
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("bangbang", "OOPS");
-                            queue.stop();
-                        }
-                    });
-
-            queue.add(sr);*/
         }
         catch (Exception e) {
 
@@ -124,6 +107,14 @@ public class SpotsActivity extends AppCompatActivity {
         try {
             String x = response.getString("total_items");
             Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
+
+            JSONObject eventsJSON = response.getJSONObject("events");
+            JSONArray eventsArr = eventsJSON.getJSONArray("event");
+            JSONObject listOfEvents = (JSONObject) eventsArr.get(1);
+
+            listOfEvents.getString("title");
+
+            Log.d("bangbang", listOfEvents.getString("title"));
         }
         catch (Exception e) {
 
@@ -136,8 +127,8 @@ public class SpotsActivity extends AppCompatActivity {
         spotArrayList.add(new Spot("Old Port"));
 
     }
-    private void initializeAdapter() {
+    private void initializeAdapter() {/*
         SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
     }
 }

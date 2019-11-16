@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,18 +22,36 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         TextView title;
         SpotsViewHolder(View itemView, SpotsAdapter adapter) {
             super(itemView);
-            title = itemView.findViewById(R.id.textViewSpots);
-            this.adapter =adapter;
+            this.adapter = adapter;
+            title = itemView.findViewById(R.id.titleOfSpot);
         }
     }
-    SpotsAdapter(Context context, ArrayList<Spot> spotArrayList) {
+
+    /**
+     *
+     * @param context
+     * @param spotArrayList
+     */
+    public SpotsAdapter(Context context, ArrayList<Spot> spotArrayList) {
         mInflater = LayoutInflater.from(context);
         this.spotArrayList = spotArrayList;
     }
+
+    /**
+     *
+     * @param recyclerView
+     */
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
+
+    /**
+     *
+     * @param viewGroup
+     * @param i
+     * @return
+     */
     @NonNull
     @Override
     public SpotsAdapter.SpotsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -42,11 +59,20 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         return new SpotsAdapter.SpotsViewHolder(mItemView,this);
     }
 
+    /**
+     *
+     * @param SpotsViewHolder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(SpotsAdapter.SpotsViewHolder SpotsViewHolder, int i) {
         SpotsViewHolder.title.setText(spotArrayList.get(i).getTitle());
     }
 
+    /**
+     * Returns the size of the list
+     * @return
+     */
     @Override
     public int getItemCount() {
         return spotArrayList.size();
