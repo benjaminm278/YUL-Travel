@@ -2,13 +2,18 @@ package com.example.yultravel.Spots;
 
 public class Spot {
     private String title;
+    private String description;
 
     /**
      *
      * @param spotName
      */
-    public Spot(String spotName) {
+    public Spot(String spotName, String description) {
         this.title = spotName;
+    }
+
+    public String getDescription() {
+        return this.description;
     }
 
     /**

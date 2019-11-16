@@ -20,10 +20,13 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     public static class SpotsViewHolder extends RecyclerView.ViewHolder{
         SpotsAdapter adapter;
         TextView title;
+        TextView description;
+
         SpotsViewHolder(View itemView, SpotsAdapter adapter) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
+            description = itemView.findViewById(R.id.eventDescriptionTextView);
         }
     }
 
@@ -67,6 +70,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     @Override
     public void onBindViewHolder(SpotsAdapter.SpotsViewHolder SpotsViewHolder, int i) {
         SpotsViewHolder.title.setText(spotArrayList.get(i).getTitle());
+        SpotsViewHolder.description.setText("Description: " + spotArrayList.get(i).getDescription());
     }
 
     /**

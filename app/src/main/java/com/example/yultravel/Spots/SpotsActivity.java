@@ -37,7 +37,7 @@ public class SpotsActivity extends AppCompatActivity {
     private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
     private static final String EVENTFUL_LOCATION = "Montreal";
     private static final String EVENTFUL_DATE_RANGE = "today";
-    private static final String EVENTFUL_PAGE_SIZE = "2";
+    private static final String EVENTFUL_PAGE_SIZE = "5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ public class SpotsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spots);
 
         ArrayList<Spot> a = new ArrayList<>();
-        a.add(new Spot("Mont-Royal"));
-        a.add(new Spot("Hockey night"));
+        a.add(new Spot("Mont-Royal", ""));
+        a.add(new Spot("Hockey night", ""));
 
         recyclerView = findViewById(R.id.RecyclerViewSpots);
         SpotsAdapter spotsAdapter = new SpotsAdapter(this, a);
@@ -119,7 +119,8 @@ public class SpotsActivity extends AppCompatActivity {
             for (int i = 0; i < eventsArr.length(); i++) {
                 JSONObject listOfEvents = (JSONObject) eventsArr.get(i);
                 String eventTitle = listOfEvents.getString("title");
-                spotArrayList.add(new Spot(eventTitle));
+                String eventDesc = listOfEvents.getString("description");
+                spotArrayList.add(new Spot(eventTitle, eventDesc));
             }
 
             SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
@@ -131,10 +132,11 @@ public class SpotsActivity extends AppCompatActivity {
     }
 
     private void initializeData() {
+        /*
         spotArrayList = new ArrayList<>();
         spotArrayList.add(new Spot("Olympic Stadium"));
         spotArrayList.add(new Spot("Old Port"));
-
+        */
     }
     private void initializeAdapter() {/*
         SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
