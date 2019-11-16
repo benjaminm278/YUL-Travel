@@ -115,9 +115,9 @@ public class SpotsActivity extends AppCompatActivity {
 
             ArrayList<Spot> spotArrayList = new ArrayList<>();
 
+            // Iterate through each event
             for (int i = 0; i < eventsArr.length(); i++) {
                 JSONObject listOfEvents = (JSONObject) eventsArr.get(i);
-                Log.d("bangbang", listOfEvents.getString("title"));
                 String eventTitle = listOfEvents.getString("title");
                 spotArrayList.add(new Spot(eventTitle));
             }
