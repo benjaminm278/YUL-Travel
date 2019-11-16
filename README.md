@@ -60,8 +60,8 @@ Rough layout of screen would be developed.
 * Setup: Contains a form with labels, edittexts, spinners and button.
 * Directions: Layout of categories for directions. Category buttons successfully
 trigger a toast or log event.
-* Plan: Ability to save text on cardviews; button to call a dialog
-* Weather: Successful retrieval of data from weather API; displays temperature
+* Plan: Create layout of plan activity
+* Weather: Create layout of weather activity
 
 **2nd milestone:** The second milestone will continually add more design
 elements to the screens, as well as calling various APIs.
