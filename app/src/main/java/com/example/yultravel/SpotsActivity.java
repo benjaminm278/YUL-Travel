@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -32,9 +33,13 @@ public class SpotsActivity extends AppCompatActivity {
     private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
     private static final String EVENTFUL_APP_KEY_ARG = "app_key";
     private static final String EVENTFUL_LOCATION_ARG = "location";
+    private static final String EVENTFUL_DATE_RANGE_ARG = "date";
+    private static final String EVENTFUL_PAGE_SIZE_ARG = "page_size";
 
     private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
     private static final String EVENTFUL_LOCATION = "Montreal";
+    private static final String EVENTFUL_DATE_RANGE = "today";
+    private static final String EVENTFUL_PAGE_SIZE = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,8 @@ public class SpotsActivity extends AppCompatActivity {
             Uri builtURI = Uri.parse(EVENTFUL_BASE_URL).buildUpon()
                     .appendQueryParameter(EVENTFUL_APP_KEY_ARG, EVENTFUL_APP_KEY)
                     .appendQueryParameter(EVENTFUL_LOCATION_ARG, EVENTFUL_LOCATION)
+                    .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, EVENTFUL_DATE_RANGE)
+                    .appendQueryParameter(EVENTFUL_PAGE_SIZE_ARG, EVENTFUL_PAGE_SIZE)
                     .build();
 
             // URI to URL
@@ -70,6 +77,7 @@ public class SpotsActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("bangbang", "Response: " + response.toString());
+                            interpretJSONData(response);
                             queue.stop();
                         }
                     },
@@ -83,6 +91,7 @@ public class SpotsActivity extends AppCompatActivity {
 
             queue.add(jsonObjReq);
 
+            /*
             StringRequest sr = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
@@ -100,12 +109,27 @@ public class SpotsActivity extends AppCompatActivity {
                         }
                     });
 
-            queue.add(sr);
+            queue.add(sr);*/
         }
         catch (Exception e) {
 
         }
     }
+
+    /**
+     *
+     * @param response
+     */
+    private void interpretJSONData(JSONObject response) {
+        try {
+            String x = response.getString("total_items");
+            Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
+        }
+        catch (Exception e) {
+
+        }
+    }
+
     private void initializeData() {
         spotArrayList = new ArrayList<>();
         spotArrayList.add(new Spot("Olympic Stadium"));
