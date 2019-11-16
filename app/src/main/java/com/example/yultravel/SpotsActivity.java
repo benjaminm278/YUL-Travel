@@ -20,12 +20,13 @@ public class SpotsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spots);
+        /*
         recyclerView = findViewById(R.id.recyclerviewSpots);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
         initializeData();
-        initializeAdapter();
+        initializeAdapter();*/
     }
     private void initializeData() {
         spotArrayList = new ArrayList<>();

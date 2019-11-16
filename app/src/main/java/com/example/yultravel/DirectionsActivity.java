@@ -1,7 +1,6 @@
 package com.example.yultravel;
 
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DirectionsActivity extends AppCompatActivity {
