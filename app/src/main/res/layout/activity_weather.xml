@@ -66,12 +66,14 @@
                 android:id="@+id/imageView6"
                 android:layout_width="85dp"
                 android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
 
             <ImageView
                 android:id="@+id/imageView7"
                 android:layout_width="85dp"
                 android:layout_height="64dp"
+                android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
         </TableRow>
 
@@ -91,6 +93,7 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="19°"
                 android:textStyle="bold" />
@@ -99,6 +102,7 @@
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="21°"
                 android:textStyle="bold" />
@@ -151,12 +155,14 @@
                 android:id="@+id/imageView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_cloud_blue_72dp" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_cloud_blue_72dp" />
         </TableRow>
 
@@ -176,6 +182,7 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="18°"
                 android:textStyle="bold" />
@@ -184,6 +191,7 @@
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:gravity="center"
                 android:text="18°"
                 android:textStyle="bold" />
