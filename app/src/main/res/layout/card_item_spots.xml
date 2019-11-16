@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="466dp">
 
             <ImageView
                 android:id="@+id/imageView12"
@@ -27,13 +27,15 @@
 
             <TextView
                 android:id="@+id/titleOfSpot"
-                android:layout_width="279dp"
-                android:layout_height="41dp"
+                android:layout_width="366dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Mont-Royal"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView12" />
         </androidx.constraintlayout.widget.ConstraintLayout>

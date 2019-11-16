@@ -106,16 +106,24 @@ public class SpotsActivity extends AppCompatActivity {
      */
     private void interpretJSONData(JSONObject response) {
         try {
+            // Collect event names
             String x = response.getString("total_items");
             Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
 
             JSONObject eventsJSON = response.getJSONObject("events");
             JSONArray eventsArr = eventsJSON.getJSONArray("event");
-            JSONObject listOfEvents = (JSONObject) eventsArr.get(1);
 
-            listOfEvents.getString("title");
+            ArrayList<Spot> spotArrayList = new ArrayList<>();
 
-            Log.d("bangbang", listOfEvents.getString("title"));
+            for (int i = 0; i < eventsArr.length(); i++) {
+                JSONObject listOfEvents = (JSONObject) eventsArr.get(i);
+                Log.d("bangbang", listOfEvents.getString("title"));
+                String eventTitle = listOfEvents.getString("title");
+                spotArrayList.add(new Spot(eventTitle));
+            }
+
+            SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
+            recyclerView.setAdapter(adapter);
         }
         catch (Exception e) {
 
