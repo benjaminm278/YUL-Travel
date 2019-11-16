@@ -10,6 +10,7 @@ public class Spot {
      */
     public Spot(String spotName, String description) {
         this.title = spotName;
+        this.description = description;
     }
 
     public String getDescription() {
