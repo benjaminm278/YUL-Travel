@@ -14,10 +14,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.yultravel.Plans.Plan;
 import com.example.yultravel.Plans.PlanAdapter;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -26,10 +29,12 @@ public class SpotsActivity extends AppCompatActivity {
     ArrayList<Spot> spotArrayList;
     TextView title;
 
-    private static final String BOOK_BASE_URL = "https://www.googleapis.com/books/v1/volumes?";
-    private static final String QUERY_PARAM = "q";
-    private static final String MAX_RESULTS = "maxResults";
-    private static final String PRINT_TYPE = "printType";
+    private static final String EVENTFUL_BASE_URL = "http://api.eventful.com/json/events/search?";
+    private static final String EVENTFUL_APP_KEY_ARG = "app_key";
+    private static final String EVENTFUL_LOCATION_ARG = "location";
+
+    private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
+    private static final String EVENTFUL_LOCATION = "Montreal";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,15 +56,32 @@ public class SpotsActivity extends AppCompatActivity {
             final RequestQueue queue = Volley.newRequestQueue(this);
 
             // Build URI and issue query
-            Uri builtURI = Uri.parse(BOOK_BASE_URL).buildUpon()
-                    .appendQueryParameter(QUERY_PARAM, "Romeo")
-                    .appendQueryParameter(MAX_RESULTS, "10")
-                    .appendQueryParameter(PRINT_TYPE, "books")
+            Uri builtURI = Uri.parse(EVENTFUL_BASE_URL).buildUpon()
+                    .appendQueryParameter(EVENTFUL_APP_KEY_ARG, EVENTFUL_APP_KEY)
+                    .appendQueryParameter(EVENTFUL_LOCATION_ARG, EVENTFUL_LOCATION)
                     .build();
 
             // URI to URL
             String url = builtURI.toString();
             Log.d("bangbang", url);
+
+            JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url,
+                    null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("bangbang", "Response: " + response.toString());
+                            queue.stop();
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("bangbang", "OOPS - json");
+                            queue.stop();
+                        }
+            });
+
+            queue.add(jsonObjReq);
 
             StringRequest sr = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
