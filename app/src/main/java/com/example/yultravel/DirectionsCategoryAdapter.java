@@ -58,7 +58,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
      */
     @Override
     public void onBindViewHolder(@NonNull DirectionsCategoryViewHolder holder, int position) {
-        //holder.categoryTxt.setText(category_names.get(position) + " ");
+        holder.categoryTxt.setText(category_names.get(position) + " ");
     }
 
     /**

@@ -18,6 +18,10 @@ public class DirectionsActivity extends AppCompatActivity {
         ArrayList<String> categoryNames = new ArrayList();
         categoryNames.add("Airport");
         categoryNames.add("Restaurants");
+        categoryNames.add("Metro (subway)");
+        categoryNames.add("Parks");
+        categoryNames.add("Shops");
+        categoryNames.add("Stadium");
 
         // RecyclerView code
         RecyclerView directionsRC = findViewById(R.id.directionsCategoryRecyclerView);
