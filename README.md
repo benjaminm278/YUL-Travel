@@ -62,6 +62,7 @@ Rough layout of screen would be developed.
 trigger a toast or log event.
 * Plan: Create layout of plan activity
 * Weather: Create layout of weather activity
+* Settings: Create layout
 
 **2nd milestone:** The second milestone will continually add more design
 elements to the screens, as well as calling various APIs.
@@ -73,6 +74,7 @@ their data saved successfully
 * Plan: Successful call to Eventful API.
 * Weather: Successful call to weather API
 * ImageView headers implementation
+* Settings: Add functionality to settings
 
 **3rd milestone:** The third milestone will implement a local database,
 fine-tune the aesthetics and design of the application, and modify the
