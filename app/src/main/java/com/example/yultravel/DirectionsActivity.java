@@ -17,12 +17,12 @@ public class DirectionsActivity extends AppCompatActivity {
         // String arraylist
         ArrayList<String> categoryNames = new ArrayList();
         categoryNames.add("Airport");
+        categoryNames.add("Restaurants");
 
         // RecyclerView code
         RecyclerView directionsRC = findViewById(R.id.directionsCategoryRecyclerView);
         DirectionsCategoryAdapter adapter = new DirectionsCategoryAdapter(this, categoryNames);
         directionsRC.setAdapter(adapter);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        directionsRC.setLayoutManager(llm);
+        directionsRC.setLayoutManager(new LinearLayoutManager(this));
     }
 }
