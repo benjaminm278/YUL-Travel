@@ -8,7 +8,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -20,27 +20,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="0dp"
             android:layout_marginTop="3dp"
             android:layout_marginEnd="-3dp"
             android:layout_marginBottom="0dp">
-
-            <TextView
-                android:id="@+id/textView24"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:text="Hot Spots"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -52,60 +40,48 @@
                 app:srcCompat="@color/colorAccent"
                 tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-            <ImageButton
-                android:id="@+id/imageButton2"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/mont_royal_view"
+            <include
+                android:id="@+id/include"
+                layout="@layout/todays_spots_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
-                tools:src="@drawable/mont_royal_view"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            <ImageButton
-                android:id="@+id/imageButton3"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="68dp"
-                android:src="@drawable/mont_royal_view"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+            <include
+                android:id="@+id/include2"
+                layout="@layout/this_week_spots_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include" />
+
+
+            <include
+                android:id="@+id/include3"
+                layout="@layout/next_week_spots_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageButton2"
-                app:layout_constraintTop_toTopOf="@+id/imageButton2"
-                tools:srcCompat="@drawable/mont_royal_view" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include2" />
 
-            <ImageButton
-                android:id="@+id/imageButton4"
-                android:layout_width="368dp"
-                android:layout_height="144dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/mont_royal_view"
-                app:layout_constraintStart_toStartOf="@+id/imageButton2"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton2"
-                tools:srcCompat="@drawable/mont_royal_view" />
+            <include
+                android:id="@+id/include4"
+                layout="@layout/all_time_favorites_spots_section"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/include3" />
 
-            <ImageButton
-                android:id="@+id/imageButton5"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/mont_royal_view"
-                app:layout_constraintStart_toStartOf="@+id/imageButton4"
-                app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-                tools:srcCompat="@drawable/mont_royal_view" />
 
-            <ImageButton
-                android:id="@+id/imageButton6"
-                android:layout_width="150dp"
-                android:layout_height="130dp"
-                android:layout_marginStart="64dp"
-                android:src="@drawable/mont_royal_view"
-                app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-                app:layout_constraintStart_toEndOf="@+id/imageButton5"
-                app:layout_constraintTop_toTopOf="@+id/imageButton5"
-                tools:srcCompat="@drawable/mont_royal_view" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
