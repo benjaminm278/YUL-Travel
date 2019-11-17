@@ -1,8 +1,10 @@
 package com.example.yultravel.Spots;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -141,5 +143,21 @@ public class SpotsActivity extends AppCompatActivity {
     private void initializeAdapter() {/*
         SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
         recyclerView.setAdapter(adapter);*/
+    }
+
+    /**
+     * Opens a new activity containing a list of all events
+     * @param view
+     */
+    public void openMoreHotSpots(View view) {
+        Intent moreHotSpotsActivity = new Intent();
+
+        switch (view.getId()) {
+            case R.id.viewMoreOfTodaysHotSpots:
+                Toast.makeText(this, "Today's hot spots", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        //startActivity(moreHotSpotsActivity);
     }
 }

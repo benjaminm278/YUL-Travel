@@ -27,8 +27,8 @@
 
             <TextView
                 android:id="@+id/titleOfSpot"
-                android:layout_width="369dp"
-                android:layout_height="161dp"
+                android:layout_width="366dp"
+                android:layout_height="104dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:text="Mont-Royal"
@@ -41,8 +41,8 @@
 
             <TextView
                 android:id="@+id/eventDescriptionTextView"
-                android:layout_width="369dp"
-                android:layout_height="55dp"
+                android:layout_width="365dp"
+                android:layout_height="285dp"
                 android:layout_marginTop="8dp"
                 android:text="Description"
                 android:textSize="14sp"
