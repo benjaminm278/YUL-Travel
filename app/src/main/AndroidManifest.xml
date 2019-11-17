@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Spots.MoreSpots"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -19,7 +20,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.yultravel.HomeActivity" />
         </activity>
-        <activity android:name=".DirectionsActivity" />
+        <activity android:name=".Directions.DirectionsActivity" />
         <activity android:name=".WeatherActivity" />
         <activity android:name=".Plans.PlansActivity" />
         <activity android:name=".Spots.SpotsActivity" />

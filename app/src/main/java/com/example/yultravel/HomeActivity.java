@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yultravel.Directions.DirectionsActivity;
 import com.example.yultravel.Plans.PlansActivity;
 import com.example.yultravel.Spots.SpotsActivity;
 

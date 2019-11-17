@@ -150,14 +150,14 @@ public class SpotsActivity extends AppCompatActivity {
      * @param view
      */
     public void openMoreHotSpots(View view) {
-        Intent moreHotSpotsActivity = new Intent();
+        Intent moreHotSpotsActivity = new Intent(this, MoreSpots.class);
 
+        // Switch case used to pass data to intent to display different results
         switch (view.getId()) {
             case R.id.viewMoreOfTodaysHotSpots:
-                Toast.makeText(this, "Today's hot spots", Toast.LENGTH_SHORT).show();
                 break;
         }
 
-        //startActivity(moreHotSpotsActivity);
+        startActivity(moreHotSpotsActivity);
     }
 }

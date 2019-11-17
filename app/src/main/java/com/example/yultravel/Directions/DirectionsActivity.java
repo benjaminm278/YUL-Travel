@@ -1,9 +1,11 @@
-package com.example.yultravel;
+package com.example.yultravel.Directions;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.yultravel.R;
 
 import java.util.ArrayList;
 
