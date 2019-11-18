@@ -47,8 +47,7 @@ public class SpotsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spots);
 
         ArrayList<Spot> a = new ArrayList<>();
-        a.add(new Spot("Mont-Royal", ""));
-        a.add(new Spot("Hockey night", ""));
+        a.add(new Spot("Loading", ""));
 
         recyclerView = findViewById(R.id.RecyclerViewSpots);
         SpotsAdapter spotsAdapter = new SpotsAdapter(this, a);
