@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.yultravel.R;
 
@@ -27,7 +29,25 @@ public class PlanFragment extends DialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_plan, container, false);
+      View v= inflater.inflate(R.layout.fragment_plan, container, false);
+      Button btn =(Button) v.findViewById(R.id.buttonAddPlanFrag);
+      btn.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              Toast.makeText(getContext(), "Added Plan", Toast.LENGTH_SHORT).show();
+          }
+      });
+      Button btnCancel = v.findViewById(R.id.buttonCancelPlan);
+      btnCancel.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              dismiss();
+          }
+      });
+        return v;
+
+
+
     }
 
 }
