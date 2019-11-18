@@ -46,6 +46,8 @@ public class SpotsActivity extends AppCompatActivity {
     private static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
     private static final String EVENTFUL_PAGE_SIZE = "5";
 
+    public static final String DATE_RANGE_EXTRA = "com.example.yultravel.Spots.dateRange.EXTRA";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -190,6 +192,13 @@ public class SpotsActivity extends AppCompatActivity {
         // Switch case used to pass data to intent to display different results
         switch (view.getId()) {
             case R.id.viewMoreOfTodaysHotSpots:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_TODAY);
+                break;
+            case R.id.viewMoreOfThisWeekHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_THIS_WEEK);
+                break;
+            case R.id.viewMoreOfNextWeeksHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_NEXT_WEEK);
                 break;
         }
 

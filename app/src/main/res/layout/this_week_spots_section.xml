@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/viewMoreOfTodaysHotSpots2"
+        android:id="@+id/viewMoreOfThisWeekHotSpotsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/viewMoreOfTodaysHotSpots2"
+        app:layout_constraintEnd_toEndOf="@+id/viewMoreOfThisWeekHotSpotsTextView"
         app:layout_constraintStart_toStartOf="@+id/titleOfSpotsSection"
         app:layout_constraintTop_toBottomOf="@+id/titleOfSpotsSection">
 
