@@ -1,9 +1,15 @@
 package com.example.yultravel.Plans;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,6 +32,15 @@ public class PlansActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         initializeData();
         initializeAdapter();
+        Button btnAdd = findViewById(R.id.buttonAddPlan);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
+            @Override
+            public void onClick(View v) {
+                PlanFragment fragment = new PlanFragment();
+                fragment.show(getSupportFragmentManager(),"Add");
+            }
+        });
 
 
     }
@@ -39,5 +54,6 @@ public class PlansActivity extends AppCompatActivity {
     private void initializeAdapter() {
         PlanAdapter adapter = new PlanAdapter(this, planArrayList);
         recyclerView.setAdapter(adapter);
+
     }
 }
