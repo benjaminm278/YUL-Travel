@@ -31,6 +31,7 @@ public class SpotsActivity extends AppCompatActivity {
     private RecyclerView nextWeekRecyclerView;
     private ArrayList<Spot> spotArrayList;
     private TextView title;
+    public static String eventfulResponseStr;
 
     private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
     private static final String EVENTFUL_APP_KEY_ARG = "app_key";
@@ -40,7 +41,9 @@ public class SpotsActivity extends AppCompatActivity {
 
     private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
     private static final String EVENTFUL_LOCATION = "Montreal";
-    private static final String EVENTFUL_DATE_RANGE = "today";
+    private static final String EVENTFUL_DATE_RANGE_TODAY = "Today";
+    private static final String EVENTFUL_DATE_RANGE_THIS_WEEK = "This Week";
+    private static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
     private static final String EVENTFUL_PAGE_SIZE = "5";
 
     @Override
@@ -75,7 +78,12 @@ public class SpotsActivity extends AppCompatActivity {
         //initializeData();
         //initializeAdapter();
 
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_TODAY);
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_THIS_WEEK);
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_NEXT_WEEK);
+    }
 
+    private void getResponseFromEventfulAPI(final String dateRange) {
         // Volley code
         final TextView t = (TextView) findViewById(R.id.titleOfSpot);
 
@@ -86,7 +94,7 @@ public class SpotsActivity extends AppCompatActivity {
             Uri builtURI = Uri.parse(EVENTFUL_BASE_URL).buildUpon()
                     .appendQueryParameter(EVENTFUL_APP_KEY_ARG, EVENTFUL_APP_KEY)
                     .appendQueryParameter(EVENTFUL_LOCATION_ARG, EVENTFUL_LOCATION)
-                    .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, EVENTFUL_DATE_RANGE)
+                    .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, dateRange)
                     .appendQueryParameter(EVENTFUL_PAGE_SIZE_ARG, EVENTFUL_PAGE_SIZE)
                     .build();
 
@@ -96,20 +104,20 @@ public class SpotsActivity extends AppCompatActivity {
 
             JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url,
                     null, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Log.d("bangbang", "Response: " + response.toString());
-                            interpretJSONData(response);
-                            queue.stop();
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("bangbang", "OOPS - json");
-                            queue.stop();
-                        }
-            });
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("bangbang", "Response: " + response.toString());
+                        interpretJSONData(response, dateRange);
+                        queue.stop();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("bangbang", "OOPS - json");
+                        queue.stop();
+                    }
+                });
 
             queue.add(jsonObjReq);
         }
@@ -122,7 +130,7 @@ public class SpotsActivity extends AppCompatActivity {
      *
      * @param response
      */
-    private void interpretJSONData(JSONObject response) {
+    private void interpretJSONData(JSONObject response, String dateRange) {
         try {
             // Collect event names
             String x = response.getString("total_items");
@@ -142,9 +150,18 @@ public class SpotsActivity extends AppCompatActivity {
             }
 
             SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
-            recyclerView.setAdapter(adapter);
-            thisWeekRecyclerView.setAdapter(adapter);
-            nextWeekRecyclerView.setAdapter(adapter);
+
+            switch (dateRange) {
+                case EVENTFUL_DATE_RANGE_TODAY:
+                    recyclerView.setAdapter(adapter);
+                    break;
+                case EVENTFUL_DATE_RANGE_THIS_WEEK:
+                    thisWeekRecyclerView.setAdapter(adapter);
+                    break;
+                case EVENTFUL_DATE_RANGE_NEXT_WEEK:
+                    nextWeekRecyclerView.setAdapter(adapter);
+                    break;
+            }
         }
         catch (Exception e) {
 
