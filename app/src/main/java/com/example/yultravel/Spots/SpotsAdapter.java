@@ -22,7 +22,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         TextView title;
         TextView description;
 
-        SpotsViewHolder(View itemView, SpotsAdapter adapter) {
+        public SpotsViewHolder(View itemView, SpotsAdapter adapter) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);

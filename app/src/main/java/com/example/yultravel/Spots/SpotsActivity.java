@@ -26,9 +26,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SpotsActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    ArrayList<Spot> spotArrayList;
-    TextView title;
+    private RecyclerView recyclerView;
+    private RecyclerView thisWeekRecyclerView;
+    private RecyclerView nextWeekRecyclerView;
+    private ArrayList<Spot> spotArrayList;
+    private TextView title;
 
     private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
     private static final String EVENTFUL_APP_KEY_ARG = "app_key";
@@ -55,9 +57,24 @@ public class SpotsActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false);
         recyclerView.setLayoutManager(llm);
+
+        thisWeekRecyclerView = findViewById(R.id.RecyclerViewThisWeeksSpots);
+        thisWeekRecyclerView.setAdapter(spotsAdapter);
+        thisWeekRecyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
+
+        nextWeekRecyclerView = findViewById(R.id.RecyclerViewNextWeeksSpots);
+        nextWeekRecyclerView.setAdapter(spotsAdapter);
+        nextWeekRecyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
+
+        //thisWeekRecyclerView.setLayoutManager(llm);
+        //thisWeekRecyclerView.setLayoutManager(llm);
+        //nextWeekRecyclerView.setLayoutManager(llm);
         //recyclerView.setHasFixedSize(true);
-        initializeData();
-        initializeAdapter();
+        //initializeData();
+        //initializeAdapter();
+
 
         // Volley code
         final TextView t = (TextView) findViewById(R.id.titleOfSpot);
@@ -126,6 +143,8 @@ public class SpotsActivity extends AppCompatActivity {
 
             SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
             recyclerView.setAdapter(adapter);
+            thisWeekRecyclerView.setAdapter(adapter);
+            nextWeekRecyclerView.setAdapter(adapter);
         }
         catch (Exception e) {
 
