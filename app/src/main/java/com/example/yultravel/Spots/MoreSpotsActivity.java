@@ -3,9 +3,10 @@ package com.example.yultravel.Spots;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
 
@@ -21,5 +22,17 @@ public class MoreSpotsActivity extends AppCompatActivity {
 
         TextView dateRange = findViewById(R.id.dateRangeOfEventsTextView);
         dateRange.setText(a);
+
+        callEventfulAPI(a);
+    }
+
+    /**
+     * Call Eventful API
+     */
+    private void callEventfulAPI(String dateRange) {
+        SpotsActivity s = new SpotsActivity();
+        RecyclerView eventsRecyclerView = findViewById(R.id.listOfEventsRecyclerView);
+        s.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20);
+        eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
