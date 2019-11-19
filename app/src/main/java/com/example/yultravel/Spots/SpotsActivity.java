@@ -3,7 +3,6 @@ package com.example.yultravel.Spots;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,22 +17,6 @@ public class SpotsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RecyclerView thisWeekRecyclerView;
     private RecyclerView nextWeekRecyclerView;
-    private ArrayList<Spot> spotArrayList;
-    private TextView title;
-    public static String eventfulResponseStr;
-
-    private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
-    private static final String EVENTFUL_APP_KEY_ARG = "app_key";
-    private static final String EVENTFUL_LOCATION_ARG = "location";
-    private static final String EVENTFUL_DATE_RANGE_ARG = "date";
-    private static final String EVENTFUL_PAGE_SIZE_ARG = "page_size";
-
-    private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
-    private static final String EVENTFUL_LOCATION = "Montreal";
-    private static final String EVENTFUL_DATE_RANGE_TODAY = "Today";
-    private static final String EVENTFUL_DATE_RANGE_THIS_WEEK = "This Week";
-    private static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
-    private static final String EVENTFUL_PAGE_SIZE = "5";
 
     public static final String DATE_RANGE_EXTRA = "com.example.yultravel.Spots.dateRange.EXTRA";
 
@@ -78,13 +61,13 @@ public class SpotsActivity extends AppCompatActivity {
         // Switch case used to pass data to intent to display different results
         switch (view.getId()) {
             case R.id.viewMoreOfTodaysHotSpots:
-                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_TODAY);
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY);
                 break;
             case R.id.viewMoreOfThisWeekHotSpotsTextView:
-                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_THIS_WEEK);
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK);
                 break;
             case R.id.viewMoreOfNextWeeksHotSpotsTextView:
-                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_NEXT_WEEK);
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK);
                 break;
         }
 
