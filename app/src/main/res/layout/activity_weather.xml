@@ -7,7 +7,7 @@
     tools:context=".WeatherActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/CaptionPicture"
         android:layout_width="0dp"
         android:layout_height="120dp"
         android:src="@color/colorAccent"
@@ -18,27 +18,27 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/Weather_Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Weather"
+        android:text="@string/weather"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/CaptionPicture" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/TodayHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:text="Today:"
+        android:text="@string/today"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintStart_toStartOf="@+id/Weather_Header"
+        app:layout_constraintTop_toBottomOf="@+id/Weather_Header" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -49,28 +49,28 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintStart_toStartOf="@+id/Weather_Header"
+        app:layout_constraintTop_toBottomOf="@+id/TodayHeader">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/DayWeather1"
                 android:layout_width="85dp"
                 android:layout_height="64dp"
                 app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
 
             <ImageView
-                android:id="@+id/imageView6"
+                android:id="@+id/DayWeather2"
                 android:layout_width="85dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/DayWeather3"
                 android:layout_width="85dp"
                 android:layout_height="64dp"
                 android:layout_marginLeft="20dp"
@@ -111,22 +111,22 @@
     </TableLayout>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/Day3Sum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Next 3 days:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/DayDescription" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/DayDescription"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="8dp"
-        android:text="Wear a light jacket and light pants - it will get warmer throughout the day"
+        android:text="@string/wear_a_light_jacket"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/tableLayout"
         app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
@@ -138,28 +138,28 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView8">
+        app:layout_constraintStart_toStartOf="@+id/Day3Sum"
+        app:layout_constraintTop_toBottomOf="@+id/Day3Sum">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
             <ImageView
-                android:id="@+id/imageView8"
+                android:id="@+id/Day1Later"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/ic_cloud_blue_72dp" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/Day2Later"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 app:srcCompat="@drawable/ic_cloud_blue_72dp" />
 
             <ImageView
-                android:id="@+id/imageView10"
+                android:id="@+id/Day3Later"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -171,29 +171,29 @@
             android:layout_height="match_parent" >
 
             <TextView
-                android:id="@+id/textView13"
+                android:id="@+id/Day1LaterDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="18°"
+                android:text="@string/_18deg"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView14"
+                android:id="@+id/Day2LaterDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
-                android:text="18°"
+                android:text="@string/_18deg"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/Day3LaterDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
-                android:text="18°"
+                android:text="@string/_18deg"
                 android:textStyle="bold" />
         </TableRow>
 

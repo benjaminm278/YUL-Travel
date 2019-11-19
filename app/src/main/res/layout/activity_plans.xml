@@ -7,7 +7,7 @@
     tools:context=".Plans.PlansActivity">
 
     <TextView
-        android:id="@+id/textView27"
+        android:id="@+id/Plans_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -18,14 +18,14 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/CaptionPicture" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView27"
-        android:layout_alignStart="@+id/textView27"
+        android:layout_below="@+id/Plans_header"
+        android:layout_alignStart="@+id/Plans_header"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginStart="0dp"

@@ -16,10 +16,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/imageView3"
+                android:id="@+id/CityView"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -29,175 +29,175 @@
                 tools:srcCompat="@drawable/mont_royal_view" />
 
             <TextView
-                android:id="@+id/textView16"
+                android:id="@+id/NameLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/name"
-                app:layout_constraintStart_toStartOf="@+id/textView25"
-                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+                app:layout_constraintStart_toStartOf="@+id/Setup_Header"
+                app:layout_constraintTop_toBottomOf="@+id/Setup_Header" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/NameEdit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:ems="10"
-                android:hint="Enter Name"
+                android:hint="@string/enter_name"
                 android:inputType="textPersonName"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                app:layout_constraintStart_toStartOf="@+id/NameLabel"
+                app:layout_constraintTop_toBottomOf="@+id/NameLabel" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/OriginLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:text="@string/where_are_you_from"
-                app:layout_constraintStart_toStartOf="@+id/editText"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintStart_toStartOf="@+id/NameEdit"
+                app:layout_constraintTop_toBottomOf="@+id/NameEdit" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/OriginSpinner"
                 android:layout_width="356dp"
                 android:layout_height="16dp"
                 android:layout_marginTop="12dp"
-                app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintStart_toStartOf="@+id/OriginLabel"
+                app:layout_constraintTop_toBottomOf="@+id/OriginLabel" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/IntrestLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="@string/interest"
-                app:layout_constraintStart_toStartOf="@+id/spinner2"
-                app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+                app:layout_constraintStart_toStartOf="@+id/OriginSpinner"
+                app:layout_constraintTop_toBottomOf="@+id/OriginSpinner" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/FoodLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:text="Food"
+                android:text="@string/food"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                app:layout_constraintTop_toBottomOf="@+id/IntrestLabel" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/FoodCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView19"
-                app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toTopOf="@+id/textView19" />
+                app:layout_constraintBottom_toBottomOf="@+id/FoodLabel"
+                app:layout_constraintStart_toEndOf="@+id/FoodLabel"
+                app:layout_constraintTop_toTopOf="@+id/FoodLabel" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/NatureLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginStart="32dp"
-                android:text="Nature"
-                app:layout_constraintBottom_toBottomOf="@+id/textView19"
-                app:layout_constraintStart_toEndOf="@+id/checkBox"
-                app:layout_constraintTop_toTopOf="@+id/textView19"
+                android:text="@string/nature"
+                app:layout_constraintBottom_toBottomOf="@+id/FoodLabel"
+                app:layout_constraintStart_toEndOf="@+id/FoodCheck"
+                app:layout_constraintTop_toTopOf="@+id/FoodLabel"
                 app:layout_constraintVertical_bias="0.0" />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/NatureCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/checkBox"
-                app:layout_constraintStart_toEndOf="@+id/textView20"
-                app:layout_constraintTop_toTopOf="@+id/checkBox" />
+                app:layout_constraintBottom_toBottomOf="@+id/FoodCheck"
+                app:layout_constraintStart_toEndOf="@+id/NatureLabel"
+                app:layout_constraintTop_toTopOf="@+id/FoodCheck" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/SightLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Sight Seeing"
-                app:layout_constraintBottom_toBottomOf="@+id/textView20"
-                app:layout_constraintStart_toEndOf="@+id/checkBox2"
-                app:layout_constraintTop_toTopOf="@+id/textView20" />
+                android:text="@string/sight_seeing"
+                app:layout_constraintBottom_toBottomOf="@+id/NatureLabel"
+                app:layout_constraintStart_toEndOf="@+id/NatureCheck"
+                app:layout_constraintTop_toTopOf="@+id/NatureLabel" />
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/SightCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
-                app:layout_constraintStart_toEndOf="@+id/textView21"
-                app:layout_constraintTop_toTopOf="@+id/checkBox2" />
+                app:layout_constraintBottom_toBottomOf="@+id/NatureCheck"
+                app:layout_constraintStart_toEndOf="@+id/SightLabel"
+                app:layout_constraintTop_toTopOf="@+id/NatureCheck" />
 
             <TextView
-                android:id="@+id/textView22"
+                android:id="@+id/BoatsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
-                android:text="Boats"
-                app:layout_constraintEnd_toStartOf="@+id/checkBox"
-                app:layout_constraintStart_toStartOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+                android:text="@string/boats"
+                app:layout_constraintEnd_toStartOf="@+id/FoodCheck"
+                app:layout_constraintStart_toStartOf="@+id/FoodLabel"
+                app:layout_constraintTop_toBottomOf="@+id/FoodLabel" />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/BoatsCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView22"
-                app:layout_constraintEnd_toEndOf="@+id/checkBox"
-                app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toTopOf="@+id/textView22" />
+                app:layout_constraintBottom_toBottomOf="@+id/BoatsLabel"
+                app:layout_constraintEnd_toEndOf="@+id/FoodCheck"
+                app:layout_constraintStart_toEndOf="@+id/FoodLabel"
+                app:layout_constraintTop_toTopOf="@+id/BoatsLabel" />
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/SportsLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="TextView"
-                app:layout_constraintBottom_toBottomOf="@+id/textView22"
-                app:layout_constraintEnd_toEndOf="@+id/textView20"
-                app:layout_constraintStart_toStartOf="@+id/textView20"
-                app:layout_constraintTop_toTopOf="@+id/textView22" />
+                android:text="@string/sports"
+                app:layout_constraintBottom_toBottomOf="@+id/BoatsLabel"
+                app:layout_constraintEnd_toEndOf="@+id/NatureLabel"
+                app:layout_constraintStart_toStartOf="@+id/NatureLabel"
+                app:layout_constraintTop_toTopOf="@+id/BoatsLabel" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/SportsCheck"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView23"
-                app:layout_constraintStart_toEndOf="@+id/textView23"
-                app:layout_constraintTop_toTopOf="@+id/textView23" />
+                app:layout_constraintBottom_toBottomOf="@+id/SportsLabel"
+                app:layout_constraintStart_toEndOf="@+id/SportsLabel"
+                app:layout_constraintTop_toTopOf="@+id/SportsLabel" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/VacationNutton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="42dp"
                 android:layout_marginEnd="8dp"
-                android:text="Vacation Time"
+                android:text="@string/vacation_time"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/checkBox5" />
+                app:layout_constraintTop_toBottomOf="@+id/SportsCheck" />
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/Setup_Header"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="20dp"
-                android:text="Setup"
+                android:text="@string/setup"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+                app:layout_constraintTop_toBottomOf="@+id/CityView" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
