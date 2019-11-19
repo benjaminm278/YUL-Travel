@@ -57,6 +57,7 @@ be anyone above the age of 13.
 screens of the application.
 * Home screen: ImageButtons (no set images) take the user to other activities.
 Rough layout of screen would be developed.
+* Hot spots: Implement layout
 * Setup: Contains a form with labels, edittexts, spinners and button.
 * Directions: Layout of categories for directions. Category buttons successfully
 trigger a toast or log event.
@@ -68,6 +69,8 @@ trigger a toast or log event.
 elements to the screens, as well as calling various APIs.
 * Determine colors to use for various elements of the application
 * Home screen: Place actual images on the image buttons
+* Hot spots: Call Eventful API; create activity that displays a list of events
+based on the hot spots section the user selected.
 * Setup: Contains imageview at top; edittexts, spinners and checkboxes have 
 their data saved successfully
 * Directions: Use the Google Maps intent to plot out directions
@@ -81,6 +84,7 @@ fine-tune the aesthetics and design of the application, and modify the
 behavior of the application based on certain conditions.
 * Home screen: Detect if the app has been setup. If it hasn’t, display setup 
 application button. Utilize Sharedpreferences.
+* Hot spots: Bookmark events
 * Setup: Store data in database
 * Directions: Display map, from/to boxes, methods of transportation and 
 instructions
