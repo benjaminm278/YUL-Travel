@@ -13,6 +13,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="30dp"
+        android:onClick="moreDetailsInApp"
         app:cardUseCompatPadding="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,10 +69,19 @@
 
             <TextView
                 android:id="@+id/linkTextView"
-                android:layout_width="360dp"
-                android:layout_height="39dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Link"
+                android:text="Visit eventful >"
+                app:layout_constraintEnd_toEndOf="@+id/eventDescriptionTextView"
+                app:layout_constraintTop_toBottomOf="@+id/CardPhoto" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="View more (in app)"
                 app:layout_constraintStart_toStartOf="@+id/CardPhoto"
                 app:layout_constraintTop_toBottomOf="@+id/CardPhoto" />
 
