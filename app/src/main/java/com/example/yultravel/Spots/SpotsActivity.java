@@ -26,9 +26,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class SpotsActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
-    ArrayList<Spot> spotArrayList;
-    TextView title;
+    private RecyclerView recyclerView;
+    private RecyclerView thisWeekRecyclerView;
+    private RecyclerView nextWeekRecyclerView;
+    private ArrayList<Spot> spotArrayList;
+    private TextView title;
+    public static String eventfulResponseStr;
 
     private static final String EVENTFUL_BASE_URL = "https://api.eventful.com/json/events/search?";
     private static final String EVENTFUL_APP_KEY_ARG = "app_key";
@@ -38,8 +41,12 @@ public class SpotsActivity extends AppCompatActivity {
 
     private static final String EVENTFUL_APP_KEY = "c9MrGMzV2PkXWdVk";
     private static final String EVENTFUL_LOCATION = "Montreal";
-    private static final String EVENTFUL_DATE_RANGE = "today";
+    private static final String EVENTFUL_DATE_RANGE_TODAY = "Today";
+    private static final String EVENTFUL_DATE_RANGE_THIS_WEEK = "This Week";
+    private static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
     private static final String EVENTFUL_PAGE_SIZE = "5";
+
+    public static final String DATE_RANGE_EXTRA = "com.example.yultravel.Spots.dateRange.EXTRA";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +54,7 @@ public class SpotsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spots);
 
         ArrayList<Spot> a = new ArrayList<>();
-        a.add(new Spot("Mont-Royal", ""));
-        a.add(new Spot("Hockey night", ""));
+        a.add(new Spot("Loading", ""));
 
         recyclerView = findViewById(R.id.RecyclerViewSpots);
         SpotsAdapter spotsAdapter = new SpotsAdapter(this, a);
@@ -56,10 +62,30 @@ public class SpotsActivity extends AppCompatActivity {
         LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,
                 false);
         recyclerView.setLayoutManager(llm);
-        //recyclerView.setHasFixedSize(true);
-        initializeData();
-        initializeAdapter();
 
+        thisWeekRecyclerView = findViewById(R.id.RecyclerViewThisWeeksSpots);
+        thisWeekRecyclerView.setAdapter(spotsAdapter);
+        thisWeekRecyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
+
+        nextWeekRecyclerView = findViewById(R.id.RecyclerViewNextWeeksSpots);
+        nextWeekRecyclerView.setAdapter(spotsAdapter);
+        nextWeekRecyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
+
+        //thisWeekRecyclerView.setLayoutManager(llm);
+        //thisWeekRecyclerView.setLayoutManager(llm);
+        //nextWeekRecyclerView.setLayoutManager(llm);
+        //recyclerView.setHasFixedSize(true);
+        //initializeData();
+        //initializeAdapter();
+
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_TODAY);
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_THIS_WEEK);
+        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_NEXT_WEEK);
+    }
+
+    private void getResponseFromEventfulAPI(final String dateRange) {
         // Volley code
         final TextView t = (TextView) findViewById(R.id.titleOfSpot);
 
@@ -70,7 +96,7 @@ public class SpotsActivity extends AppCompatActivity {
             Uri builtURI = Uri.parse(EVENTFUL_BASE_URL).buildUpon()
                     .appendQueryParameter(EVENTFUL_APP_KEY_ARG, EVENTFUL_APP_KEY)
                     .appendQueryParameter(EVENTFUL_LOCATION_ARG, EVENTFUL_LOCATION)
-                    .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, EVENTFUL_DATE_RANGE)
+                    .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, dateRange)
                     .appendQueryParameter(EVENTFUL_PAGE_SIZE_ARG, EVENTFUL_PAGE_SIZE)
                     .build();
 
@@ -80,20 +106,20 @@ public class SpotsActivity extends AppCompatActivity {
 
             JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET, url,
                     null, new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            Log.d("bangbang", "Response: " + response.toString());
-                            interpretJSONData(response);
-                            queue.stop();
-                        }
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("bangbang", "OOPS - json");
-                            queue.stop();
-                        }
-            });
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d("bangbang", "Response: " + response.toString());
+                        interpretJSONData(response, dateRange);
+                        queue.stop();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("bangbang", "OOPS - json");
+                        queue.stop();
+                    }
+                });
 
             queue.add(jsonObjReq);
         }
@@ -106,7 +132,7 @@ public class SpotsActivity extends AppCompatActivity {
      *
      * @param response
      */
-    private void interpretJSONData(JSONObject response) {
+    private void interpretJSONData(JSONObject response, String dateRange) {
         try {
             // Collect event names
             String x = response.getString("total_items");
@@ -126,7 +152,18 @@ public class SpotsActivity extends AppCompatActivity {
             }
 
             SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
-            recyclerView.setAdapter(adapter);
+
+            switch (dateRange) {
+                case EVENTFUL_DATE_RANGE_TODAY:
+                    recyclerView.setAdapter(adapter);
+                    break;
+                case EVENTFUL_DATE_RANGE_THIS_WEEK:
+                    thisWeekRecyclerView.setAdapter(adapter);
+                    break;
+                case EVENTFUL_DATE_RANGE_NEXT_WEEK:
+                    nextWeekRecyclerView.setAdapter(adapter);
+                    break;
+            }
         }
         catch (Exception e) {
 
@@ -155,6 +192,13 @@ public class SpotsActivity extends AppCompatActivity {
         // Switch case used to pass data to intent to display different results
         switch (view.getId()) {
             case R.id.viewMoreOfTodaysHotSpots:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_TODAY);
+                break;
+            case R.id.viewMoreOfThisWeekHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_THIS_WEEK);
+                break;
+            case R.id.viewMoreOfNextWeeksHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, EVENTFUL_DATE_RANGE_NEXT_WEEK);
                 break;
         }
 
