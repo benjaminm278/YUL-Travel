@@ -46,7 +46,8 @@
                 android:hint="@string/enter_name"
                 android:inputType="textPersonName"
                 app:layout_constraintStart_toStartOf="@+id/NameLabel"
-                app:layout_constraintTop_toBottomOf="@+id/NameLabel" />
+                app:layout_constraintTop_toBottomOf="@+id/NameLabel"
+                />
 
             <TextView
                 android:id="@+id/OriginLabel"
@@ -60,7 +61,7 @@
             <Spinner
                 android:id="@+id/OriginSpinner"
                 android:layout_width="356dp"
-                android:layout_height="16dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:layout_constraintStart_toStartOf="@+id/OriginLabel"
                 app:layout_constraintTop_toBottomOf="@+id/OriginLabel" />
@@ -175,14 +176,13 @@
                 app:layout_constraintTop_toTopOf="@+id/SportsLabel" />
 
             <Button
-                android:id="@+id/VacationNutton"
+                android:id="@+id/VacationButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="42dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/vacation_time"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/SportsCheck" />
@@ -198,6 +198,17 @@
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/CityView" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="EnterParam"
+                android:text="@string/enter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/VacationButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

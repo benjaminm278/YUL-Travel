@@ -39,5 +39,8 @@
     <string name="_18deg">18°</string>
     <string name="all_time_hot_spots">All Time Favorite Hot Spots!</string>
     <string name="mont_royal">Mont-Royal</string>
+    <string name="user_name">new user</string>
     <string name="view_more"><![CDATA[View more >]]></string>
+    <string name="welcome">Welcome,</string>
+    <string name="enter">Enter</string>
 </resources>
