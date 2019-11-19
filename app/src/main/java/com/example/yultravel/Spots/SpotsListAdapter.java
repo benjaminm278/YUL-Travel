@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.SpotsListViewHolder> {
@@ -22,6 +24,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         TextView title;
         TextView description;
         TextView spotPosition;
+        TextView link;
 
         public SpotsListViewHolder(View itemView, SpotsListAdapter adapter) {
             super(itemView);
@@ -29,6 +32,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
             title = itemView.findViewById(R.id.titleOfSpot);
             description = itemView.findViewById(R.id.eventDescriptionTextView);
             spotPosition = itemView.findViewById(R.id.positionOfSpotCardTextView);
+            link = itemView.findViewById(R.id.linkTextView);
         }
     }
 
@@ -68,7 +72,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
     public void onBindViewHolder(@NonNull SpotsListViewHolder holder, int i) {
         holder.title.setText(spotArrayList.get(i).getTitle());
         holder.description.setText(spotArrayList.get(i).getDescription());
-        holder.spotPosition.setText(i + "");
+        holder.spotPosition.setText(i + 1 + "");
     }
 
     /**
