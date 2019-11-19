@@ -32,7 +32,7 @@ public class MoreSpotsActivity extends AppCompatActivity {
     private void callEventfulAPI(String dateRange) {
         SpotsActivity s = new SpotsActivity();
         RecyclerView eventsRecyclerView = findViewById(R.id.listOfEventsRecyclerView);
-        s.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20);
+        //s.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 }
