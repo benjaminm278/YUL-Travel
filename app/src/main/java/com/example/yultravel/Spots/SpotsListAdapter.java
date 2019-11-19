@@ -51,27 +51,15 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         public void onClick(View v) {
             Toast.makeText(ctx, "Clicked", Toast.LENGTH_SHORT).show();
 
-            /*
-            AlertDialog.Builder dialog = new AlertDialog.Builder(ctx)
-                    .setTitle(title.getText().toString())
-                    .setMessage(description.getText())
-                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    })
-                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-                    });
-
-            dialog.show();*/
-
             Dialog myDialog = new Dialog(ctx);
             myDialog.setContentView(R.layout.spots_dialog);
+
+            TextView titleDialog = myDialog.findViewById(R.id.dialogTitle_TextView);
+            titleDialog.setText(title.getText().toString());
+
+            TextView descriptionDialog = myDialog.findViewById(R.id.dialogDescription_TextView);
+            descriptionDialog.setText(description.getText().toString());
+
             myDialog.show();
         }
     }
