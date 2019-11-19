@@ -101,8 +101,16 @@ public class SpotsEventfulAPI {
                 spotArrayList.add(new Spot(eventTitle, eventDesc));
             }
 
-            SpotsAdapter adapter = new SpotsAdapter(ctx, spotArrayList);
-            r.setAdapter(adapter);
+            switch (cardId) {
+                case 0:
+                    SpotsAdapter adapter = new SpotsAdapter(ctx, spotArrayList);
+                    r.setAdapter(adapter);
+                    break;
+                case 1:
+                    SpotsListAdapter adapter2 = new SpotsListAdapter(ctx, spotArrayList);
+                    r.setAdapter(adapter2);
+                    break;
+            }
         }
         catch (Exception e) {
         }
