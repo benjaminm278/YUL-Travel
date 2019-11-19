@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
-import com.example.yultravel.SpotsEventfulAPI;
 
 public class MoreSpotsActivity extends AppCompatActivity {
 
@@ -34,6 +33,6 @@ public class MoreSpotsActivity extends AppCompatActivity {
         RecyclerView eventsRecyclerView = findViewById(R.id.listOfEventsRecyclerView);
         SpotsEventfulAPI sAPI = new SpotsEventfulAPI(this);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20);
+        sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20, 1);
     }
 }

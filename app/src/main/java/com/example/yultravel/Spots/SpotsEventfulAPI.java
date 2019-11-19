@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Spots;
 
 import android.content.Context;
 import android.net.Uri;
@@ -41,7 +41,8 @@ public class SpotsEventfulAPI {
         this.ctx = ctx;
     }
 
-    public void getResponseFromEventfulAPI(final RecyclerView r, final String dateRange, int pageSize) {
+    public void getResponseFromEventfulAPI(final RecyclerView r, final String dateRange,
+                                           int pageSize, final int cardId) {
         try {
             final RequestQueue queue = Volley.newRequestQueue(ctx);
 
@@ -62,7 +63,7 @@ public class SpotsEventfulAPI {
                 @Override
                 public void onResponse(JSONObject response) {
                     Log.d("bangbang", "Response: " + response.toString());
-                    interpretJSONData(response, r, dateRange);
+                    interpretJSONData(response, r, dateRange, cardId);
                     queue.stop();
                 }
             },
@@ -84,7 +85,8 @@ public class SpotsEventfulAPI {
      *
      * @param response
      */
-    private void interpretJSONData(JSONObject response, RecyclerView r, String dateRange) {
+    private void interpretJSONData(JSONObject response, RecyclerView r, String dateRange,
+                                   int cardId) {
         try {
             JSONObject eventsJSON = response.getJSONObject("events");
             JSONArray eventsArr = eventsJSON.getJSONArray("event");

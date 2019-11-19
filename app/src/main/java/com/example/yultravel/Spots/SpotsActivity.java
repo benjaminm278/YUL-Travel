@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
-import com.example.yultravel.SpotsEventfulAPI;
 
 import java.util.ArrayList;
 
@@ -48,11 +47,11 @@ public class SpotsActivity extends AppCompatActivity {
 
         SpotsEventfulAPI sAPI = new SpotsEventfulAPI(this);
         sAPI.getResponseFromEventfulAPI(
-                recyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY, 5);
+                recyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY, 5, 0);
         sAPI.getResponseFromEventfulAPI(
-                thisWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK, 5);
+                thisWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK, 5, 0);
         sAPI.getResponseFromEventfulAPI(
-                nextWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK, 5);
+                nextWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK, 5, 0);
     }
 
     /**
