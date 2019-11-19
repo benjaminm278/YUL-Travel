@@ -26,7 +26,18 @@
     <string name="spots">Spots</string>
     <string name="directions">Directions</string>
     <string name="plans">Plans</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="food">Food</string>
+    <string name="nature">Nature</string>
+    <string name="sight_seeing">Sight Seeing</string>
+    <string name="boats">Boats</string>
+    <string name="sports">Sports</string>
+    <string name="vacation_time">Vacation Time</string>
+    <string name="setup">Setup</string>
+    <string name="today">Today:</string>
+    <string name="wear_a_light_jacket">Wear a light jacket and light pants - it will get warmer throughout the day</string>
+    <string name="_18deg">18°</string>
+    <string name="all_time_hot_spots">All Time Favorite Hot Spots!</string>
+    <string name="mont_royal">Mont-Royal</string>
+    <string name="view_more"><![CDATA[View more >]]></string>
 </resources>

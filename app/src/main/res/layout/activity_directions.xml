@@ -7,14 +7,13 @@
     tools:context=".Directions.DirectionsActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/MontRoyalView"
         android:layout_width="409dp"
         android:layout_height="177dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mont_royal_view"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/mont_royal_view" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/directionsCategoryRecyclerView"
@@ -37,6 +36,6 @@
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/MontRoyalView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
