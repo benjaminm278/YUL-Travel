@@ -33,7 +33,6 @@ public class SpotsEventfulAPI {
     public static final String EVENTFUL_DATE_RANGE_TODAY = "Today";
     public static final String EVENTFUL_DATE_RANGE_THIS_WEEK = "This Week";
     public static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
-    private static final String EVENTFUL_DEFAULT_PAGE_SIZE = "5";
 
     private Context ctx;
 
