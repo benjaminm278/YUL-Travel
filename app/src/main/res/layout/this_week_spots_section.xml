@@ -5,6 +5,16 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/viewMoreOfThisWeekHotSpotsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:onClick="openMoreHotSpots"
+        android:text="View more >"
+        app:layout_constraintBottom_toBottomOf="@+id/titleOfSpotsSection"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
         android:id="@+id/titleOfSpotsSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -21,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/viewMoreOfThisWeekHotSpotsTextView"
         app:layout_constraintStart_toStartOf="@+id/titleOfSpotsSection"
         app:layout_constraintTop_toBottomOf="@+id/titleOfSpotsSection">
 
