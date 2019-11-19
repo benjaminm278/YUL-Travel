@@ -80,12 +80,12 @@ public class SpotsActivity extends AppCompatActivity {
         //initializeData();
         //initializeAdapter();
 
-        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_TODAY);
-        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_THIS_WEEK);
-        getResponseFromEventfulAPI(EVENTFUL_DATE_RANGE_NEXT_WEEK);
+        getResponseFromEventfulAPI(recyclerView, EVENTFUL_DATE_RANGE_TODAY, 5);
+        getResponseFromEventfulAPI(thisWeekRecyclerView, EVENTFUL_DATE_RANGE_THIS_WEEK, 5);
+        getResponseFromEventfulAPI(nextWeekRecyclerView, EVENTFUL_DATE_RANGE_NEXT_WEEK, 5);
     }
 
-    private void getResponseFromEventfulAPI(final String dateRange) {
+    private void getResponseFromEventfulAPI(final RecyclerView r, final String dateRange, int pageSize) {
         // Volley code
         final TextView t = (TextView) findViewById(R.id.titleOfSpot);
 
@@ -97,7 +97,7 @@ public class SpotsActivity extends AppCompatActivity {
                     .appendQueryParameter(EVENTFUL_APP_KEY_ARG, EVENTFUL_APP_KEY)
                     .appendQueryParameter(EVENTFUL_LOCATION_ARG, EVENTFUL_LOCATION)
                     .appendQueryParameter(EVENTFUL_DATE_RANGE_ARG, dateRange)
-                    .appendQueryParameter(EVENTFUL_PAGE_SIZE_ARG, EVENTFUL_PAGE_SIZE)
+                    .appendQueryParameter(EVENTFUL_PAGE_SIZE_ARG, Integer.toString(pageSize))
                     .build();
 
             // URI to URL
@@ -109,7 +109,7 @@ public class SpotsActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d("bangbang", "Response: " + response.toString());
-                        interpretJSONData(response, dateRange);
+                        interpretJSONData(response, r, dateRange);
                         queue.stop();
                     }
                 },
@@ -132,11 +132,10 @@ public class SpotsActivity extends AppCompatActivity {
      *
      * @param response
      */
-    private void interpretJSONData(JSONObject response, String dateRange) {
+    private void interpretJSONData(JSONObject response, RecyclerView r, String dateRange) {
         try {
             // Collect event names
             String x = response.getString("total_items");
-            Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
 
             JSONObject eventsJSON = response.getJSONObject("events");
             JSONArray eventsArr = eventsJSON.getJSONArray("event");
@@ -153,6 +152,7 @@ public class SpotsActivity extends AppCompatActivity {
 
             SpotsAdapter adapter = new SpotsAdapter(this, spotArrayList);
 
+            /*
             switch (dateRange) {
                 case EVENTFUL_DATE_RANGE_TODAY:
                     recyclerView.setAdapter(adapter);
@@ -163,7 +163,9 @@ public class SpotsActivity extends AppCompatActivity {
                 case EVENTFUL_DATE_RANGE_NEXT_WEEK:
                     nextWeekRecyclerView.setAdapter(adapter);
                     break;
-            }
+            }*/
+
+            r.setAdapter(adapter);
         }
         catch (Exception e) {
 
@@ -187,7 +189,7 @@ public class SpotsActivity extends AppCompatActivity {
      * @param view
      */
     public void openMoreHotSpots(View view) {
-        Intent moreHotSpotsActivity = new Intent(this, MoreSpots.class);
+        Intent moreHotSpotsActivity = new Intent(this, MoreSpotsActivity.class);
 
         // Switch case used to pass data to intent to display different results
         switch (view.getId()) {

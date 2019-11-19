@@ -2,13 +2,14 @@ package com.example.yultravel.Spots;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yultravel.R;
 
-public class MoreSpots extends AppCompatActivity {
+public class MoreSpotsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +18,8 @@ public class MoreSpots extends AppCompatActivity {
 
         Intent i = getIntent();
         String a = i.getStringExtra(SpotsActivity.DATE_RANGE_EXTRA);
-        Toast.makeText(this, a, Toast.LENGTH_SHORT).show();
+
+        TextView dateRange = findViewById(R.id.dateRangeOfEventsTextView);
+        dateRange.setText(a);
     }
 }
