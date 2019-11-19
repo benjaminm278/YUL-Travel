@@ -98,7 +98,8 @@ public class SpotsEventfulAPI {
                 JSONObject listOfEvents = (JSONObject) eventsArr.get(i);
                 String eventTitle = listOfEvents.getString("title");
                 String eventDesc = listOfEvents.getString("description");
-                spotArrayList.add(new Spot(eventTitle, eventDesc));
+                String url = listOfEvents.getString("url");
+                spotArrayList.add(new Spot(eventTitle, eventDesc, url));
             }
 
             switch (cardId) {

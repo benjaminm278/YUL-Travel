@@ -3,6 +3,7 @@ package com.example.yultravel.Spots;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -34,5 +35,7 @@ public class MoreSpotsActivity extends AppCompatActivity {
         SpotsEventfulAPI sAPI = new SpotsEventfulAPI(this);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20, 1);
+        TextView t = findViewById(R.id.loadingTextView);
+        Toast.makeText(this, "Loading done", Toast.LENGTH_SHORT).show();
     }
 }

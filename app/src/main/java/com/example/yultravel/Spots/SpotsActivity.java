@@ -25,7 +25,7 @@ public class SpotsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_spots);
 
         ArrayList<Spot> a = new ArrayList<>();
-        a.add(new Spot("Loading", ""));
+        a.add(new Spot("Loading", "", ""));
 
         // Recyclerviews
         recyclerView = findViewById(R.id.RecyclerViewSpots);
