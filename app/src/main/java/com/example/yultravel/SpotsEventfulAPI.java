@@ -33,7 +33,7 @@ public class SpotsEventfulAPI {
     public static final String EVENTFUL_DATE_RANGE_TODAY = "Today";
     public static final String EVENTFUL_DATE_RANGE_THIS_WEEK = "This Week";
     public static final String EVENTFUL_DATE_RANGE_NEXT_WEEK = "Next Week";
-    private static final String EVENTFUL_PAGE_SIZE = "5";
+    private static final String EVENTFUL_DEFAULT_PAGE_SIZE = "5";
 
     private Context ctx;
 
@@ -42,8 +42,6 @@ public class SpotsEventfulAPI {
     }
 
     public void getResponseFromEventfulAPI(final RecyclerView r, final String dateRange, int pageSize) {
-        // Volley code
-
         try {
             final RequestQueue queue = Volley.newRequestQueue(ctx);
 
@@ -79,7 +77,6 @@ public class SpotsEventfulAPI {
             queue.add(jsonObjReq);
         }
         catch (Exception e) {
-
         }
     }
 
@@ -89,9 +86,6 @@ public class SpotsEventfulAPI {
      */
     private void interpretJSONData(JSONObject response, RecyclerView r, String dateRange) {
         try {
-            // Collect event names
-            String x = response.getString("total_items");
-
             JSONObject eventsJSON = response.getJSONObject("events");
             JSONArray eventsArr = eventsJSON.getJSONArray("event");
 
@@ -106,24 +100,9 @@ public class SpotsEventfulAPI {
             }
 
             SpotsAdapter adapter = new SpotsAdapter(ctx, spotArrayList);
-
-            /*
-            switch (dateRange) {
-                case EVENTFUL_DATE_RANGE_TODAY:
-                    recyclerView.setAdapter(adapter);
-                    break;
-                case EVENTFUL_DATE_RANGE_THIS_WEEK:
-                    thisWeekRecyclerView.setAdapter(adapter);
-                    break;
-                case EVENTFUL_DATE_RANGE_NEXT_WEEK:
-                    nextWeekRecyclerView.setAdapter(adapter);
-                    break;
-            }*/
-
             r.setAdapter(adapter);
         }
         catch (Exception e) {
-
         }
     }
 }

@@ -28,6 +28,7 @@ public class SpotsActivity extends AppCompatActivity {
         ArrayList<Spot> a = new ArrayList<>();
         a.add(new Spot("Loading", ""));
 
+        // Recyclerviews
         recyclerView = findViewById(R.id.RecyclerViewSpots);
         SpotsAdapter spotsAdapter = new SpotsAdapter(this, a);
         recyclerView.setAdapter(spotsAdapter);
@@ -46,9 +47,12 @@ public class SpotsActivity extends AppCompatActivity {
                 LinearLayoutManager.HORIZONTAL, false));
 
         SpotsEventfulAPI sAPI = new SpotsEventfulAPI(this);
-        sAPI.getResponseFromEventfulAPI(recyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY, 5);
-        sAPI.getResponseFromEventfulAPI(thisWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK, 5);
-        sAPI.getResponseFromEventfulAPI(nextWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK, 5);
+        sAPI.getResponseFromEventfulAPI(
+                recyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY, 5);
+        sAPI.getResponseFromEventfulAPI(
+                thisWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK, 5);
+        sAPI.getResponseFromEventfulAPI(
+                nextWeekRecyclerView, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK, 5);
     }
 
     /**
