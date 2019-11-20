@@ -12,8 +12,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.yultravel.Spots.Spot;
-import com.example.yultravel.Spots.SpotsAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -98,7 +96,8 @@ public class SpotsEventfulAPI {
                 String eventTitle = listOfEvents.getString("title");
                 String eventDesc = listOfEvents.getString("description");
                 String url = listOfEvents.getString("url");
-                spotArrayList.add(new Spot(eventTitle, eventDesc, url));
+                String address = listOfEvents.getString("venue_address");
+                spotArrayList.add(new Spot(eventTitle, eventDesc, url, address));
             }
 
             switch (cardId) {

@@ -19,7 +19,7 @@ public class SpotDialog {
         this.ctx = ctx;
     }
 
-    public void setSpotsDialog(String title, final String description, final String link) {
+    public void setSpotsDialog(String title, final String description, final String link, String address) {
         // Creates a new dialog object
         dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.spots_dialog);
@@ -30,6 +30,9 @@ public class SpotDialog {
 
         TextView descriptionDialog = dialog.findViewById(R.id.dialogDescription_TextView);
         descriptionDialog.setText(description);
+
+        TextView a = dialog.findViewById(R.id.venueAddressTextView);
+        a.setText(address);
 
         // Set size of dialog
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();

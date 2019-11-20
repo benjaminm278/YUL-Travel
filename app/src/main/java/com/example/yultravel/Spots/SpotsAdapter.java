@@ -23,12 +23,14 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         TextView title;
         String url;
         String description;
+        String address;
 
         public SpotsViewHolder(View itemView, SpotsAdapter adapter, Spot spot) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
             description = spot.getDescription();
+            address = spot.getAddress();
 
             itemView.setOnClickListener(this);
         }
@@ -37,7 +39,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         public void onClick(View v) {
             // Open dialog
             SpotDialog s = new SpotDialog(context);
-            s.setSpotsDialog(title.getText().toString(), description, url);
+            s.setSpotsDialog(title.getText().toString(), description, url, address);
             s.openSpotsDialog();
         }
     }

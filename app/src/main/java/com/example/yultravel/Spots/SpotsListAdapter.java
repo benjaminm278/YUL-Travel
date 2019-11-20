@@ -45,7 +45,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         @Override
         public void onClick(View v) {
             SpotDialog s = new SpotDialog(ctx);
-            s.setSpotsDialog(title.getText().toString(), description.getText().toString(), url);
+            s.setSpotsDialog(title.getText().toString(), description.getText().toString(), url, "");
             s.openSpotsDialog();
         }
     }
