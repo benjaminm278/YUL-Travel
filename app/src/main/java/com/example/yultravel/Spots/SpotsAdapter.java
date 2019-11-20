@@ -1,12 +1,10 @@
 package com.example.yultravel.Spots;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,22 +21,25 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     public static class SpotsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         SpotsAdapter adapter;
         TextView title;
-        Dialog spotDialog;
-        //TextView description;
+        Spot spot;
+        String description;
 
-        public SpotsViewHolder(View itemView, SpotsAdapter adapter) {
+        public SpotsViewHolder(View itemView, SpotsAdapter adapter, Spot spot) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
-            //description = itemView.findViewById(R.id.eventDescriptionTextView);
+            this.spot = spot;
+            description = spot.getDescription();
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(context, "Clicked spot: " + title.getText().toString(), Toast.LENGTH_SHORT).show();
             // Open dialog
+            SpotDialog s = new SpotDialog(context);
+            s.setSpotsDialog(title.getText().toString(), description);
+            s.openSpotsDialog();
         }
     }
 
@@ -72,7 +73,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     @Override
     public SpotsAdapter.SpotsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View mItemView = mInflater.inflate(R.layout.card_item_spots, viewGroup,false);
-        return new SpotsAdapter.SpotsViewHolder(mItemView,this);
+        return new SpotsAdapter.SpotsViewHolder(mItemView,this, spotArrayList.get(i));
     }
 
     /**
