@@ -2,22 +2,15 @@ package com.example.yultravel.Spots;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yultravel.MainActivity;
 import com.example.yultravel.R;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -51,46 +44,9 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
 
         @Override
         public void onClick(View v) {
-            // Creates a new dialog object
-            myDialog = new Dialog(ctx);
-            myDialog.setContentView(R.layout.spots_dialog);
-
-            // Set contents of the dialog
-            TextView titleDialog = myDialog.findViewById(R.id.dialogTitle_TextView);
-            titleDialog.setText(title.getText().toString());
-
-            TextView descriptionDialog = myDialog.findViewById(R.id.dialogDescription_TextView);
-            descriptionDialog.setText(description.getText().toString());
-
-            // Set size of dialog
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.copyFrom(myDialog.getWindow().getAttributes());
-            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-            myDialog.getWindow().setAttributes(layoutParams);
-
-            // Add click listener to buttons in dialog
-            myDialog.findViewById(R.id.cancelButtonDialog).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    myDialog.cancel();
-                }
-            });
-
-            myDialog.findViewById(R.id.visitEventfulButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Retrieve link by opening intent
-                }
-            });
-
-            myDialog.findViewById(R.id.bookmarkButton).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Add bookmark
-                }
-            });
-
-            myDialog.show();
+            SpotDialog s = new SpotDialog(ctx);
+            s.setSpotsDialog(title.getText().toString(), description.getText().toString());
+            s.openSpotsDialog();
         }
     }
 
