@@ -33,8 +33,9 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         TextView title;
         TextView description;
         TextView spotPosition;
-        TextView link;
+        String url;
         Context ctx;
+        Dialog myDialog;
 
         public SpotsListViewHolder(Context ctx, View itemView, SpotsListAdapter adapter) {
             super(itemView);
@@ -42,7 +43,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
             title = itemView.findViewById(R.id.titleOfSpot);
             description = itemView.findViewById(R.id.eventDescriptionTextView);
             spotPosition = itemView.findViewById(R.id.positionOfSpotCardTextView);
-            link = itemView.findViewById(R.id.linkTextView);
+
             this.ctx = ctx;
 
             itemView.setOnClickListener(this);
@@ -50,21 +51,44 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(ctx, "Clicked", Toast.LENGTH_SHORT).show();
-
-            Dialog myDialog = new Dialog(ctx);
+            // Creates a new dialog object
+            myDialog = new Dialog(ctx);
             myDialog.setContentView(R.layout.spots_dialog);
 
+            // Set contents of the dialog
             TextView titleDialog = myDialog.findViewById(R.id.dialogTitle_TextView);
             titleDialog.setText(title.getText().toString());
 
             TextView descriptionDialog = myDialog.findViewById(R.id.dialogDescription_TextView);
             descriptionDialog.setText(description.getText().toString());
 
+            // Set size of dialog
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
             layoutParams.copyFrom(myDialog.getWindow().getAttributes());
             layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
             myDialog.getWindow().setAttributes(layoutParams);
+
+            // Add click listener to buttons in dialog
+            myDialog.findViewById(R.id.cancelButtonDialog).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myDialog.cancel();
+                }
+            });
+
+            myDialog.findViewById(R.id.visitEventfulButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Retrieve link by opening intent
+                }
+            });
+
+            myDialog.findViewById(R.id.bookmarkButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Add bookmark
+                }
+            });
 
             myDialog.show();
         }
@@ -103,11 +127,17 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         return new SpotsListAdapter.SpotsListViewHolder(ctx, mItemView,this);
     }
 
+    /**
+     *
+     * @param holder
+     * @param i
+     */
     @Override
     public void onBindViewHolder(@NonNull SpotsListViewHolder holder, int i) {
         holder.title.setText(spotArrayList.get(i).getTitle());
         holder.description.setText(spotArrayList.get(i).getDescription());
         holder.spotPosition.setText(i + 1 + "");
+        holder.url = spotArrayList.get(i).getURL();
     }
 
     /**

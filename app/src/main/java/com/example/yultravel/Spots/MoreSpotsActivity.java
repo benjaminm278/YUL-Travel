@@ -1,13 +1,14 @@
 package com.example.yultravel.Spots;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +16,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.yultravel.R;
 
 public class MoreSpotsActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,5 +40,14 @@ public class MoreSpotsActivity extends AppCompatActivity {
         sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20, 1);
         TextView t = findViewById(R.id.loadingTextView);
         Toast.makeText(this, "Loading done", Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     *
+     * @param view
+     */
+    public void closeSpotDialog(View view) {
+        View v = view.getRootView();
+        Log.d("bangbang", v + " ");
     }
 }
