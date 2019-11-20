@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +60,11 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
 
             TextView descriptionDialog = myDialog.findViewById(R.id.dialogDescription_TextView);
             descriptionDialog.setText(description.getText().toString());
+
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.copyFrom(myDialog.getWindow().getAttributes());
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+            myDialog.getWindow().setAttributes(layoutParams);
 
             myDialog.show();
         }
