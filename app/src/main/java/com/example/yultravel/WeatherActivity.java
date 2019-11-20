@@ -3,9 +3,11 @@ package com.example.yultravel;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -16,6 +18,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.yultravel.Plans.Plan;
 import com.example.yultravel.Plans.PlanAdapter;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,8 +31,7 @@ public class WeatherActivity extends AppCompatActivity {
     private static final String LOCATION_ID = "id";
     private static final String TAG_API_KEY = "APPID";
     RecyclerView recyclerView;
-    ArrayList<Weather> weatherArrayList;
-    WeatherAdapter adapter;
+    ImageView ivBasicImage;
 
 
     @Override
@@ -38,11 +40,19 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         getWeatherResponse(URL);
         recyclerView = findViewById(R.id.weatherRecyclerView);
+        ivBasicImage = (ImageView) findViewById(R.id.imageViewWeather);
+        LinearLayoutManager llm = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(llm);
+        recyclerView.setHasFixedSize(true);
+
+
+
 
     }
 
     public void getWeatherResponse(String r) {
         try {
+
             final RequestQueue requestQueue = Volley.newRequestQueue(this);
             Uri builtUri = Uri.parse(URL).buildUpon()
                     .appendQueryParameter(LOCATION_ID, "6077243")
@@ -69,6 +79,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private void interpretJSON(JSONObject response) {
         try {
+            ArrayList<Weather> weatherArrayList = new ArrayList<>();
             JSONArray listArray = response.getJSONArray("list");
 
             Log.d("bangbang", listArray.getJSONObject(0) + " :)");
@@ -78,16 +89,21 @@ public class WeatherActivity extends AppCompatActivity {
 
                 JSONObject main = list.getJSONObject("main");
                 double temp = main.getDouble("temp");
-                Log.d("Temp", String.valueOf(temp));
+                double newTemp = temp -273.15;
+                Log.d("Temp", String.valueOf(newTemp));
                 JSONArray weatherArray = list.getJSONArray("weather");
                 JSONObject weathers = weatherArray.getJSONObject(0);
                 String mains = weathers.getString("main");
+                String icon = weathers.getString("icon");
                 String date = list.getString("dt_txt");
+                String imageUri = "http://openweathermap.org/img/wn/"+icon +".png";
+                Picasso.with(this).load(imageUri).into(ivBasicImage);
                 Log.d("yaya", date);
+                Log.d("icon",icon);
 
-                weatherArrayList.add(new Weather(String.valueOf(temp),date));
+                weatherArrayList.add(new Weather(String.valueOf(String.format("%.2f",newTemp)),date,imageUri));
             }
-           adapter= new WeatherAdapter(this, weatherArrayList);
+          WeatherAdapter adapter= new WeatherAdapter(this, weatherArrayList);
             recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
