@@ -3,6 +3,7 @@ package com.example.yultravel;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,7 @@ public class WeatherActivity extends AppCompatActivity {
     private static final String URL ="http://api.openweathermap.org/data/2.5/forecast?";
     private static final String LOCATION_ID="id";
     private static final String TAG_API_KEY ="APPID";
+    TextView textView;
 
 
     @Override
@@ -28,6 +30,7 @@ public class WeatherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
         getWeatherResponse(URL);
+        textView =findViewById(R.id.textView10);
 
 
     }
@@ -35,7 +38,7 @@ public class WeatherActivity extends AppCompatActivity {
         try{
             final RequestQueue requestQueue = Volley.newRequestQueue(this);
             Uri builtUri = Uri.parse(URL).buildUpon()
-                    .appendQueryParameter(LOCATION_ID,"524901")
+                    .appendQueryParameter(LOCATION_ID,"6077243")
                     .appendQueryParameter(TAG_API_KEY,"0bd2041bf9a7f470a0c35b4bd399864a").build();
             String url = builtUri.toString();
             Log.d("URL", url);
@@ -62,18 +65,13 @@ public class WeatherActivity extends AppCompatActivity {
         try {
             JSONObject jsonObject = new JSONObject();
             JSONArray listArray = jsonObject.getJSONArray("list");
-            for(int i=0; i< listArray.length(); i++){
-                JSONObject mainList = listArray.getJSONObject(i);
-                JSONObject main = mainList.getJSONObject("main");
-                double temp = main.getDouble("temp");
-               // double humidity = main.getInt("humidity");
-                JSONArray weatherArray = main.getJSONArray("weather");
-                for (int j=0; j<weatherArray.length(); j++ ){
-                   JSONObject weather = weatherArray.getJSONObject(i);
-                   int id = weather.getInt("id");
-                   String condition = weather.getString("main");
+            for(int i=0; i<listArray.length(); i++){
+                JSONObject list = listArray.getJSONObject(i);
+                JSONObject dt = list.getJSONObject("dt");
+                JSONObject main = dt.getJSONObject("main");
 
-                }
+
+
 
             }
         } catch (Exception e){
