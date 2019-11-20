@@ -2,9 +2,12 @@ package com.example.yultravel.Spots;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.yultravel.R;
 
@@ -16,7 +19,7 @@ public class SpotDialog {
         this.ctx = ctx;
     }
 
-    public void setSpotsDialog(String title, String description) {
+    public void setSpotsDialog(String title, final String description, final String link) {
         // Creates a new dialog object
         dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.spots_dialog);
@@ -45,7 +48,10 @@ public class SpotDialog {
         dialog.findViewById(R.id.visitEventfulButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Retrieve link by opening intent
+                Toast.makeText(ctx, "Click to eventful.com", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
+                ctx.startActivity(i);
             }
         });
 
@@ -53,6 +59,7 @@ public class SpotDialog {
             @Override
             public void onClick(View v) {
                 // Add bookmark
+                Toast.makeText(ctx, "Click to bookmark", Toast.LENGTH_SHORT).show();
             }
         });
     }
