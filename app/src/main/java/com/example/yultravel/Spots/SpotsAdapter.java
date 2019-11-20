@@ -70,7 +70,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     @Override
     public void onBindViewHolder(SpotsAdapter.SpotsViewHolder SpotsViewHolder, int i) {
         SpotsViewHolder.title.setText(spotArrayList.get(i).getTitle());
-        SpotsViewHolder.description.setText("Description: " + spotArrayList.get(i).getDescription());
+        SpotsViewHolder.description.setText(spotArrayList.get(i).getDescription());
     }
 
     /**
