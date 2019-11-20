@@ -59,7 +59,6 @@ public class SpotsEventfulAPI {
                     null, new Response.Listener<JSONObject>() {
                 @Override
                 public void onResponse(JSONObject response) {
-                    Log.d("bangbang", "Response: " + response.toString());
                     interpretJSONData(response, r, dateRange, cardId);
                     queue.stop();
                 }

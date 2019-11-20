@@ -1,6 +1,7 @@
 package com.example.yultravel.Spots;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,6 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
             description = spot.getDescription();
-            address = spot.getAddress();
 
             itemView.setOnClickListener(this);
         }
@@ -86,6 +86,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     public void onBindViewHolder(SpotsAdapter.SpotsViewHolder SpotsViewHolder, int i) {
         SpotsViewHolder.title.setText(spotArrayList.get(i).getTitle());
         SpotsViewHolder.url = spotArrayList.get(i).getURL();
+        SpotsViewHolder.address = spotArrayList.get(i).getAddress();
     }
 
     /**

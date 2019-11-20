@@ -26,6 +26,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         TextView title;
         TextView description;
         TextView spotPosition;
+        String addressText;
         String url;
         Context ctx;
         Dialog myDialog;
@@ -45,7 +46,8 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         @Override
         public void onClick(View v) {
             SpotDialog s = new SpotDialog(ctx);
-            s.setSpotsDialog(title.getText().toString(), description.getText().toString(), url, "");
+            s.setSpotsDialog(title.getText().toString(), description.getText().toString(), url,
+                    addressText);
             s.openSpotsDialog();
         }
     }
@@ -94,6 +96,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         holder.description.setText(spotArrayList.get(i).getDescription());
         holder.spotPosition.setText(i + 1 + "");
         holder.url = spotArrayList.get(i).getURL();
+        holder.addressText = spotArrayList.get(i).getAddress();
     }
 
     /**
