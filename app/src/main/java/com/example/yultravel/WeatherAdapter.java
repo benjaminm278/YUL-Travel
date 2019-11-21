@@ -11,18 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder> {
 
     LayoutInflater mInflater;
     ArrayList<Weather> weatherArrayList;
+    private Context context;
 
     public static class WeatherViewHolder extends RecyclerView.ViewHolder{
         WeatherAdapter adapter;
         TextView temperature;
         TextView date;
-         TextView imageView;
+         ImageView imageView;
         WeatherViewHolder(View itemView, WeatherAdapter adapter) {
             super(itemView);
             temperature = itemView.findViewById(R.id.textViewTemp);
@@ -33,6 +36,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     }
     WeatherAdapter(Context context, ArrayList<Weather> weatherArrayList) {
         mInflater = LayoutInflater.from(context);
+        this.context =context;
         this.weatherArrayList = weatherArrayList;
     }
     @Override
@@ -50,7 +54,11 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
     public void onBindViewHolder(WeatherViewHolder weatherViewHolder, int i) {
         weatherViewHolder.temperature.setText( weatherArrayList.get(i).getTemperature());
         weatherViewHolder.date.setText(weatherArrayList.get(i).getDate());
-        weatherViewHolder.imageView.setText(weatherArrayList.get(i).getImageView());
+        Picasso.with(context)
+                .load(weatherArrayList.get(i).getImageUrl())
+                .resize(6000,4000)
+                .into(weatherViewHolder.imageView);
+
     }
 
     @Override

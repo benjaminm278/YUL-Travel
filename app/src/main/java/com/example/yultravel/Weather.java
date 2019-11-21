@@ -1,26 +1,26 @@
 package com.example.yultravel;
 
+import android.net.Uri;
 import android.widget.ImageView;
 
 public class Weather {
     private String temperature;
     private String date;
+    String imageUrl;
 
-    public String getImageView() {
-        return imageView;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageView(String imageView) {
-        this.imageView = imageView;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    String imageView;
-
-
-    public Weather(String temp, String date, String imageView){
+    public Weather(String temp, String date, String imgUrl){
         this.temperature =temp;
         this.date=date;
-        this.imageView =imageView;
+        this.imageUrl = imgUrl;
+
     }
     public String getTemperature() {
         return temperature;

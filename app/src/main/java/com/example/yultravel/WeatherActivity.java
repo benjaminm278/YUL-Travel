@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,9 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.yultravel.Plans.Plan;
-import com.example.yultravel.Plans.PlanAdapter;
 import com.squareup.picasso.Picasso;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -31,7 +29,8 @@ public class WeatherActivity extends AppCompatActivity {
     private static final String LOCATION_ID = "id";
     private static final String TAG_API_KEY = "APPID";
     RecyclerView recyclerView;
-    ImageView ivBasicImage;
+    ImageView imageView;
+
 
 
     @Override
@@ -40,7 +39,7 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         getWeatherResponse(URL);
         recyclerView = findViewById(R.id.weatherRecyclerView);
-        ivBasicImage = (ImageView) findViewById(R.id.imageViewWeather);
+ imageView = findViewById(R.id.imageViewWeather);
         LinearLayoutManager llm = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
@@ -97,11 +96,12 @@ public class WeatherActivity extends AppCompatActivity {
                 String icon = weathers.getString("icon");
                 String date = list.getString("dt_txt");
                 String imageUri = "http://openweathermap.org/img/wn/"+icon +".png";
-                Picasso.with(this).load(imageUri).into(ivBasicImage);
+
                 Log.d("yaya", date);
-                Log.d("icon",icon);
+                Log.d("icon",imageUri);
 
                 weatherArrayList.add(new Weather(String.valueOf(String.format("%.2f",newTemp)),date,imageUri));
+
             }
           WeatherAdapter adapter= new WeatherAdapter(this, weatherArrayList);
             recyclerView.setAdapter(adapter);
