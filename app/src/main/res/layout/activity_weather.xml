@@ -34,81 +34,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="@string/today"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/Weather_Header"
         app:layout_constraintTop_toBottomOf="@+id/Weather_Header" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="82dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Weather_Header"
-        app:layout_constraintTop_toBottomOf="@+id/TodayHeader">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/DayWeather1"
-                android:layout_width="85dp"
-                android:layout_height="64dp"
-                app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
-
-            <ImageView
-                android:id="@+id/DayWeather2"
-                android:layout_width="85dp"
-                android:layout_height="64dp"
-                android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
-
-            <ImageView
-                android:id="@+id/DayWeather3"
-                android:layout_width="85dp"
-                android:layout_height="64dp"
-                android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/ic_wb_sunny_yellow_24dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="18°"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:text="19°"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:gravity="center"
-                android:text="21°"
-                android:textStyle="bold" />
-        </TableRow>
-
-    </TableLayout>
 
     <TextView
         android:id="@+id/Day3Sum"
@@ -117,19 +47,8 @@
         android:layout_marginTop="16dp"
         android:text="Next 3 days:"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toBottomOf="@+id/DayDescription" />
-
-    <TextView
-        android:id="@+id/DayDescription"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/wear_a_light_jacket"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tableLayout"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerviewCurrentWeather"
+        tools:layout_editor_absoluteX="21dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/weatherRecyclerView"
@@ -139,5 +58,14 @@
         app:layout_constraintTop_toBottomOf="@+id/Day3Sum"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerviewCurrentWeather"
+        android:layout_width="343dp"
+        android:layout_height="174dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.309"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TodayHeader" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

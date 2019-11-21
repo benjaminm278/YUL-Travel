@@ -28,9 +28,9 @@ public class WeatherActivity extends AppCompatActivity {
     private static final String URL = "http://api.openweathermap.org/data/2.5/forecast?";
     private static final String LOCATION_ID = "id";
     private static final String TAG_API_KEY = "APPID";
+    private static final String URL_CURRENT_WEATHER="http://api.openweathermap.org/data/2.5/weather?";
     RecyclerView recyclerView;
-    ImageView imageView;
-
+    RecyclerView currentRecyclerView;
 
 
     @Override
@@ -39,12 +39,13 @@ public class WeatherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_weather);
         getWeatherResponse(URL);
         recyclerView = findViewById(R.id.weatherRecyclerView);
- imageView = findViewById(R.id.imageViewWeather);
-        LinearLayoutManager llm = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
-
-
+        getCurrentWeather(URL_CURRENT_WEATHER);
+        currentRecyclerView = findViewById(R.id.recyclerviewCurrentWeather);
+        currentRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        currentRecyclerView.setHasFixedSize(true);
 
 
     }
@@ -63,6 +64,32 @@ public class WeatherActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     interpretJSON(response);
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Log.d("", "hi");
+                }
+            });
+            requestQueue.add(jsonObjectRequest);
+        } catch (Exception e) {
+
+        }
+    }
+    public void getCurrentWeather(String r){
+        try {
+
+            final RequestQueue requestQueue = Volley.newRequestQueue(this);
+            Uri builtUri = Uri.parse(URL_CURRENT_WEATHER).buildUpon()
+                    .appendQueryParameter("q", "Montreal,CA")
+                    .appendQueryParameter(TAG_API_KEY, "5fb88351043c886d812bb2b58fdfbe21").build();
+            String url = builtUri.toString();
+            Log.d("URL", url);
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url
+                    , null, new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    interpretJSONCurrentWeather(response);
                 }
             }, new Response.ErrorListener() {
                 @Override
@@ -88,25 +115,51 @@ public class WeatherActivity extends AppCompatActivity {
 
                 JSONObject main = list.getJSONObject("main");
                 double temp = main.getDouble("temp");
-                double newTemp = temp -273.15;
+                double newTemp = temp - 273.15;
                 Log.d("Temp", String.valueOf(newTemp));
                 JSONArray weatherArray = list.getJSONArray("weather");
                 JSONObject weathers = weatherArray.getJSONObject(0);
                 String mains = weathers.getString("main");
                 String icon = weathers.getString("icon");
                 String date = list.getString("dt_txt");
-                String imageUri = "http://openweathermap.org/img/wn/"+icon +".png";
+                String imageUri = "http://openweathermap.org/img/wn/" + icon + ".png";
 
                 Log.d("yaya", date);
-                Log.d("icon",imageUri);
+                Log.d("icon", imageUri);
 
-                weatherArrayList.add(new Weather(String.valueOf(String.format("%.2f",newTemp)),date,imageUri));
+                weatherArrayList.add(new Weather(String.valueOf(String.format("%.2f", newTemp)), date, imageUri));
 
             }
-          WeatherAdapter adapter= new WeatherAdapter(this, weatherArrayList);
+            WeatherAdapter adapter = new WeatherAdapter(this, weatherArrayList);
             recyclerView.setAdapter(adapter);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    private void interpretJSONCurrentWeather(JSONObject response){
+        try {
+            ArrayList<CurrentWeather> currentWeatherArrayList = new ArrayList<>();
+            JSONArray weatherArray = response.getJSONArray("weather");
+            JSONObject main = weatherArray.getJSONObject(0);
+            String weather = main.getString("main");
+            String description = main.getString("description");
+            Log.d("DADDY",weather);
+            Log.d("MOMMY",description);
+            String icon = main.getString("icon");
+            String imageUri = "http://openweathermap.org/img/wn/" + icon + ".png";
+            Log.d("HA",icon);
+           JSONObject object = response.getJSONObject("main");
+           double temp = object.getDouble("temp");
+           Log.d("FASA",String.valueOf(temp));
+           currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(temp),imageUri,weather));
+           CurrentWeatherAdapter adapter = new CurrentWeatherAdapter(this,currentWeatherArrayList);
+           currentRecyclerView.setAdapter(adapter);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
     }
 }
