@@ -1,6 +1,8 @@
 package com.example.yultravel.Directions;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,6 +57,9 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     public void openGoogleMaps(String category) {
         // Test code to verify that on click listener works as intended
         Toast.makeText(ctx, "Category clicked: " + category, Toast.LENGTH_SHORT).show();
+        Uri addressUri = Uri.parse("geo:0,0?q=Montreal Trudeau Airport");
+        Intent i = new Intent(Intent.ACTION_VIEW, addressUri);
+        ctx.startActivity(i);
     }
 
     /**
