@@ -6,11 +6,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
-import androidx.room.DatabaseConfiguration;
 import androidx.room.Entity;
-import androidx.room.InvalidationTracker;
 import androidx.room.PrimaryKey;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import java.util.Date;
 
@@ -51,7 +48,27 @@ public class Profile{
 
         toastTest();
     }
-    
+
+    public Profile(){
+        mName = "John Doe";
+        Country = Countries.Canada;
+        mInterest = new boolean[]{false, false, false, false, false};
+        vacationStart = new Date();
+        vacationEnd = new Date();
+    }
+
+    public String getmName(){
+        return mName;
+    }
+
+    public boolean[] getmInterest() {
+        return mInterest;
+    }
+
+    public String getCountry(){
+        return Country.toString();
+    }
+
     public void toastTest(){
         Toast.makeText(ctx, mName, Toast.LENGTH_LONG).show();
     }

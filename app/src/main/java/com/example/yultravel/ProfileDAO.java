@@ -1,4 +1,8 @@
 package com.example.yultravel;
 
-class ProfileDAO {
+import androidx.room.Dao;
+
+@Dao
+public interface ProfileDAO {
+
 }
