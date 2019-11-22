@@ -42,12 +42,14 @@ public class MoreDirectionsCategoryAdapter extends
 
         @Override
         public void onClick(View v) {
-            openGoogleMaps(ctx);
+            TextView t = v.findViewById(R.id.addressTextView);
+            String address = t.getText().toString();
+            openGoogleMaps(ctx, address);
         }
     }
 
-    private void openGoogleMaps(Context ctx) {
-        Uri addressUri = Uri.parse("geo:0,0?q=Montreal");
+    private void openGoogleMaps(Context ctx, String address) {
+        Uri addressUri = Uri.parse("geo:0,0?q=" + address);
         Intent i = new Intent(Intent.ACTION_VIEW, addressUri);
         ctx.startActivity(i);
     }

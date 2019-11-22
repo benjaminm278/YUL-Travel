@@ -30,7 +30,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
             super(itemView);
 
             this.adapter = adapter;
-            categoryTxt = itemView.findViewById(R.id.categoryTextView);
+            categoryTxt = itemView.findViewById(R.id.nameTextView);
 
             itemView.setOnClickListener(this);
         }
@@ -59,18 +59,6 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     }
 
     /**
-     * Opens google maps (soon to be implemented)
-     * @param category
-     */
-    public void openGoogleMaps(String category) {
-        // Test code to verify that on click listener works as intended
-        Toast.makeText(ctx, "Category clicked: " + category, Toast.LENGTH_SHORT).show();
-        Uri addressUri = Uri.parse("geo:0,0?q=Montreal Trudeau Airport");
-        Intent i = new Intent(Intent.ACTION_VIEW, addressUri);
-        ctx.startActivity(i);
-    }
-
-    /**
      * Creates a viewholder
      * @param parent
      * @param viewType
@@ -79,7 +67,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     @NonNull
     @Override
     public DirectionsCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.category_cardview, parent,false);
+        View mItemView = mInflater.inflate(R.layout.directions_category, parent,false);
         return new DirectionsCategoryAdapter.DirectionsCategoryViewHolder(mItemView, this);
     }
 

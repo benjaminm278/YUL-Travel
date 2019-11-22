@@ -26,7 +26,7 @@ public class MoreDirectionsActivity extends AppCompatActivity {
         t.setText(category);
 
         ArrayList<Location> locations = new ArrayList<>();
-        locations.add(new Location("Decarie Hot Dogs", "19 Decarie"));
+        locations.add(new Location("Decarie Hot Dogs", "953 Boulevard Decarie"));
         locations.add(new Location("McDonalds", "910 Cote-Vertu"));
         locations.add(new Location("Mikes", "7101 Cote-Vertu"));
         locations.add(new Location("Abid's hot spicy chicken", "999 Volcano Land"));
