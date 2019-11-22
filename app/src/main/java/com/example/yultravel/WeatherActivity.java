@@ -127,7 +127,7 @@ public class WeatherActivity extends AppCompatActivity {
                 Log.d("yaya", date);
                 Log.d("icon", imageUri);
 
-                weatherArrayList.add(new Weather(String.valueOf(Math.round(newTemp))+" \u2103", date, imageUri));
+                weatherArrayList.add(new Weather(String.valueOf(String.format("%.2f", newTemp)), date, imageUri));
 
             }
             WeatherAdapter adapter = new WeatherAdapter(this, weatherArrayList);
@@ -150,10 +150,8 @@ public class WeatherActivity extends AppCompatActivity {
             Log.d("HA",icon);
            JSONObject object = response.getJSONObject("main");
            double temp = object.getDouble("temp");
-           double newTemp =temp-273.15;
-           Math.round(newTemp);
            Log.d("FASA",String.valueOf(temp));
-           currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(Math.round(newTemp))+" \u2103",imageUri,weather));
+           currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(temp),imageUri,weather));
            CurrentWeatherAdapter adapter = new CurrentWeatherAdapter(this,currentWeatherArrayList);
            currentRecyclerView.setAdapter(adapter);
 
