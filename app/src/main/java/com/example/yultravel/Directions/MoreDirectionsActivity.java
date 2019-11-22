@@ -29,41 +29,44 @@ public class MoreDirectionsActivity extends AppCompatActivity {
         ArrayList<Location> locations = new ArrayList<>();
 
         if (category.compareToIgnoreCase("airport") == 1) {
-            locations.add(new Location("Montreal International Airport", "YUL Airport"));
+            locations.add(new Location("Montreal International Airport",
+                    "YUL airport - accessible by bus, car and taxi", "YUL Airport"));
         }
         else if (category.compareToIgnoreCase("metro (subway)") == 1) {
-            locations.add(new Location("Find nearest metro station", "Nearest metro station"));
-            locations.add(new Location("Orange line station", "Nearest orange line metro station"));
-            locations.add(new Location("Yellow line station", "Nearest yellow line metro station"));
-            locations.add(new Location("Green line station", "Nearest green line metro station"));
-            locations.add(new Location("Blue line station", "Nearest blue line metro station"));
+            locations.add(new Location("Find nearest metro station",
+                    "Nearest metro station", "Nearest STM metro station"));
+            locations.add(new Location("Orange line station",
+                    "Nearest orange line metro station", "Montreal ligne orange"));
+            locations.add(new Location("Yellow line station",
+                    "Nearest yellow line metro station", "Montreal ligne jaune"));
+            locations.add(new Location("Green line station",
+                    "Nearest green line metro station", "Montreal ligne verte"));
+            locations.add(new Location("Blue line station",
+                    "Nearest blue line metro station", "Montreal ligne bleue"));
         }
         else if (category.compareToIgnoreCase("parks") == 1) {
-            locations.add(new Location("Find nearest metro station", "Nearest metro station"));
-            locations.add(new Location("Decarie Hot Dogs", "953 Boulevard Decarie"));
+            locations.add(new Location("Find nearby parks",
+                    "Places to relax and play", "Montreal park"));
+            locations.add(new Location("Parc Lafontaine",
+                    "Nearest metro station", "STM Orange line metro station"));
         }
         else if (category.compareToIgnoreCase("restaurants") == 1) {
-            locations.add(new Location("Find nearest metro station", "Nearest metro station"));
-            locations.add(new Location("Decarie Hot Dogs", "953 Boulevard Decarie"));
-            locations.add(new Location("McDonalds", "910 Cote-Vertu"));
-            locations.add(new Location("Mikes", "7101 Cote-Vertu"));
-            locations.add(new Location("Abid's hot spicy chicken", "999 Volcano Land"));
-            locations.add(new Location("Sliced Dice", "777 Casino"));
+            locations.add(new Location("Find nearby restaurants",
+                    "Feeling hungry? Find restaurants around you", "Nearby Montreal Restaurants"));
+            locations.add(new Location("Decarie Hot Dogs",
+                    "953 Boulevard Decarie", "STM Orange line metro station"));
         }
         else if (category.compareToIgnoreCase("shops") == 1) {
-            locations.add(new Location("Find nearest shop", "Nearest metro station"));
-            locations.add(new Location("Decarie Hot Dogs", "953 Boulevard Decarie"));
-            locations.add(new Location("McDonalds", "910 Cote-Vertu"));
-            locations.add(new Location("Mikes", "7101 Cote-Vertu"));
-            locations.add(new Location("Abid's hot spicy chicken", "999 Volcano Land"));
-            locations.add(new Location("Sliced Dice", "777 Casino"));
+            locations.add(new Location("Find nearest shop",
+                    "Explore the exquisite shops!", "Nearby Montreal shops"));
+            locations.add(new Location("",
+                    "953 Boulevard Decarie", "932 Saint Croix Ave"));
         }
         else if (category.compareToIgnoreCase("stadium") == 1) {
-            locations.add(new Location("Find nearest metro station", "Nearest metro station"));
-            locations.add(new Location("Olympic stadium", "910 Cote-Vertu"));
-            locations.add(new Location("Mikes", "7101 Cote-Vertu"));
-            locations.add(new Location("Abid's hot spicy chicken", "999 Volcano Land"));
-            locations.add(new Location("Sliced Dice", "777 Casino"));
+            locations.add(new Location("Find nearby stadiums",
+                    "Watch a game", "Montreal stadium"));
+            locations.add(new Location("Olympic stadium",
+                    "Home of the 1976 Summer Olympics!", "4141 Avenue Pierre-De Coubertin"));
         }
 
         RecyclerView v = findViewById(R.id.categoryItemsRecyclerView);

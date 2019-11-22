@@ -16,7 +16,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:background="#72F0D9D9"
+            android:paddingBottom="20dp">
 
             <TextView
                 android:id="@+id/numberOnListTextView"
