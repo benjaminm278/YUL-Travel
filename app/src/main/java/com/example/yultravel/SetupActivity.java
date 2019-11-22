@@ -3,6 +3,7 @@ package com.example.yultravel;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -10,6 +11,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SetupActivity extends AppCompatActivity {
+
+    final private int numOfCheckBoxes = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,22 @@ public class SetupActivity extends AppCompatActivity {
             invalidToast();
             return;
         }
-       // Profile pro = new Profile((((EditText) findViewById(R.id.NameEdit)).getText().toString()), );
+        boolean[] checkBoxes = new boolean[this.numOfCheckBoxes];
+        CheckBox[] cb = new CheckBox[this.numOfCheckBoxes];
+        cb[0] = (CheckBox) findViewById(R.id.FoodCheck);
+        cb[1] = (CheckBox) findViewById(R.id.NatureCheck);
+        cb[2] = (CheckBox) findViewById(R.id.SightCheck);
+        cb[3] = (CheckBox) findViewById(R.id.BoatsCheck);
+        cb[4] = (CheckBox) findViewById(R.id.SportsCheck);
+
+        for(int i = 0 ; i<this.numOfCheckBoxes;i++){
+            checkBoxes[i] = cb[i].isSelected();
+        }
+
+        Spinner spin = (Spinner) findViewById(R.id.OriginSpinner);
+
+
+        Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
 
     }
 
