@@ -23,10 +23,13 @@ public class MoreDirectionsCategoryAdapter extends
     public class MoreDirectionsCategoryViewHolder extends RecyclerView.ViewHolder {
         TextView locationTxt;
         TextView addressTxt;
+        TextView numberOnListTxt;
+
         public MoreDirectionsCategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             locationTxt = itemView.findViewById(R.id.locationNameTextView);
             addressTxt = itemView.findViewById(R.id.addressTextView);
+            numberOnListTxt = itemView.findViewById(R.id.numberOnListTextView);
         }
     }
 
@@ -47,7 +50,8 @@ public class MoreDirectionsCategoryAdapter extends
     @Override
     public void onBindViewHolder (@NonNull MoreDirectionsCategoryViewHolder holder, int position) {
         holder.locationTxt.setText(a.get(position).getName() + "");
-        holder.locationTxt.setText(a.get(position).getAddress() + "");
+        holder.addressTxt.setText(a.get(position).getAddress() + "");
+        holder.numberOnListTxt.setText(position + 1 + "");
     }
 
     @Override
