@@ -48,10 +48,6 @@ public class SetupActivity extends AppCompatActivity {
         }
 
         Spinner spin = (Spinner) findViewById(R.id.OriginSpinner);
-
-
-        Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
-
     }
 
     private void invalidToast(){
