@@ -21,6 +21,8 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     private LayoutInflater mInflater;
     private Context ctx;
 
+    public static final String CATEGORY_EXTRA = "com.example.yultravel.Directions.category.EXTRA";
+
     public static class DirectionsCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final TextView categoryTxt;
         DirectionsCategoryAdapter adapter;
@@ -35,7 +37,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
 
         @Override
         public void onClick(View v) {
-            adapter.openGoogleMaps(categoryTxt.getText().toString());
+            adapter.openMoreDirectionsActivity(categoryTxt.getText().toString());
         }
     }
 
@@ -48,6 +50,12 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
         mInflater = LayoutInflater.from(ctx);
         this.category_names = category_names;
         this.ctx = ctx;
+    }
+
+    private void openMoreDirectionsActivity(String category) {
+        Intent i = new Intent(ctx, MoreDirectionsActivity.class);
+        i.putExtra(CATEGORY_EXTRA, category);
+        ctx.startActivity(i);
     }
 
     /**
