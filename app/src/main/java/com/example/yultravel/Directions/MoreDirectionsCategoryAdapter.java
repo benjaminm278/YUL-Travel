@@ -20,6 +20,10 @@ public class MoreDirectionsCategoryAdapter extends
     private LayoutInflater mInflater;
     private Context ctx;
     private ArrayList<Location> a;
+
+    /**
+     *
+     */
     public class MoreDirectionsCategoryViewHolder extends RecyclerView.ViewHolder {
         TextView locationTxt;
         TextView addressTxt;
@@ -33,12 +37,23 @@ public class MoreDirectionsCategoryAdapter extends
         }
     }
 
+    /**
+     *
+     * @param ctx
+     * @param a
+     */
     public MoreDirectionsCategoryAdapter(Context ctx, ArrayList<Location> a) {
         mInflater = LayoutInflater.from(ctx);
         this.ctx = ctx;
         this.a = a;
     }
 
+    /**
+     *
+     * @param parent
+     * @param viewType
+     * @return
+     */
     @NonNull
     @Override
     public MoreDirectionsCategoryAdapter.MoreDirectionsCategoryViewHolder onCreateViewHolder
@@ -47,6 +62,11 @@ public class MoreDirectionsCategoryAdapter extends
         return new MoreDirectionsCategoryAdapter.MoreDirectionsCategoryViewHolder(mItemView);
     }
 
+    /**
+     *
+     * @param holder
+     * @param position
+     */
     @Override
     public void onBindViewHolder (@NonNull MoreDirectionsCategoryViewHolder holder, int position) {
         holder.locationTxt.setText(a.get(position).getName() + "");
@@ -54,6 +74,10 @@ public class MoreDirectionsCategoryAdapter extends
         holder.numberOnListTxt.setText(position + 1 + "");
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getItemCount() {
         return a.size();
