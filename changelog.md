@@ -1,0 +1,24 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [2.0.0] - 2019-11-22
+### Added
+- OpenWeather API.
+- Eventful API
+- Fragment for Plans Activity
+- Fragment for Events
+- Added more classes for spotsActivity and WeatherActivity
+
+
+### Changed
+- added images
+- changed colors
+- added cardvies
+- added recyclerview
+- Extracted Strings
+
