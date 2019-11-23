@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/locationConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -52,7 +53,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/locationNameTextView" />
 
             <ImageButton
-                android:id="@+id/addToPlanButton"
+                android:id="@+id/addToPlanImageButton"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="4dp"
@@ -63,14 +64,14 @@
                 tools:srcCompat="@drawable/ic_assignment_black_48dp" />
 
             <ImageButton
-                android:id="@+id/getDirectionsButton"
+                android:id="@+id/getDirectionsImageButton"
                 android:layout_width="42dp"
                 android:layout_height="42dp"
                 android:layout_marginStart="20dp"
                 android:background="#00FFFFFF"
-                app:layout_constraintBottom_toBottomOf="@+id/addToPlanButton"
-                app:layout_constraintStart_toEndOf="@+id/addToPlanButton"
-                app:layout_constraintTop_toTopOf="@+id/addToPlanButton"
+                app:layout_constraintBottom_toBottomOf="@+id/addToPlanImageButton"
+                app:layout_constraintStart_toEndOf="@+id/addToPlanImageButton"
+                app:layout_constraintTop_toTopOf="@+id/addToPlanImageButton"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ic_directions_dark_rose_24dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
