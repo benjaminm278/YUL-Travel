@@ -22,15 +22,14 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     public static class SpotsViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         SpotsAdapter adapter;
         TextView title;
-        String url;
         String description;
+        String url;
         String address;
 
-        public SpotsViewHolder(View itemView, SpotsAdapter adapter, Spot spot) {
+        public SpotsViewHolder(View itemView, SpotsAdapter adapter) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
-            description = spot.getDescription();
 
             itemView.setOnClickListener(this);
         }
@@ -74,7 +73,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
     @Override
     public SpotsAdapter.SpotsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View mItemView = mInflater.inflate(R.layout.card_item_spots, viewGroup,false);
-        return new SpotsAdapter.SpotsViewHolder(mItemView,this, spotArrayList.get(i));
+        return new SpotsAdapter.SpotsViewHolder(mItemView,this);
     }
 
     /**
@@ -87,6 +86,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         SpotsViewHolder.title.setText(spotArrayList.get(i).getTitle());
         SpotsViewHolder.url = spotArrayList.get(i).getURL();
         SpotsViewHolder.address = spotArrayList.get(i).getAddress();
+        SpotsViewHolder.description = spotArrayList.get(i).getDescription();
     }
 
     /**

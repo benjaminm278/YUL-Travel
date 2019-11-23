@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class DirectionsActivity extends AppCompatActivity {
 
@@ -24,6 +25,7 @@ public class DirectionsActivity extends AppCompatActivity {
         categoryNames.add("Parks");
         categoryNames.add("Shops");
         categoryNames.add("Stadium");
+        Collections.sort(categoryNames);
 
         // RecyclerView code
         RecyclerView directionsRC = findViewById(R.id.directionsCategoryRecyclerView);

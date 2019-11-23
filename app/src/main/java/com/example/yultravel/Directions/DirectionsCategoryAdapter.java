@@ -1,6 +1,8 @@
 package com.example.yultravel.Directions;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +21,8 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     private LayoutInflater mInflater;
     private Context ctx;
 
+    public static final String CATEGORY_EXTRA = "com.example.yultravel.Directions.category.EXTRA";
+
     public static class DirectionsCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final TextView categoryTxt;
         DirectionsCategoryAdapter adapter;
@@ -26,14 +30,14 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
             super(itemView);
 
             this.adapter = adapter;
-            categoryTxt = itemView.findViewById(R.id.categoryTextView);
+            categoryTxt = itemView.findViewById(R.id.nameTextView);
 
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            adapter.openGoogleMaps(categoryTxt.getText().toString());
+            adapter.openMoreDirectionsActivity(categoryTxt.getText().toString());
         }
     }
 
@@ -49,12 +53,13 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     }
 
     /**
-     * Opens google maps (soon to be implemented)
+     *
      * @param category
      */
-    public void openGoogleMaps(String category) {
-        // Test code to verify that on click listener works as intended
-        Toast.makeText(ctx, "Category clicked: " + category, Toast.LENGTH_SHORT).show();
+    private void openMoreDirectionsActivity(String category) {
+        Intent i = new Intent(ctx, MoreDirectionsActivity.class);
+        i.putExtra(CATEGORY_EXTRA, category);
+        ctx.startActivity(i);
     }
 
     /**
@@ -66,7 +71,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     @NonNull
     @Override
     public DirectionsCategoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mItemView = mInflater.inflate(R.layout.category_cardview, parent,false);
+        View mItemView = mInflater.inflate(R.layout.directions_category, parent,false);
         return new DirectionsCategoryAdapter.DirectionsCategoryViewHolder(mItemView, this);
     }
 
