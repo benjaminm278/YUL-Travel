@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -15,25 +15,26 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/CategoeyIcon"
+                android:id="@+id/CategoryIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_airport_shuttle_blue_48dp" />
 
             <TextView
-                android:id="@+id/NameLabel"
-                android:layout_width="118dp"
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="Airport"
-                android:textSize="30sp"
-                app:layout_constraintBottom_toBottomOf="@+id/CategoeyIcon"
-                app:layout_constraintStart_toEndOf="@+id/CategoeyIcon"
-                app:layout_constraintTop_toTopOf="@+id/CategoeyIcon" />
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/CategoryIcon"
+                app:layout_constraintStart_toEndOf="@+id/CategoryIcon"
+                app:layout_constraintTop_toTopOf="@+id/CategoryIcon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
