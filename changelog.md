@@ -6,19 +6,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2.0.0] - 2019-11-22
+## [2.0] - 2019-11-22
 ### Added
-- OpenWeather API.
-- Eventful API
-- Fragment for Plans Activity
-- Fragment for Events
-- Added more classes for spotsActivity and WeatherActivity
-
+- OpenWeather API and Eventful API implementations
+- Fragments for Plans and Spots
+- More classes for the Spots and Weather activities
+- An improved welcome screen
+- More image assets
 
 ### Changed
-- added images
-- changed colors
-- added cardvies
-- added recyclerview
-- Extracted Strings
+- Images on image buttons
+- Colors of overall app layout
+- CardView layouts
+- RecyclerViews
+- Strings extractions
 
+## [1.0] - 2019-11-22
+### Added
+- Base layouts for all activities
+- Create settings fragment
