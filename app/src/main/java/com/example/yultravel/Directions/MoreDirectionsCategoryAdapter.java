@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.Plans.PlanFragment;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;
@@ -23,6 +27,7 @@ public class MoreDirectionsCategoryAdapter extends
     private LayoutInflater mInflater;
     private Context ctx;
     private ArrayList<Location> a;
+    private FragmentManager mFragmentManager;
 
     /**
      *
@@ -53,19 +58,35 @@ public class MoreDirectionsCategoryAdapter extends
 
             switch (id) {
                 case R.id.addToPlanImageButton:
-                    Toast.makeText(ctx, "Clicked button 1", Toast.LENGTH_SHORT).show();
-                    break;
-                case R.id.getDirectionsImageButton:
-                    Toast.makeText(ctx, "Clicked button 2", Toast.LENGTH_SHORT).show();
+                    TextView t = v.getRootView().findViewById(R.id.locationNameTextView);
+                    String locName = t.getText().toString();
+
+                    TextView t2 = v.getRootView().findViewById(R.id.addressTextView);
+                    String address = t2.getText().toString();
+                    addToPlans(locName, address);
                     break;
                 default:
-                    TextView t = v.findViewById(R.id.addressTextView);
-                    String address = t.getText().toString();
-                    openGoogleMaps(ctx, address);
+                    TextView t3 = v.getRootView().findViewById(R.id.addressTextView);
+                    String address2 = t3.getText().toString();
+                    openGoogleMaps(ctx, address2);
+                    break;
             }
         }
     }
 
+    /**
+     * Adds plan to database
+     */
+    private void addToPlans(String location, String address) {
+        DialogFragment fragment = new PlanFragment();
+        fragment.show(mFragmentManager, "");
+    }
+
+    /**
+     * Opens Google Maps to show directions
+     * @param ctx
+     * @param address
+     */
     private void openGoogleMaps(Context ctx, String address) {
         Uri addressUri = Uri.parse("geo:0,0?q=" + address);
         Intent i = new Intent(Intent.ACTION_VIEW, addressUri);
@@ -77,10 +98,11 @@ public class MoreDirectionsCategoryAdapter extends
      * @param ctx
      * @param a
      */
-    public MoreDirectionsCategoryAdapter(Context ctx, ArrayList<Location> a) {
+    public MoreDirectionsCategoryAdapter(Context ctx, FragmentManager f, ArrayList<Location> a) {
         mInflater = LayoutInflater.from(ctx);
         this.ctx = ctx;
         this.a = a;
+        this.mFragmentManager = f;
     }
 
     /**

@@ -71,7 +71,7 @@ public class MoreDirectionsActivity extends AppCompatActivity {
 
         RecyclerView v = findViewById(R.id.categoryItemsRecyclerView);
         MoreDirectionsCategoryAdapter adapter =
-                new MoreDirectionsCategoryAdapter(this, locations);
+                new MoreDirectionsCategoryAdapter(this, getSupportFragmentManager(), locations);
         v.setAdapter(adapter);
         v.setLayoutManager(new LinearLayoutManager(this));
     }

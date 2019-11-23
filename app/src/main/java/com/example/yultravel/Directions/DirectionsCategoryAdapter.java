@@ -52,6 +52,10 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
         this.ctx = ctx;
     }
 
+    /**
+     *
+     * @param category
+     */
     private void openMoreDirectionsActivity(String category) {
         Intent i = new Intent(ctx, MoreDirectionsActivity.class);
         i.putExtra(CATEGORY_EXTRA, category);
