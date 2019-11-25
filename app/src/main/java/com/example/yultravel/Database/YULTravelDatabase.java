@@ -36,7 +36,9 @@ public abstract class YULTravelDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-
+    private static RoomDatabase.Callback sRoomDB = new RoomDatabase.Callback() {
+        public
+    };
 
     public abstract ProfileDAO ProfileDAO();
 }

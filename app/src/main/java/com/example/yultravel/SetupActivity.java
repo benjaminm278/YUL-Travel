@@ -9,17 +9,29 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.yultravel.Database.Profile;
+import com.example.yultravel.Database.ProfileViewModel;
+
+import java.util.List;
 
 public class SetupActivity extends AppCompatActivity {
-
     final private int numOfCheckBoxes = 5;
+    private ProfileViewModel mProfileViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
+
+        mProfileViewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
+        mProfileViewModel.getProfile().observe(this, new Observer<List<Profile>>() {
+            @Override
+            public void onChanged(List<Profile> profiles) {
+            }
+        });
 
         String[] arraySpinner = new String[] {
                 "Canada", "USA", "China", "UK", "France", "Portugal", "Mexico"
@@ -52,7 +64,7 @@ public class SetupActivity extends AppCompatActivity {
         }
 
         Spinner spin = (Spinner) findViewById(R.id.OriginSpinner);
-        Profile p = new Profile("");
+        Profile p = new Profile("Hippo");
         //Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
     }
 
