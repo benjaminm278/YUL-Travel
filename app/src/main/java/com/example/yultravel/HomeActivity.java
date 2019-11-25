@@ -9,10 +9,6 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.yultravel.Directions.DirectionsActivity;
-import com.example.yultravel.Plans.PlansActivity;
-import com.example.yultravel.Spots.SpotsActivity;
-
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -26,12 +22,11 @@ public class HomeActivity extends AppCompatActivity {
      * @param view
      */
     public void openActivity(View view) {
-        //Toast.makeText(this, view.getId() + " ", Toast.LENGTH_SHORT).show();
-
         // Variables
         Intent activityIntent;
 
         switch (view.getId()) {
+            /*
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
@@ -49,10 +44,10 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             default:
                 activityIntent = new Intent();
-                break;
+                break;*/
         }
 
-        startActivity(activityIntent);
+        //startActivity(activityIntent);
     }
 
     /**

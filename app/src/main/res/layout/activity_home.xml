@@ -50,43 +50,37 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp">
 
-                <ImageButton
-                    android:id="@+id/weatherImageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:background="@drawable/weather"
-                    android:contentDescription="@string/weather"
-                    android:onClick="openActivity"
+                <include
+                    android:id="@+id/include5"
+                    layout="@layout/home_weather_cardview"
+                    android:layout_marginTop="4dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/weather" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageButton
                     android:id="@+id/plansImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginStart="44dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:contentDescription="@string/plans"
                     android:onClick="openActivity"
                     android:src="@drawable/ic_plan"
-                    app:layout_constraintBottom_toBottomOf="@+id/weatherImageButton"
-                    app:layout_constraintStart_toEndOf="@+id/weatherImageButton"
-                    app:layout_constraintTop_toTopOf="@+id/weatherImageButton"
-                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/include5"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@drawable/ic_plan" />
 
                 <ImageButton
                     android:id="@+id/spotsImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginTop="52dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/spots"
                     android:contentDescription="@string/spots"
                     android:onClick="openActivity"
-                    app:layout_constraintStart_toStartOf="@+id/weatherImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/weatherImageButton"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/include5"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageButton
@@ -101,14 +95,6 @@
                     app:layout_constraintTop_toTopOf="@+id/spotsImageButton"
                     app:layout_constraintVertical_bias="0.0"
                     tools:srcCompat="@tools:sample/avatars" />
-
-                <TextView
-                    android:id="@+id/WeatherLable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/weather"
-                    app:layout_constraintStart_toStartOf="@+id/weatherImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/weatherImageButton" />
 
                 <TextView
                     android:id="@+id/PlansLabel"
