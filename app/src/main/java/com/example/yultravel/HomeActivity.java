@@ -9,6 +9,10 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yultravel.Directions.DirectionsActivity;
+import com.example.yultravel.Plans.PlansActivity;
+import com.example.yultravel.Spots.SpotsActivity;
+
 public class HomeActivity extends AppCompatActivity {
 
     @Override
@@ -26,11 +30,11 @@ public class HomeActivity extends AppCompatActivity {
         Intent activityIntent;
 
         switch (view.getId()) {
-            /*
+
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
-            case R.id.weatherImageButton:
+            case R.id.include5:
                 activityIntent = new Intent(this, WeatherActivity.class);
                 break;
             case R.id.plansImageButton:
@@ -44,10 +48,10 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             default:
                 activityIntent = new Intent();
-                break;*/
+                break;
         }
 
-        //startActivity(activityIntent);
+        startActivity(activityIntent);
     }
 
     /**
