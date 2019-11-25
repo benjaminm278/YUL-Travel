@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Database;
 
 import android.content.Context;
 
@@ -30,8 +30,6 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                             .fallbackToDestructiveMigration() // Wipes and rebuilds instead of migrating
                             //.addCallback(sRoomDBCallBack)
                             .build();
-
-
                 }
             }
         }

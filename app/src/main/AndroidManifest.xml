@@ -22,7 +22,7 @@
                 android:value="com.example.yultravel.HomeActivity" />
         </activity>
         <activity android:name=".Directions.DirectionsActivity" />
-        <activity android:name=".WeatherActivity" />
+        <activity android:name=".Weather.WeatherActivity" />
         <activity android:name=".Plans.PlansActivity" />
         <activity android:name=".Spots.SpotsActivity" />
         <activity android:name=".SetupActivity" />

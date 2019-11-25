@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.yultravel.Database.Profile;
+
 public class SetupActivity extends AppCompatActivity {
 
     final private int numOfCheckBoxes = 5;
@@ -19,10 +21,10 @@ public class SetupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setup);
 
-
         String[] arraySpinner = new String[] {
                 "Canada", "USA", "China", "UK", "France", "Portugal", "Mexico"
         };
+
         Spinner s = (Spinner) findViewById(R.id.OriginSpinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
@@ -35,6 +37,8 @@ public class SetupActivity extends AppCompatActivity {
             invalidToast();
             return;
         }
+
+        String a = ((EditText) findViewById(R.id.NameEdit)).getText().toString();
         boolean[] checkBoxes = new boolean[this.numOfCheckBoxes];
         CheckBox[] cb = new CheckBox[this.numOfCheckBoxes];
         cb[0] = (CheckBox) findViewById(R.id.FoodCheck);
@@ -48,10 +52,8 @@ public class SetupActivity extends AppCompatActivity {
         }
 
         Spinner spin = (Spinner) findViewById(R.id.OriginSpinner);
-
-
-        Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
-
+        Profile p = new Profile("");
+        //Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
     }
 
     private void invalidToast(){
