@@ -6,11 +6,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
-import androidx.room.DatabaseConfiguration;
 import androidx.room.Entity;
-import androidx.room.InvalidationTracker;
 import androidx.room.PrimaryKey;
-import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import java.util.Date;
 
@@ -55,4 +52,6 @@ public class Profile{
     public void toastTest(){
         Toast.makeText(ctx, mName, Toast.LENGTH_LONG).show();
     }
+
+
 }
