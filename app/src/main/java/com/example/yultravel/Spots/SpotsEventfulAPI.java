@@ -95,7 +95,12 @@ public class SpotsEventfulAPI {
                 String eventDesc = listOfEvents.getString("description");
                 String url = listOfEvents.getString("url");
                 String address = listOfEvents.getString("venue_address");
-                spotArrayList.add(new Spot(eventTitle, eventDesc, url, address));
+                JSONObject imgObj = listOfEvents.getJSONObject("image");
+                JSONObject imgObjMed = imgObj.getJSONObject("medium");
+                String imgUrl = "http:" + imgObjMed.getString("url");
+                Log.d("IMG",imgUrl);
+
+                spotArrayList.add(new Spot(eventTitle, eventDesc, url, address,imgUrl));
             }
 
             switch (cardId) {

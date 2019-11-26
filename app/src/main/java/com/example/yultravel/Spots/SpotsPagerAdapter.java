@@ -31,7 +31,6 @@ public class SpotsPagerAdapter extends FragmentStatePagerAdapter {
             case 0: return new TodaysHotSpotFragment();
             case 1: return new ThisWeeksFragment();
             case 2: return new NextWeeksFragment();
-            case 3: return new AllTimeSpotsFragment();
             default:
                 return null;
         }

@@ -22,12 +22,12 @@ public class MoreSpotsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_more_spots);
 
         Intent i = getIntent();
-       // String a = i.getStringExtra(SpotsActivity.DATE_RANGE_EXTRA);
+        String a = i.getStringExtra(SpotsActivity.DATE_RANGE_EXTRA);
 
         TextView dateRange = findViewById(R.id.dateRangeOfEventsTextView);
-        //dateRange.setText(a);
+        dateRange.setText(a);
 
-       // callEventfulAPI(a);
+        callEventfulAPI(a);
     }
 
     /**

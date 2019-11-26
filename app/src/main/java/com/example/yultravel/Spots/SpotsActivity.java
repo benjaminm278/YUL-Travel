@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class SpotsActivity extends AppCompatActivity {
 
-
+    public static final String DATE_RANGE_EXTRA = "com.example.yultravel.Spots.dateRange.EXTRA";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,6 @@ public class SpotsActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("Today's Hot Spots"));
         tabLayout.addTab(tabLayout.newTab().setText("This Week"));
         tabLayout.addTab(tabLayout.newTab().setText("Next Week"));
-        tabLayout.addTab(tabLayout.newTab().setText("All Time"));
 
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         final ViewPager viewPager = findViewById(R.id.spotpager);
@@ -59,4 +58,22 @@ public class SpotsActivity extends AppCompatActivity {
 
     }
 
+    public void openMoreHotSpots(View view) {
+        Intent moreHotSpotsActivity = new Intent(this, MoreSpotsActivity.class);
+
+        // Switch case used to pass data to intent to display different results
+        switch (view.getId()) {
+            case R.id.viewMoreOfTodaysHotSpots:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_TODAY);
+                break;
+            case R.id.viewMoreOfThisWeekHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_THIS_WEEK);
+                break;
+            case R.id.viewMoreOfNextWeeksHotSpotsTextView:
+                moreHotSpotsActivity.putExtra(DATE_RANGE_EXTRA, SpotsEventfulAPI.EVENTFUL_DATE_RANGE_NEXT_WEEK);
+                break;
+        }
+
+        startActivity(moreHotSpotsActivity);
+    }
 }
