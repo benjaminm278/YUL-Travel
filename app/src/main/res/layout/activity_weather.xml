@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeatherActivity"
+    tools:context=".Weather.WeatherActivity"
     android:padding="16dp">
 
 <androidx.appcompat.widget.Toolbar

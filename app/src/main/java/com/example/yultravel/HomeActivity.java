@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.yultravel.Directions.DirectionsActivity;
 import com.example.yultravel.Plans.PlansActivity;
 import com.example.yultravel.Spots.SpotsActivity;
+import com.example.yultravel.Weather.WeatherActivity;
 
 public class HomeActivity extends AppCompatActivity {
 

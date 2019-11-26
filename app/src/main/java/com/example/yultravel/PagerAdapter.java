@@ -1,9 +1,11 @@
 package com.example.yultravel;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.example.yultravel.Weather.CurrentWeatherFragment;
+import com.example.yultravel.Weather.HourlyForecastFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
     int mNumOfTabs;
