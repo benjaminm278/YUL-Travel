@@ -4,7 +4,7 @@ public class CurrentWeather {
     private String description;
     private String currentTemp;
     private String currentImgUrl;
-    String weatherCondition;
+    private String weatherCondition;
 
     public CurrentWeather(String description,String temp,String imgUrl, String weatherCondition){
         this.description=description;

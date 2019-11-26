@@ -13,9 +13,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fredoka_one"
         android:rotation="-9"
-        android:text="Welcome to"
+        android:text="@string/welcome_to"
         android:textColor="#FFFFFF"
-        android:textSize="48dp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.307"
@@ -30,9 +30,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fredoka_one"
         android:rotation="-9"
-        android:text="Travel!"
+        android:text="@string/travel"
         android:textColor="#FFFFFF"
-        android:textSize="48dp"
+        android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.717"
@@ -47,9 +47,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/fredoka_one"
         android:rotation="-9"
-        android:text="YUL"
+        android:text="@string/yul"
         android:textColor="#FFFFFF"
-        android:textSize="108dp"
+        android:textSize="108sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
@@ -62,7 +62,7 @@
         android:id="@+id/BestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="64dp"
         android:background="#FFFFFF"
         android:fontFamily="@font/fredoka_one"
         android:onClick="goToHome"
@@ -70,9 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -83,6 +81,7 @@
         android:rotation="-45"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/WelcomeText"
-        app:srcCompat="@drawable/ic_airplanemode_active_white_24dp" />
+        app:srcCompat="@drawable/ic_airplanemode_active_white_24dp"
+        tools:ignore="VectorDrawableCompat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

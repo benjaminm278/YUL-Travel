@@ -16,11 +16,11 @@ import java.util.ArrayList;
 
 public class CurrentWeatherAdapter extends RecyclerView.Adapter<CurrentWeatherAdapter.CurrentWeatherViewHolder> {
 
-    LayoutInflater mInflater;
-    ArrayList<CurrentWeather> currentWeatherArrayList;
+    private LayoutInflater mInflater;
+    private ArrayList<CurrentWeather> currentWeatherArrayList;
     private Context context;
 
-    public static class CurrentWeatherViewHolder extends RecyclerView.ViewHolder{
+    static class CurrentWeatherViewHolder extends RecyclerView.ViewHolder{
         CurrentWeatherAdapter adapter;
        TextView currentTemp;
        TextView currentWeather;
@@ -41,7 +41,7 @@ public class CurrentWeatherAdapter extends RecyclerView.Adapter<CurrentWeatherAd
         this.currentWeatherArrayList = weatherArrayList;
     }
     @Override
-    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+    public void onAttachedToRecyclerView(@NonNull RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
     }
     @NonNull
@@ -52,7 +52,7 @@ public class CurrentWeatherAdapter extends RecyclerView.Adapter<CurrentWeatherAd
     }
 
     @Override
-    public void onBindViewHolder(CurrentWeatherViewHolder currentWeatherViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CurrentWeatherViewHolder currentWeatherViewHolder, int i) {
         currentWeatherViewHolder.currentTemp.setText( currentWeatherArrayList.get(i).getCurrentTemp());
         currentWeatherViewHolder.currentWeather.setText(currentWeatherArrayList.get(i).getWeatherCondition());
         currentWeatherViewHolder.description.setText(currentWeatherArrayList.get(i).getDescription());

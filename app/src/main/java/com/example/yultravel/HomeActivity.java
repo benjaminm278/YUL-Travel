@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
 
     /**
      * Inflates the menu on the app bar
-     * @param menu
+     * @param menu Creates the options menu page
      * @return
      */
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
 
     /**
      * Opens activity based on menu item clicked
-     * @param item
+     * @param item item that called the settings menu
      */
     public void openMenuActivity(MenuItem item) {
         Intent activity;
