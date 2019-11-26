@@ -12,14 +12,22 @@ public class Profile{
     @ColumnInfo(name = "person_name") // Name of column
     private String mName;
 
-    public Profile(@NonNull String name) {
+    @ColumnInfo(name = "country")
+    private String mCountry;
+
+    public Profile(@NonNull String name, @NonNull String country) {
         this.mName = name;
+        this.mCountry = country;
         //Country = Countries.valueOf(country);
         //mInterest = intrest;
     }
 
     public String getName() {
         return this.mName;
+    }
+
+    public String getCountry() {
+        return this.mCountry;
     }
 
     /*

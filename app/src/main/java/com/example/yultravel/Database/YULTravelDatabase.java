@@ -54,7 +54,7 @@ public abstract class YULTravelDatabase extends RoomDatabase {
 
             @Override
             protected Void doInBackground(Void... voids) {
-                pDAO.deleteAll();
+                //pDAO.deleteAll();
                 return null;
             }
         }

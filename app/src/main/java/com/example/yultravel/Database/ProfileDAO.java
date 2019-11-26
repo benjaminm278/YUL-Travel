@@ -20,6 +20,6 @@ public interface ProfileDAO {
     @Query("DELETE FROM profile_table")
     void deleteAll();
 
-    @Query("SELECT person_name FROM profile_table")
+    @Query("SELECT * FROM profile_table")
     LiveData<List<Profile>> getAllProfiles();
 }
