@@ -30,15 +30,19 @@ public class SetupActivity extends AppCompatActivity {
         mProfileViewModel.getProfile().observe(this, new Observer<List<Profile>>() {
             @Override
             public void onChanged(List<Profile> profiles) {
+                toast("Hello " + profiles.size() + "");
             }
         });
+
+        Profile p = new Profile("Hippo");
+        mProfileViewModel.insert(p);
 
         String[] arraySpinner = new String[] {
                 "Canada", "USA", "China", "UK", "France", "Portugal", "Mexico"
         };
 
-        Spinner s = (Spinner) findViewById(R.id.OriginSpinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        Spinner s = findViewById(R.id.OriginSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         s.setAdapter(adapter);
@@ -46,7 +50,6 @@ public class SetupActivity extends AppCompatActivity {
 
     public void EnterParam(View view) {
         if (((EditText)findViewById(R.id.NameEdit)).getText().toString().isEmpty()){
-            invalidToast();
             return;
         }
 
@@ -59,16 +62,17 @@ public class SetupActivity extends AppCompatActivity {
         cb[3] = (CheckBox) findViewById(R.id.BoatsCheck);
         cb[4] = (CheckBox) findViewById(R.id.SportsCheck);
 
-        for(int i = 0 ; i<this.numOfCheckBoxes;i++){
+        for(int i = 0 ; i<this.numOfCheckBoxes;i++) {
             checkBoxes[i] = cb[i].isSelected();
         }
 
         Spinner spin = (Spinner) findViewById(R.id.OriginSpinner);
-        Profile p = new Profile("Hippo");
+        //Profile p = new Profile("Hippo");
+        //Toast.makeText(this, p.getName(), Toast.LENGTH_SHORT).show();
         //Profile pro = new Profile(this, (((EditText) findViewById(R.id.NameEdit)).getText().toString()), spin.getSelectedItem().toString(), checkBoxes);
     }
 
-    private void invalidToast(){
-        Toast.makeText(this, "field empty :(", Toast.LENGTH_SHORT).show();
+    public void toast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }

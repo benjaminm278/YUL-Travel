@@ -1,10 +1,13 @@
 package com.example.yultravel.Database;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
+import androidx.annotation.NonNull;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = {Profile.class}, version = 1, exportSchema = false)
 public abstract class YULTravelDatabase extends RoomDatabase {
@@ -28,7 +31,7 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                     INSTANCE = Room.databaseBuilder(ctx.getApplicationContext(),
                             YULTravelDatabase.class, "profile_database")
                             .fallbackToDestructiveMigration() // Wipes and rebuilds instead of migrating
-                            //.addCallback(sRoomDBCallBack)
+                            .addCallback(sRoomDB)
                             .build();
                 }
             }
@@ -37,7 +40,24 @@ public abstract class YULTravelDatabase extends RoomDatabase {
     }
 
     private static RoomDatabase.Callback sRoomDB = new RoomDatabase.Callback() {
-        public
+        public void onOpen(@NonNull SupportSQLiteDatabase sqldb) {
+            super.onOpen(sqldb);
+            new PopulateDbAsync(INSTANCE).execute();
+        }
+
+        class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+            private final ProfileDAO pDAO;
+
+            public PopulateDbAsync(YULTravelDatabase instance) {
+                pDAO = instance.ProfileDAO();
+            }
+
+            @Override
+            protected Void doInBackground(Void... voids) {
+                pDAO.deleteAll();
+                return null;
+            }
+        }
     };
 
     public abstract ProfileDAO ProfileDAO();

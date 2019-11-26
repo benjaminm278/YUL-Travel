@@ -34,7 +34,7 @@ public class ProfileRepository {
         }
 
         @Override
-        protected Void doInBackground(Profile... profiles) {
+        protected Void doInBackground(final Profile... profiles) {
             mAsyncTaskDao.insert(profiles[0]);
             return null;
         }
