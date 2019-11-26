@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Weather;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
