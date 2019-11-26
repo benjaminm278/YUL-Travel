@@ -6,9 +6,9 @@ import android.widget.ImageView;
 public class Weather {
     private String temperature;
     private String date;
-    String imageUrl;
+    private String imageUrl;
 
-    public String getImageUrl() {
+    String getImageUrl() {
         return imageUrl;
     }
 
@@ -16,13 +16,13 @@ public class Weather {
         this.imageUrl = imageUrl;
     }
 
-    public Weather(String temp, String date, String imgUrl){
+    Weather(String temp, String date, String imgUrl){
         this.temperature =temp;
         this.date=date;
         this.imageUrl = imgUrl;
 
     }
-    public String getTemperature() {
+    String getTemperature() {
         return temperature;
     }
 
@@ -30,7 +30,7 @@ public class Weather {
         this.temperature = temperature;
     }
 
-    public String getDate() {
+    String getDate() {
         return date;
     }
 

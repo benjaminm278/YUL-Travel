@@ -72,7 +72,7 @@ public class WeatherActivity extends AppCompatActivity {
                 }
             });
             requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
@@ -98,7 +98,7 @@ public class WeatherActivity extends AppCompatActivity {
                 }
             });
             requestQueue.add(jsonObjectRequest);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
@@ -151,7 +151,6 @@ public class WeatherActivity extends AppCompatActivity {
            JSONObject object = response.getJSONObject("main");
            double temp = object.getDouble("temp");
            double newTemp =temp-273.15;
-           Math.round(newTemp);
            Log.d("FASA",String.valueOf(temp));
            currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(Math.round(newTemp))+" \u2103",imageUri,weather));
            CurrentWeatherAdapter adapter = new CurrentWeatherAdapter(this,currentWeatherArrayList);
