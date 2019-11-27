@@ -27,16 +27,15 @@ public class HomeActivity extends AppCompatActivity {
      * @param view
      */
     public void openActivity(View view) {
-        //Toast.makeText(this, view.getId() + " ", Toast.LENGTH_SHORT).show();
-
         // Variables
         Intent activityIntent;
 
         switch (view.getId()) {
+
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
-            case R.id.weatherImageButton:
+            case R.id.include5:
                 activityIntent = new Intent(this, WeatherActivity.class);
                 break;
             case R.id.plansImageButton:

@@ -34,7 +34,7 @@ public class SetupActivity extends AppCompatActivity {
             }
         });
 
-        Profile p = new Profile("Hippo");
+        Profile p = new Profile("Hippo", "");
         mProfileViewModel.insert(p);
 
         String[] arraySpinner = new String[] {

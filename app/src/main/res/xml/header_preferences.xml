@@ -39,7 +39,7 @@
         app:title="Notifications"/>
 
     <Preference
-        app:fragment="com.example.yultravel.SettingsActivity$SyncFragment"
+       app:fragment="com.example.yultravel.SettingsActivity$SyncFragment"
         app:icon="@drawable/sync"
         app:key="sync_header"
         app:title="Activate/deactivate notifications"

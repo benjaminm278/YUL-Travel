@@ -62,14 +62,13 @@ public class SpotsEventfulAPI {
                     interpretJSONData(response, r, dateRange, cardId);
                     queue.stop();
                 }
-            },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Log.d("bangbang", "OOPS - json");
-                            queue.stop();
-                        }
-                    });
+            },new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("bangbang", "OOPS - json");
+                        queue.stop();
+                    }
+                });
 
             queue.add(jsonObjReq);
         }
