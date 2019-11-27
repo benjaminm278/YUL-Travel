@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,14 +27,12 @@ public class HomeActivity extends AppCompatActivity {
      * Opens an activity based on the image button that was clicked
      * @param view
      */
-    /*
     public void openActivity(View view) {
         // Variables
         Intent activityIntent;
 
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-
         switch (view.getId()) {
+
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
@@ -58,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
 
         startActivity(activityIntent);
     }
-*/
+
     /**
      * Inflates the menu on the app bar
      * @param menu
