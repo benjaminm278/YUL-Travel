@@ -6,6 +6,8 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.example.yultravel.Plans.Plan;
+
 import java.util.List;
 
 @Dao
@@ -22,4 +24,7 @@ public interface ProfileDAO {
 
     @Query("SELECT * FROM profile_table")
     LiveData<List<Profile>> getAllProfiles();
+
+
+
 }
