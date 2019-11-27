@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Weather;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.yultravel.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

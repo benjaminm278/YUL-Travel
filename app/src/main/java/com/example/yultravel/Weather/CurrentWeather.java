@@ -1,4 +1,4 @@
-package com.example.yultravel;
+package com.example.yultravel.Weather;
 
 public class CurrentWeather {
     private String description;
