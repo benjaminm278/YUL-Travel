@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,18 +21,28 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        View v = findViewById(R.id.include5);
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "CLICKED", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**
      * Opens an activity based on the image button that was clicked
      * @param view
      */
+    /*
     public void openActivity(View view) {
         // Variables
         Intent activityIntent;
 
-        switch (view.getId()) {
+        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
 
+        switch (view.getId()) {
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
@@ -54,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
 
         startActivity(activityIntent);
     }
-
+*/
     /**
      * Inflates the menu on the app bar
      * @param menu
@@ -82,5 +93,13 @@ public class HomeActivity extends AppCompatActivity {
         }
         
         startActivity(activity);
+    }
+
+    public void openActivity2(View view) {
+        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void openActivity(View view) {
+        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
     }
 }
