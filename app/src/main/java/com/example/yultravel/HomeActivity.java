@@ -21,14 +21,6 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        View v = findViewById(R.id.include5);
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(HomeActivity.this, "CLICKED", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     /**
@@ -95,11 +87,33 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(activity);
     }
 
-    public void openActivity2(View view) {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
-    }
-
     public void openActivity(View view) {
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+        // Variables
+        Intent activityIntent;
+
+        Toast.makeText(this, "Clicked" + view.getId() + "-" + R.id.weatherImageButton, Toast.LENGTH_SHORT).show();
+
+        switch (view.getId()) {
+            case R.id.setupActivityButton:
+                activityIntent = new Intent(this, SetupActivity.class);
+                break;
+            case R.id.weatherImageButton:
+                activityIntent = new Intent(this, WeatherActivity.class);
+                break;
+            case R.id.plansImageButton:
+                activityIntent = new Intent(this, PlansActivity.class);
+                break;
+            case R.id.spotsImageButton:
+                activityIntent = new Intent(this, SpotsActivity.class);
+                break;
+            case R.id.directionsImageButton:
+                activityIntent = new Intent(this, DirectionsActivity.class);
+                break;
+            default:
+                activityIntent = new Intent();
+                break;
+        }
+
+        startActivity(activityIntent);
     }
 }
