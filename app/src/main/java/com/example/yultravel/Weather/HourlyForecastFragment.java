@@ -49,7 +49,7 @@ public class HourlyForecastFragment extends Fragment {
         // Inflate the layout for this fragment
        View v= inflater.inflate(R.layout.fragment_hourly_forecast, container, false);
         getWeatherResponse(URL);
-        recyclerView = v.findViewById(R.id.weatherRecyclerView2);
+        recyclerView = v.findViewById(R.id.weatherRecyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
