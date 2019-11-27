@@ -1,8 +1,5 @@
 package com.example.yultravel.Weather;
 
-import android.net.Uri;
-import android.widget.ImageView;
-
 public class Weather {
     private String temperature;
     private String date;

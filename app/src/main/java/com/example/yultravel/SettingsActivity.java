@@ -19,10 +19,10 @@ public class SettingsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         if (savedInstanceState == null) {
-            getSupportFragmentManager()
+/*            getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.settings, new HeaderFragment())
-                    .commit();
+                    .commit();*/
         } else {
             setTitle(savedInstanceState.getCharSequence(TITLE_TAG));
         }
