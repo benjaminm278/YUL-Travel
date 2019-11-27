@@ -30,14 +30,17 @@ public class WeatherActivity extends AppCompatActivity {
     private static final String URL_CURRENT_WEATHER="http://api.openweathermap.org/data/2.5/weather?";
     RecyclerView recyclerView;
     RecyclerView currentRecyclerView;
-
+    ArrayList<Weather> weatherArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
+
+        recyclerView = findViewById(R.id.weatherRecyclerView2);
+        WeatherAdapter adapter = new WeatherAdapter(this, weatherArrayList);
+        recyclerView.setAdapter(adapter);
         getWeatherResponse(URL);
-        recyclerView = findViewById(R.id.weatherRecyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(llm);
         recyclerView.setHasFixedSize(true);
@@ -45,8 +48,6 @@ public class WeatherActivity extends AppCompatActivity {
         currentRecyclerView = findViewById(R.id.recyclerviewCurrentWeather);
         currentRecyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         currentRecyclerView.setHasFixedSize(true);
-
-
     }
 
     public void getWeatherResponse(String r) {
@@ -104,7 +105,7 @@ public class WeatherActivity extends AppCompatActivity {
 
     private void interpretJSON(JSONObject response) {
         try {
-            ArrayList<Weather> weatherArrayList = new ArrayList<>();
+             weatherArrayList = new ArrayList<>();
             JSONArray listArray = response.getJSONArray("list");
 
             Log.d("bangbang", listArray.getJSONObject(0) + " :)");
@@ -129,8 +130,7 @@ public class WeatherActivity extends AppCompatActivity {
                 weatherArrayList.add(new Weather(String.valueOf(Math.round(newTemp))+" \u2103", date, imageUri));
 
             }
-            WeatherAdapter adapter = new WeatherAdapter(this, weatherArrayList);
-            recyclerView.setAdapter(adapter);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

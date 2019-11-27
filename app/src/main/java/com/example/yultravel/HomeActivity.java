@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.yultravel.Directions.DirectionsActivity;
 import com.example.yultravel.Plans.PlansActivity;
 import com.example.yultravel.Spots.SpotsActivity;
+import com.example.yultravel.Weather.Weather;
 import com.example.yultravel.Weather.WeatherActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -95,19 +96,19 @@ public class HomeActivity extends AppCompatActivity {
 
         switch (view.getId()) {
             case R.id.setupActivityButton:
-                activityIntent = new Intent(this, SetupActivity.class);
+                activityIntent = new Intent(HomeActivity.this, SetupActivity.class);
                 break;
             case R.id.weatherImageButton:
-                activityIntent = new Intent(this, WeatherActivity.class);
+                activityIntent = new Intent(HomeActivity.this, WeatherActivity.class);
                 break;
             case R.id.plansImageButton:
-                activityIntent = new Intent(this, PlansActivity.class);
+                activityIntent = new Intent(HomeActivity.this, PlansActivity.class);
                 break;
             case R.id.spotsImageButton:
-                activityIntent = new Intent(this, SpotsActivity.class);
+                activityIntent = new Intent(HomeActivity.this, SpotsActivity.class);
                 break;
             case R.id.directionsImageButton:
-                activityIntent = new Intent(this, DirectionsActivity.class);
+                activityIntent = new Intent(HomeActivity.this, DirectionsActivity.class);
                 break;
             default:
                 activityIntent = new Intent();
