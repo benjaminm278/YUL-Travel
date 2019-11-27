@@ -69,11 +69,11 @@
                             android:id="@+id/weatherImageButton"
                             android:layout_width="160dp"
                             android:layout_height="160dp"
+                            android:onClick="openActivity"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/weather"
-                            android:onClick="openActivity"/>
+                            app:srcCompat="@drawable/weather" />
 
                         <TextView
                             android:id="@+id/textView2"
@@ -111,7 +111,7 @@
                             android:layout_width="160dp"
                             android:layout_height="160dp"
                             android:layout_marginEnd="8dp"
-                            android:onClick=""
+                            android:onClick="openActivity"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent"

@@ -6,7 +6,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
      * Opens an activity based on the image button that was clicked
      * @param view
      */
-    /*
+
     public void openActivity(View view) {
         // Variables
         Intent activityIntent;
@@ -37,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
-            case R.id.include5:
+            case R.id.weatherImageButton:
                 activityIntent = new Intent(this, WeatherActivity.class);
                 break;
             case R.id.plansImageButton:
@@ -55,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         startActivity(activityIntent);
-    }*/
+    }
 
     /**
      * Inflates the menu on the app bar
@@ -74,7 +73,7 @@ public class HomeActivity extends AppCompatActivity {
      */
     public void openMenuActivity(MenuItem item) {
         Intent activity;
-        
+
         switch (item.getItemId()) {
             case R.id.settings:
                 activity = new Intent(this, SettingsActivity.class);
@@ -82,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
             default:
                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
         }
-        
+
         startActivity(activity);
     }
 }
