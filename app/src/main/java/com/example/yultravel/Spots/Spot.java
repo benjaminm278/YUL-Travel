@@ -5,16 +5,20 @@ public class Spot {
     private String description;
     private String url;
     private String address;
+    private String imgUrl;
+
+
 
     /**
      *
      * @param spotName
      */
-    public Spot(String spotName, String description, String url, String address) {
+    public Spot(String spotName, String description, String url, String address,String imgUrl) {
         this.title = spotName;
         this.description = description;
         this.url = url;
         this.address = address;
+        this.imgUrl = imgUrl;
     }
 
     public String getDescription() {
@@ -30,4 +34,5 @@ public class Spot {
     public String getAddress() {
         return this.address;
     }
+    public String getImgUrl() { return imgUrl; }
 }
