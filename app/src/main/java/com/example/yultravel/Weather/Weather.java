@@ -1,7 +1,4 @@
-package com.example.yultravel;
-
-import android.net.Uri;
-import android.widget.ImageView;
+package com.example.yultravel.Weather;
 
 public class Weather {
     private String temperature;
