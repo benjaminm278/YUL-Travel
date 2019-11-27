@@ -48,27 +48,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="8dp"><![CDATA[>
 
-                <include
-                    android:id="@+id/include5"
-                    layout="@layout/home_weather_cardview"
-                    android:layout_marginTop="4dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content" />
+                ]]>
 
                 <ImageButton
                     android:id="@+id/plansImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="28dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
                     android:contentDescription="@string/plans"
                     android:onClick="openActivity"
                     android:src="@drawable/ic_plan"
-                    app:layout_constraintStart_toEndOf="@+id/include5"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/weatherImageButton"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@drawable/ic_plan" />
 
@@ -76,67 +71,49 @@
                     android:id="@+id/spotsImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/spots"
                     android:contentDescription="@string/spots"
                     android:onClick="openActivity"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/include5"
+                    app:layout_constraintTop_toBottomOf="@+id/weatherImageButton"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <ImageButton
                     android:id="@+id/directionsImageButton"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@drawable/direction_arrow"
                     android:contentDescription="@string/directions"
                     android:onClick="openActivity"
                     app:layout_constraintBottom_toBottomOf="@+id/spotsImageButton"
-                    app:layout_constraintStart_toStartOf="@+id/plansImageButton"
+                    app:layout_constraintEnd_toEndOf="@+id/plansImageButton"
+                    app:layout_constraintHorizontal_bias="0.888"
+                    app:layout_constraintStart_toEndOf="@+id/spotsImageButton"
                     app:layout_constraintTop_toTopOf="@+id/spotsImageButton"
                     app:layout_constraintVertical_bias="0.0"
                     tools:srcCompat="@tools:sample/avatars" />
 
-                <TextView
-                    android:id="@+id/PlansLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/weatherImageButton"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:onClick="openActivity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/mont_royal_view" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <ImageButton
-                            android:id="@+id/plansImageButton"
-                            android:layout_width="160dp"
-                            android:layout_height="160dp"
-                            android:layout_marginEnd="8dp"
-                            android:onClick="openActivity"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:srcCompat="@drawable/ic_plan" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/directions"
-                    app:layout_constraintStart_toStartOf="@+id/directionsImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/directionsImageButton" />
-
-                <TextView
-                    android:id="@+id/SpotsLable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/spots"
-                    app:layout_constraintStart_toStartOf="@+id/spotsImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/spotsImageButton" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

@@ -6,13 +6,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.yultravel.Directions.DirectionsActivity;
 import com.example.yultravel.Plans.PlansActivity;
 import com.example.yultravel.Spots.SpotsActivity;
-import com.example.yultravel.Weather.Weather;
 import com.example.yultravel.Weather.WeatherActivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -27,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
      * Opens an activity based on the image button that was clicked
      * @param view
      */
+    /*
     public void openActivity(View view) {
         // Variables
         Intent activityIntent;
@@ -54,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         startActivity(activityIntent);
-    }
+    }*/
 
     /**
      * Inflates the menu on the app bar
