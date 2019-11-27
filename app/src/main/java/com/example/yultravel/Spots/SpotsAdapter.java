@@ -5,12 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -25,11 +27,13 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         String description;
         String url;
         String address;
+        ImageView imageView;
 
         public SpotsViewHolder(View itemView, SpotsAdapter adapter) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
+            imageView = itemView.findViewById(R.id.CardPhoto);
 
             itemView.setOnClickListener(this);
         }
@@ -87,6 +91,11 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         SpotsViewHolder.url = spotArrayList.get(i).getURL();
         SpotsViewHolder.address = spotArrayList.get(i).getAddress();
         SpotsViewHolder.description = spotArrayList.get(i).getDescription();
+        Picasso.with(context)
+                .load(spotArrayList.get(i).getImgUrl())
+                .resize(600,400)
+                .into(SpotsViewHolder.imageView);
+
     }
 
     /**
