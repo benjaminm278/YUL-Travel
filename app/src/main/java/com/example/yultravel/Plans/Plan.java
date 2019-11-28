@@ -11,23 +11,15 @@ public class Plan {
     @NonNull
     @ColumnInfo(name ="planName")
     private String title;
-    private String activity;
-    private String location;
-    public Plan(@NonNull String planName, String activity, String location){
-        this.title = planName;
-        this.activity=activity;
-        this.location=location;
+
+    public Plan(@NonNull String title){
+        this.title =title;
+
     }
 
     public String getTitle() {
         return this.title;
     }
 
-    public String getActivity() {
-        return activity;
-    }
 
-    public String getLocation() {
-        return location;
-    }
 }
