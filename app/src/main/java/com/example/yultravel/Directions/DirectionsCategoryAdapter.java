@@ -17,7 +17,7 @@ import com.example.yultravel.R;
 import java.util.ArrayList;
 
 public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCategoryAdapter.DirectionsCategoryViewHolder> {
-    private ArrayList<String> category_names;
+    private ArrayList<Category> category_names;
     private LayoutInflater mInflater;
     private Context ctx;
 
@@ -46,7 +46,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
      * @param ctx
      * @param category_names
      */
-    public DirectionsCategoryAdapter(Context ctx, ArrayList<String> category_names) {
+    public DirectionsCategoryAdapter(Context ctx, ArrayList<Category> category_names) {
         mInflater = LayoutInflater.from(ctx);
         this.category_names = category_names;
         this.ctx = ctx;
@@ -82,7 +82,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
      */
     @Override
     public void onBindViewHolder(@NonNull DirectionsCategoryViewHolder holder, int position) {
-        holder.categoryTxt.setText(category_names.get(position) + " ");
+        holder.categoryTxt.setText(category_names.get(position).getCategoryName() + " ");
     }
 
     /**

@@ -18,14 +18,13 @@ public class DirectionsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_directions);
 
         // String arraylist
-        ArrayList<String> categoryNames = new ArrayList();
-        categoryNames.add("Airport");
-        categoryNames.add("Restaurants");
+        ArrayList<Category> categoryNames = new ArrayList();
+        categoryNames.add(new Category("Airport", R.drawable.ic_airplane_teal_36dp));
+        /*categoryNames.add("Restaurants");
         categoryNames.add("Metro (subway)");
         categoryNames.add("Parks");
         categoryNames.add("Shops");
-        categoryNames.add("Stadium");
-        Collections.sort(categoryNames);
+        categoryNames.add("Stadium");*/
 
         // RecyclerView code
         RecyclerView directionsRC = findViewById(R.id.directionsCategoryRecyclerView);
