@@ -24,12 +24,7 @@ public class DirectionsActivity extends AppCompatActivity {
         categoryNames.add(new Category("Metro", R.drawable.ic_airplane_teal_36dp));
         categoryNames.add(new Category("Parks", R.drawable.ic_airplane_teal_36dp));
         categoryNames.add(new Category("Restaurants", R.drawable.ic_airplane_teal_36dp));
-        categoryNames.add(new Category("Shops", R.drawable.ic_airplane_teal_36dp));
-        /*categoryNames.add("Restaurants");
-        categoryNames.add("Metro (subway)");
-        categoryNames.add("Parks");
-        categoryNames.add("Shops");
-        categoryNames.add("Stadium");*/
+        categoryNames.add(new Category("Shops", R.drawable.shop_flat_icon));
 
         // RecyclerView code
         RecyclerView directionsRC = findViewById(R.id.directionsCategoryRecyclerView);
