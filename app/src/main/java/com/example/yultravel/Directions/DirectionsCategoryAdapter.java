@@ -1,11 +1,13 @@
 package com.example.yultravel.Directions;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,12 +28,12 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     public static class DirectionsCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final TextView categoryTxt;
         DirectionsCategoryAdapter adapter;
+        ImageView categoryIcon;
         public DirectionsCategoryViewHolder(@NonNull View itemView, DirectionsCategoryAdapter adapter) {
             super(itemView);
-
             this.adapter = adapter;
             categoryTxt = itemView.findViewById(R.id.nameTextView);
-
+            categoryIcon = itemView.findViewById(R.id.categoryIcon);
             itemView.setOnClickListener(this);
         }
 
@@ -83,6 +85,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     @Override
     public void onBindViewHolder(@NonNull DirectionsCategoryViewHolder holder, int position) {
         holder.categoryTxt.setText(category_names.get(position).getCategoryName() + " ");
+        holder.categoryIcon.setBackgroundResource(category_names.get(position).getImageId());
     }
 
     /**
