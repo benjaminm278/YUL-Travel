@@ -76,13 +76,13 @@
                             app:srcCompat="@drawable/weather" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/weatherLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/weather"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -118,13 +118,13 @@
                             app:srcCompat="@drawable/ic_plan" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/plansLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/plans"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -158,13 +158,13 @@
                             app:srcCompat="@drawable/spots" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/spotsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/spots"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -197,13 +197,13 @@
                             app:srcCompat="@drawable/direction_arrow" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/directionsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/directions"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
