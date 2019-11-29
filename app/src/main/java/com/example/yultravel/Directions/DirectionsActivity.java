@@ -20,10 +20,10 @@ public class DirectionsActivity extends AppCompatActivity {
         // String arraylist
         ArrayList<Category> categoryNames = new ArrayList();
         categoryNames.add(new Category("Airport", R.drawable.ic_airplane_teal_36dp));
-        categoryNames.add(new Category("Landmarks", R.drawable.ic_airplane_teal_36dp));
-        categoryNames.add(new Category("Metro", R.drawable.ic_airplane_teal_36dp));
-        categoryNames.add(new Category("Parks", R.drawable.ic_airplane_teal_36dp));
-        categoryNames.add(new Category("Restaurants", R.drawable.ic_airplane_teal_36dp));
+        categoryNames.add(new Category("Landmarks", R.drawable.landmark_flat_icon));
+        categoryNames.add(new Category("Metro", R.drawable.metro_flat_icon));
+        categoryNames.add(new Category("Parks", R.drawable.park_flat_icon));
+        categoryNames.add(new Category("Restaurants", R.drawable.restaurant_flat_icon));
         categoryNames.add(new Category("Shops", R.drawable.shop_flat_icon));
 
         // RecyclerView code
