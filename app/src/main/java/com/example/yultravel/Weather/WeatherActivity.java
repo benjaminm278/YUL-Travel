@@ -29,8 +29,6 @@ import java.util.ArrayList;
 import java.util.function.ToLongBiFunction;
 
 public class WeatherActivity extends AppCompatActivity {
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,10 +64,6 @@ public class WeatherActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
-
     }
-
-
 }
 
