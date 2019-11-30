@@ -72,14 +72,17 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
         String location = locationEditTxt.getText().toString();
 
         String date = dateTxtView.getText().toString();
+        String time = timeTxtView.getText().toString();
 
         // Verify if plan details are valid
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(location) || TextUtils.isEmpty(date)) {
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(location) || TextUtils.isEmpty(date)
+            || TextUtils.isEmpty(time)) {
             Toast.makeText(this, "All fields must be filled to create a plan!",
                     Toast.LENGTH_SHORT).show();
         }
         else {
             // Valid
+
         }
     }
 
@@ -114,7 +117,27 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     }
 
     public void processTimePickerResult(int hourOfDay, int minute) {
+        String ampm;
+        if (hourOfDay < 12) {
+            ampm = "AM";
+        }
+        else {
+            hourOfDay -= 12;
+            ampm = "PM";
+        }
+        String hour = "" + hourOfDay;
 
+        String min = "";
+        if (minute < 10) {
+            min = "0";
+        }
+        min += minute;
+
+        String time = hour + ":" + min + " " + ampm;
+
+        Log.d("bangbang", time);
+
+        timeTxtView.setText(time);
     }
 
     public void openFragment(View view) {
