@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class MoreDirectionsActivity extends AppCompatActivity {
+public class MoreDirectionsActivity extends HomeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class MoreDirectionsActivity extends AppCompatActivity {
             locations.add(new Location("Montreal International Airport",
                     "YUL airport - accessible by bus, car and taxi", "YUL Airport"));
         }
-        else if (category.compareToIgnoreCase("metro (subway)") == 1) {
+        else if (category.compareToIgnoreCase("metro") == 1) {
             locations.add(new Location("Find nearest metro station",
                     "Nearest metro station", "Nearest STM metro station"));
             locations.add(new Location("Orange line station",
@@ -62,7 +63,7 @@ public class MoreDirectionsActivity extends AppCompatActivity {
             locations.add(new Location("",
                     "953 Boulevard Decarie", "932 Saint Croix Ave"));
         }
-        else if (category.compareToIgnoreCase("stadium") == 1) {
+        else if (category.compareToIgnoreCase("landmarks") == 1) {
             locations.add(new Location("Find nearby stadiums",
                     "Watch a game", "Montreal stadium"));
             locations.add(new Location("Olympic stadium",

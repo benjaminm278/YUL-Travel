@@ -14,19 +14,15 @@
   ~ limitations under the License.
   -->
 
-<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <EditTextPreference
-        app:key="signature"
-        app:title="@string/signature_title"
-        app:useSimpleSummaryProvider="true" />
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-        app:defaultValue="reply"
-        app:entries="@array/reply_entries"
-        app:entryValues="@array/reply_values"
-        app:key="reply"
-        app:title="@string/reply_title"
-        app:useSimpleSummaryProvider="true" />
+        android:defaultValue="false"
+        android:entries="@array/interest_entries"
+        android:entryValues="@array/interest_values"
+        android:key="list_preference_1"
+        android:title="Plan reminder"
+        app:summary="Be notified at a specific time before a plan" />
 
-</androidx.preference.PreferenceScreen>
+</PreferenceScreen>

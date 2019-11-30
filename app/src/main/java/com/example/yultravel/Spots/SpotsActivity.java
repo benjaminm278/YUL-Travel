@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 import com.example.yultravel.Weather.PagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class SpotsActivity extends AppCompatActivity {
+public class SpotsActivity extends HomeActivity {
 
     public static final String DATE_RANGE_EXTRA = "com.example.yultravel.Spots.dateRange.EXTRA";
     @Override
@@ -23,8 +24,6 @@ public class SpotsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spots);
 
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.spottoolbar);
-        setSupportActionBar(toolbar);
         TabLayout tabLayout = findViewById(R.id.spotTab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Today's Hot Spots"));
         tabLayout.addTab(tabLayout.newTab().setText("This Week"));

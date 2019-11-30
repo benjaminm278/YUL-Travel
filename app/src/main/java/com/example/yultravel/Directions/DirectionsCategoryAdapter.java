@@ -1,11 +1,13 @@
 package com.example.yultravel.Directions;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +19,7 @@ import com.example.yultravel.R;
 import java.util.ArrayList;
 
 public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCategoryAdapter.DirectionsCategoryViewHolder> {
-    private ArrayList<String> category_names;
+    private ArrayList<Category> category_names;
     private LayoutInflater mInflater;
     private Context ctx;
 
@@ -26,12 +28,12 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
     public static class DirectionsCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         final TextView categoryTxt;
         DirectionsCategoryAdapter adapter;
+        ImageView categoryIcon;
         public DirectionsCategoryViewHolder(@NonNull View itemView, DirectionsCategoryAdapter adapter) {
             super(itemView);
-
             this.adapter = adapter;
             categoryTxt = itemView.findViewById(R.id.nameTextView);
-
+            categoryIcon = itemView.findViewById(R.id.categoryIcon);
             itemView.setOnClickListener(this);
         }
 
@@ -46,7 +48,7 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
      * @param ctx
      * @param category_names
      */
-    public DirectionsCategoryAdapter(Context ctx, ArrayList<String> category_names) {
+    public DirectionsCategoryAdapter(Context ctx, ArrayList<Category> category_names) {
         mInflater = LayoutInflater.from(ctx);
         this.category_names = category_names;
         this.ctx = ctx;
@@ -82,7 +84,8 @@ public class DirectionsCategoryAdapter extends RecyclerView.Adapter<DirectionsCa
      */
     @Override
     public void onBindViewHolder(@NonNull DirectionsCategoryViewHolder holder, int position) {
-        holder.categoryTxt.setText(category_names.get(position) + " ");
+        holder.categoryTxt.setText(category_names.get(position).getCategoryName() + " ");
+        holder.categoryIcon.setBackgroundResource(category_names.get(position).getImageId());
     }
 
     /**

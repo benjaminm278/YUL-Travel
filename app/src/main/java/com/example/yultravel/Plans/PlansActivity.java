@@ -21,7 +21,7 @@ import com.example.yultravel.R;
 
 import java.util.List;
 
-public class PlansActivity extends AppCompatActivity {
+public class PlansActivity extends HomeActivity {
     RecyclerView recyclerView;
     private PlanViewModel mPlanViewModel;
     public static final int NEW_PLAN_ACTIVITY_REQUEST_CODE = 1;

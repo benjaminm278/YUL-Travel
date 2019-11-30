@@ -32,7 +32,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent activityIntent;
 
         switch (view.getId()) {
-
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;
@@ -75,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent activity;
 
         switch (item.getItemId()) {
-            case R.id.settings:
+            case R.id.settingsConstraintLayout:
                 activity = new Intent(this, SettingsActivity.class);
                 break;
             default:

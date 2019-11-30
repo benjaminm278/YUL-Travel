@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
@@ -28,16 +29,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.function.ToLongBiFunction;
 
-public class WeatherActivity extends AppCompatActivity {
-
-
+public class WeatherActivity extends HomeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
 
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("current Weather"));
         tabLayout.addTab(tabLayout.newTab().setText("Hourly"));
@@ -66,10 +63,6 @@ public class WeatherActivity extends AppCompatActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-
-
     }
-
-
 }
 
