@@ -44,7 +44,6 @@ public class PlansActivity extends HomeActivity {
             @Override
             public void onChanged(List<Plan> plans) {
                 adapter.setPlans(plans);
-
             }
         });
     }

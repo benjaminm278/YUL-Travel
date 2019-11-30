@@ -2,6 +2,7 @@ package com.example.yultravel.Plans;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.app.Dialog;
 import android.os.Bundle;
@@ -15,6 +16,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.yultravel.Database.Plan;
+import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.R;
 
 import java.text.ParseException;
@@ -82,7 +85,10 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
         }
         else {
             // Valid
-
+            PlanViewModel mPlanViewModel = ViewModelProviders.of(this)
+                    .get(PlanViewModel.class);
+            mPlanViewModel.insert(new Plan(name));
+            finish();
         }
     }
 
