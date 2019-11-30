@@ -15,14 +15,13 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/CategoryIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/categoryIcon"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_airport_shuttle_blue_48dp" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/nameTextView"
@@ -32,9 +31,9 @@
                 android:text="Airport"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/CategoryIcon"
-                app:layout_constraintStart_toEndOf="@+id/CategoryIcon"
-                app:layout_constraintTop_toTopOf="@+id/CategoryIcon" />
+                app:layout_constraintBottom_toBottomOf="@+id/categoryIcon"
+                app:layout_constraintStart_toEndOf="@+id/categoryIcon"
+                app:layout_constraintTop_toTopOf="@+id/categoryIcon" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

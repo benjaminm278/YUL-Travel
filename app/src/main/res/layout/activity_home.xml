@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4DFAF6F6"
     tools:context=".HomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,23 +23,45 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/CaptionPicture"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/mont_royal_view"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_height="173dp">
+
+                <ImageView
+                    android:id="@+id/headerBackgroundImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:scaleY="1.4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/confetti_background" />
+
+                <TextView
+                    android:id="@+id/HomeHeaderTextView"
+                    android:layout_width="314dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:gravity="center"
+                    android:rotation="-9"
+                    android:text="Welcome to \nMTL!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/headerBackgroundImageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/setupActivityButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
+                android:onClick="openActivity"
                 android:text="@string/setup_application" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -58,8 +78,7 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    >
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
@@ -76,13 +95,13 @@
                             app:srcCompat="@drawable/weather" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/weatherLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/weather"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -118,13 +137,13 @@
                             app:srcCompat="@drawable/ic_plan" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/plansLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/plans"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -158,13 +177,13 @@
                             app:srcCompat="@drawable/spots" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/spotsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/spots"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -197,13 +216,13 @@
                             app:srcCompat="@drawable/direction_arrow" />
 
                         <TextView
-                            android:id="@+id/textView2"
+                            android:id="@+id/directionsLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginEnd="8dp"
                             android:text="@string/directions"
-                            android:textColor="#DCF84A4A"
+                            android:textColor="#DC776D6D"
                             android:textSize="20sp"
                             android:textStyle="bold"
                             app:layout_constraintEnd_toEndOf="parent"

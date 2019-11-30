@@ -23,8 +23,6 @@ public class SpotsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spots);
 
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.spottoolbar);
-        setSupportActionBar(toolbar);
         TabLayout tabLayout = findViewById(R.id.spotTab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Today's Hot Spots"));
         tabLayout.addTab(tabLayout.newTab().setText("This Week"));

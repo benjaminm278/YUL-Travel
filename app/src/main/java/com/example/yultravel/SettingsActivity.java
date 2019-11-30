@@ -19,10 +19,10 @@ public class SettingsActivity extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         if (savedInstanceState == null) {
-/*            getSupportFragmentManager()
+            getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.settings, new HeaderFragment())
-                    .commit();*/
+                    .commit();
         } else {
             setTitle(savedInstanceState.getCharSequence(TITLE_TAG));
         }
@@ -75,26 +75,30 @@ public class SettingsActivity extends AppCompatActivity implements
     }
 
     public static class HeaderFragment extends PreferenceFragmentCompat {
-
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.header_preferences, rootKey);
         }
     }
 
-    public static class MessagesFragment extends PreferenceFragmentCompat {
-
+    public static class ProfileFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.messages_preferences, rootKey);
+            setPreferencesFromResource(R.xml.profile_preferences, rootKey);
         }
     }
 
-    public static class SyncFragment extends PreferenceFragmentCompat {
-
+    public static class NotificationsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.sync_preferences, rootKey);
+            setPreferencesFromResource(R.xml.notification_preferences, rootKey);
+        }
+    }
+
+    public static class TranslationFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.translation_preferences, rootKey);
         }
     }
 }

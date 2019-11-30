@@ -9,4 +9,30 @@
         <item>reply</item>
         <item>reply_all</item>
     </string-array>
+
+    <string-array name="interest_entries">
+        <item>Sports</item>
+        <item>Nature</item>
+        <item>Food</item>
+        <item>Comedy</item>
+        <item>Sight seeing</item>
+    </string-array>
+
+    <string-array name="interest_values">
+        <item>sports</item>
+        <item>nature</item>
+        <item>food</item>
+        <item>comedy</item>
+        <item>sight_seeing</item>
+    </string-array>
+
+    <string-array name="lang_entries">
+        <item>English</item>
+        <item>French</item>
+    </string-array>
+
+    <string-array name="lang_values">
+        <item>english</item>
+        <item>french</item>
+    </string-array>
 </resources>
