@@ -1,6 +1,5 @@
 package com.example.yultravel.Plans;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -24,12 +23,12 @@ import static android.app.Activity.RESULT_OK;
  * A simple {@link Fragment} subclass.
  */
 public class PlanFragment extends DialogFragment {
-     static final String EXTRA_REPLY ="com.example.yultravel.REPLY";
+    static final String EXTRA_REPLY ="com.example.yultravel.REPLY";
     private EditText mActivityName;
+
     public PlanFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,12 +43,13 @@ public class PlanFragment extends DialogFragment {
                 Intent replyIntent = new Intent();
                 if(TextUtils.isEmpty(mActivityName.getText())){
                     getActivity().setResult(RESULT_CANCELED,replyIntent);
-                } else{
+                }
+                else {
                     String plan = mActivityName.getText().toString();
                     replyIntent.putExtra(EXTRA_REPLY,plan);
                     getActivity().setResult(RESULT_OK,replyIntent);
                 }
-                getActivity().finish();
+                //getActivity().finish();
             }
         });
         Button btnCancel = v.findViewById(R.id.buttonCancelPlan);

@@ -20,7 +20,6 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     List<Plan> mPlans;
 
     public static class PlanViewHolder extends RecyclerView.ViewHolder{
-
         TextView title;
          PlanViewHolder( View itemView) {
             super(itemView);
@@ -47,7 +46,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     public void onBindViewHolder(PlanViewHolder planViewHolder, int i) {
             planViewHolder.title.setText(mPlans.get(i).getTitle());
     }
-    void setPlans(List<Plan> plans){
+
+    public void setPlans(List<Plan> plans){
         mPlans = plans;
         notifyDataSetChanged();
     }

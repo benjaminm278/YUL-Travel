@@ -13,7 +13,7 @@ public class Plan {
     private String title;
 
     public Plan(@NonNull String title) {
-        this.title =title;
+        this.title = title;
     }
 
     public String getTitle() {

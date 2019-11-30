@@ -24,16 +24,20 @@ import java.util.List;
 public class PlansActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     private PlanViewModel mPlanViewModel;
-    public static final int NEW_PLAN_ACTIVITY_REQUEST_CODE= 1;
+    public static final int NEW_PLAN_ACTIVITY_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plans);
+
+        // RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final PlanAdapter adapter = new PlanAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // View Model
         mPlanViewModel = ViewModelProviders.of(this).get(PlanViewModel.class);
         mPlanViewModel.getAllPlans().observe(this, new Observer<List<Plan>>() {
             @Override
@@ -49,18 +53,10 @@ public class PlansActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DialogFragment fragment = new PlanFragment();
-               fragment.show(getSupportFragmentManager(),"Add");
-               fragment.startActivityForResult(getIntent(),NEW_PLAN_ACTIVITY_REQUEST_CODE);
-
-
-
-
-
+                fragment.show(getSupportFragmentManager(),"Add");
+                fragment.startActivityForResult(getIntent(), NEW_PLAN_ACTIVITY_REQUEST_CODE);
             }
         });
-
-
-
     }
 
     @Override
@@ -69,13 +65,9 @@ public class PlansActivity extends AppCompatActivity {
         if(requestCode == NEW_PLAN_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK){
             Plan plan = new Plan(data.getStringExtra(PlanFragment.EXTRA_REPLY));
             mPlanViewModel.insert(plan);
-
-        } else{
-            Toast.makeText(
-                    getApplicationContext(),
-                  "Not Saved.",
-                    Toast.LENGTH_LONG).show();
-
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Not Saved.", Toast.LENGTH_LONG).show();
         }
     }
 }
