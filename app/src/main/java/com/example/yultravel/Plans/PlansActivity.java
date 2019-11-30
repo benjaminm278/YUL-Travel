@@ -3,6 +3,7 @@ package com.example.yultravel.Plans;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.Database.Plan;
 import com.example.yultravel.Database.PlanViewModel;
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 
 import java.util.List;
@@ -43,22 +45,11 @@ public class PlansActivity extends HomeActivity {
             @Override
             public void onChanged(List<Plan> plans) {
                 adapter.setPlans(plans);
-
-            }
-        });
-
-        Button btnAdd = findViewById(R.id.buttonAddPlan);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceType")
-            @Override
-            public void onClick(View v) {
-                DialogFragment fragment = new PlanFragment();
-                fragment.show(getSupportFragmentManager(),"Add");
-                fragment.startActivityForResult(getIntent(), NEW_PLAN_ACTIVITY_REQUEST_CODE);
             }
         });
     }
 
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -69,5 +60,23 @@ public class PlansActivity extends HomeActivity {
         else {
             Toast.makeText(getApplicationContext(), "Not Saved.", Toast.LENGTH_LONG).show();
         }
+    }*/
+
+    /**
+     * Opens new activity based on button clicked
+     * @param view
+     */
+    public void openNewActivity(View view) {
+        Intent i;
+        switch (view.getId()) {
+            case R.id.addPlanButton:
+                i = new Intent(this, AddPlanActivity.class);
+                break;
+            default:
+                i = null;
+        }
+
+        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
+        startActivity(i);
     }
 }
