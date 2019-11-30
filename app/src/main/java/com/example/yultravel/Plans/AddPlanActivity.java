@@ -160,4 +160,8 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
                 break;
         }
     }
+
+    public void closeAddPlanActivity(View view) {
+        finish();
+    }
 }
