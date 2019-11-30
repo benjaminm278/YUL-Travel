@@ -18,11 +18,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;
 
-public class PlansActivity extends AppCompatActivity {
+public class PlansActivity extends HomeActivity {
     RecyclerView recyclerView;
     ArrayList<Plan> planArrayList;
     TextView title;

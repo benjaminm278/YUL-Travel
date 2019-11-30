@@ -5,12 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class DirectionsActivity extends AppCompatActivity {
+public class DirectionsActivity extends HomeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
