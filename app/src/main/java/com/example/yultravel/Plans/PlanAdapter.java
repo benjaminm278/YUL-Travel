@@ -54,10 +54,11 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
 
     @Override
     public int getItemCount() {
-        if (mPlans!=null)
-        return mPlans.size();
-        else return 0;
+        if (mPlans != null) {
+            return mPlans.size();
+        }
+        else {
+            return 0;
+        }
     }
-
-
 }

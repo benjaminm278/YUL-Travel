@@ -10,7 +10,7 @@ import java.util.List;
 
 public class PlanViewModel extends AndroidViewModel {
     private PlanRepository mRepository;
-    private LiveData<List<Plan>>mAllPlans;
+    private LiveData<List<Plan>> mAllPlans;
 
     public PlanViewModel(@NonNull Application application) {
         super(application);

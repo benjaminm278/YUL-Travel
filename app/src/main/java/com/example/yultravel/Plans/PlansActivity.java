@@ -3,6 +3,7 @@ package com.example.yultravel.Plans;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -48,6 +49,7 @@ public class PlansActivity extends HomeActivity {
         });
     }
 
+    /*
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -58,7 +60,7 @@ public class PlansActivity extends HomeActivity {
         else {
             Toast.makeText(getApplicationContext(), "Not Saved.", Toast.LENGTH_LONG).show();
         }
-    }
+    }*/
 
     /**
      * Opens new activity based on button clicked
