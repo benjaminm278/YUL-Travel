@@ -1,12 +1,12 @@
-package com.example.yultravel.Plans;
+package com.example.yultravel.Database;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
-import androidx.room.Update;
+
+import com.example.yultravel.Database.Plan;
 
 import java.util.List;
 
@@ -14,8 +14,10 @@ import java.util.List;
 public interface PlanDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     void insertPlan(Plan plan);
+
     @Query("DELETE from plan_table")
-    void detleAll();
+    void deleteAll();
+
     @Query("SELECT * from plan_table")
-   LiveData<List<Plan>> getAllPlans();
+    LiveData<List<Plan>> getAllPlans();
 }

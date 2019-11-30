@@ -1,4 +1,4 @@
-package com.example.yultravel.Plans;
+package com.example.yultravel.Database;
 
 import android.app.Application;
 
@@ -11,14 +11,17 @@ import java.util.List;
 public class PlanViewModel extends AndroidViewModel {
     private PlanRepository mRepository;
     private LiveData<List<Plan>>mAllPlans;
+
     public PlanViewModel(@NonNull Application application) {
         super(application);
         mRepository = new PlanRepository(application);
         mAllPlans = mRepository.getAllPlans();
     }
-    LiveData<List<Plan>> getAllPlans(){
+
+    public LiveData<List<Plan>> getAllPlans(){
         return mAllPlans;
     }
+
     public void insert(Plan plan){
         mRepository.insertPlan(plan);
     }

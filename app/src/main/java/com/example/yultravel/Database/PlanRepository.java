@@ -1,12 +1,9 @@
-package com.example.yultravel.Plans;
+package com.example.yultravel.Database;
 
 import android.app.Application;
 import android.os.AsyncTask;
 
 import androidx.lifecycle.LiveData;
-
-import com.example.yultravel.Database.ProfileRepository;
-import com.example.yultravel.Database.YULTravelDatabase;
 
 import java.util.List;
 
@@ -19,16 +16,19 @@ public class PlanRepository {
         mPlanDAO = db.PlanDAO();
         mAllPlans = mPlanDAO.getAllPlans();
     }
+
     LiveData<List<Plan>>getAllPlans(){
         return mAllPlans;
     }
+
     public void insertPlan(Plan plan){
         new insertAsyncTask(mPlanDAO).execute(plan);
     }
-    private static class insertAsyncTask extends AsyncTask<Plan,Void,Void>{
+
+    private static class insertAsyncTask extends AsyncTask<Plan, Void, Void>{
         private PlanDAO mAsyncTaskDao;
-        insertAsyncTask(PlanDAO dao){
-            mAsyncTaskDao =dao;
+        insertAsyncTask(PlanDAO dao) {
+            mAsyncTaskDao = dao;
         }
 
         @Override

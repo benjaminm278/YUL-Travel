@@ -1,13 +1,10 @@
 package com.example.yultravel.Plans;
 
 import android.annotation.SuppressLint;
-import android.app.Instrumentation;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -18,9 +15,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.Database.Plan;
+import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PlansActivity extends AppCompatActivity {

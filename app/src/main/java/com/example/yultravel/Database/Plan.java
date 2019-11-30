@@ -1,4 +1,4 @@
-package com.example.yultravel.Plans;
+package com.example.yultravel.Database;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
@@ -12,14 +12,11 @@ public class Plan {
     @ColumnInfo(name ="planName")
     private String title;
 
-    public Plan(@NonNull String title){
+    public Plan(@NonNull String title) {
         this.title =title;
-
     }
 
     public String getTitle() {
         return this.title;
     }
-
-
 }

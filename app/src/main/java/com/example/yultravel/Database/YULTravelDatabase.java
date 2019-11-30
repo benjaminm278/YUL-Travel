@@ -9,10 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import com.example.yultravel.Plans.Plan;
-import com.example.yultravel.Plans.PlanDAO;
-
-@Database(entities = {Profile.class,Plan.class}, version = 1, exportSchema = false )
+@Database(entities = {Profile.class, Plan.class}, version = 1, exportSchema = false )
 
 public abstract class YULTravelDatabase extends RoomDatabase {
     // Defines the DAO that works with the room
@@ -33,43 +30,58 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                 if (INSTANCE == null) {
                     // Create database
                     INSTANCE = Room.databaseBuilder(ctx.getApplicationContext(),
-                            YULTravelDatabase.class, "profile_database")
+                            YULTravelDatabase.class, "YUL_database")
                           .fallbackToDestructiveMigration() // Wipes and rebuilds instead of migrating
                             .addCallback(sRoomDB)
                             .build();
-
+                    /*
                     INSTANCE = Room.databaseBuilder(ctx.getApplicationContext(),
                             YULTravelDatabase.class,"plan_database")
                     .fallbackToDestructiveMigration()
                     .addCallback(sRoomDB)
-                    .build();
+                    .build();*/
                 }
             }
         }
         return INSTANCE;
     }
 
+    /**
+     * Callback method for database
+     */
     private static RoomDatabase.Callback sRoomDB = new RoomDatabase.Callback() {
+        /**
+         * Opens database
+         * @param sqldb
+         */
         public void onOpen(@NonNull SupportSQLiteDatabase sqldb) {
             super.onOpen(sqldb);
             new PopulateDbAsync(INSTANCE).execute();
         }
 
+        /**
+         * Asynchronous class which executes database code in another thread
+         */
         class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
-            //private final ProfileDAO pDAO;
+            private final ProfileDAO pDAO;
             private final PlanDAO planDAO;
-            String[]plans= {"hiking","Biking","CURLING"};
+            String[] plans= {"Hiking","Biking","CURLING"};
 
             public PopulateDbAsync(YULTravelDatabase instance) {
-                //pDAO = instance.ProfileDAO();
+                pDAO = instance.ProfileDAO();
                 planDAO = instance.PlanDAO();
-
             }
 
+            /**
+             * Executes database query code
+             * @param voids
+             * @return
+             */
             @Override
             protected Void doInBackground(Void... voids) {
-               // pDAO.deleteAll();
-                planDAO.detleAll();
+                pDAO.deleteAll();
+
+                planDAO.deleteAll();
                 for (int i=0; i<plans.length; i++){
                     Plan plan = new Plan(plans[i]);
                     planDAO.insertPlan(plan);
