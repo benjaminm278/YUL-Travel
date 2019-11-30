@@ -75,7 +75,7 @@ public class HomeActivity extends AppCompatActivity {
         Intent activity;
 
         switch (item.getItemId()) {
-            case R.id.settings:
+            case R.id.settingsConstraintLayout:
                 activity = new Intent(this, SettingsActivity.class);
                 break;
             default:
