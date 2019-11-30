@@ -6,23 +6,18 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
+import com.example.yultravel.Database.Plan;
+
 import java.util.List;
 
 @Dao
-public interface ProfileDAO {
-
+public interface PlanDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(Profile profile);
+    void insertPlan(Plan plan);
 
-    /**
-     * Deletes all rows from table
-     */
-    @Query("DELETE FROM profile_table")
+    @Query("DELETE from plan_table")
     void deleteAll();
 
-    @Query("SELECT * FROM profile_table")
-    LiveData<List<Profile>> getAllProfiles();
-
-
-
+    @Query("SELECT * from plan_table")
+    LiveData<List<Plan>> getAllPlans();
 }

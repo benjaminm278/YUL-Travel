@@ -7,8 +7,6 @@ public class Spot {
     private String address;
     private String imgUrl;
 
-
-
     /**
      *
      * @param spotName
@@ -29,10 +27,15 @@ public class Spot {
         return this.title;
     }
 
-    public String getURL() { return this.url; }
+    public String getURL() {
+        return this.url;
+    }
 
     public String getAddress() {
         return this.address;
     }
-    public String getImgUrl() { return imgUrl; }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
 }

@@ -9,27 +9,27 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.Database.Plan;
 import com.example.yultravel.R;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder> {
 
     LayoutInflater mInflater;
-    ArrayList<Plan> planArrayList;
+    List<Plan> mPlans;
 
     public static class PlanViewHolder extends RecyclerView.ViewHolder{
-        PlanAdapter adapter;
         TextView title;
-         PlanViewHolder( View itemView, PlanAdapter adapter) {
+         PlanViewHolder( View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.textViewPlan);
-            this.adapter =adapter;
+
         }
     }
-    PlanAdapter(Context context, ArrayList<Plan> planArrayList) {
+    PlanAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
-        this.planArrayList = planArrayList;
+
     }
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
@@ -39,17 +39,24 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     @Override
     public PlanViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View mItemView = mInflater.inflate(R.layout.card_item_plan,viewGroup,false);
-        return new PlanViewHolder(mItemView,this);
+        return new PlanViewHolder(mItemView);
     }
 
     @Override
     public void onBindViewHolder(PlanViewHolder planViewHolder, int i) {
-            planViewHolder.title.setText(planArrayList.get(i).getTitle());
+            planViewHolder.title.setText(mPlans.get(i).getTitle());
+    }
+
+    public void setPlans(List<Plan> plans){
+        mPlans = plans;
+        notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return planArrayList.size();
+        if (mPlans!=null)
+        return mPlans.size();
+        else return 0;
     }
 
 

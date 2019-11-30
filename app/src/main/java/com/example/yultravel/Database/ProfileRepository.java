@@ -26,7 +26,7 @@ public class ProfileRepository {
         new insertAsyncTask(mProfileDao).execute(prof);
     }
 
-    private static class insertAsyncTask extends AsyncTask<Profile, Void, Void> {
+    public static class insertAsyncTask extends AsyncTask<Profile, Void, Void> {
         private ProfileDAO mAsyncTaskDao;
 
         insertAsyncTask(ProfileDAO pdao) {

@@ -14,9 +14,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.Database.Plan;
+import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.Plans.PlanFragment;
 import com.example.yultravel.R;
 
@@ -63,7 +67,7 @@ public class MoreDirectionsCategoryAdapter extends
 
                     TextView t2 = v.getRootView().findViewById(R.id.addressTextView);
                     String address = t2.getText().toString();
-                    addToPlans(locName, address);
+                    addToPlans(locName, address, ctx);
                     break;
                 default:
                     TextView t3 = v.getRootView().findViewById(R.id.addressTextView);
@@ -77,9 +81,18 @@ public class MoreDirectionsCategoryAdapter extends
     /**
      * Adds plan to database
      */
-    private void addToPlans(String location, String address) {
+    private void addToPlans(String location, String address, Context ctx) {
+        Toast.makeText(ctx, "Plan added", Toast.LENGTH_SHORT).show();
+        // Create a plan object
+        Plan p = new Plan("Visit " + location);
+        // Store that plan object in the database
+        PlanViewModel mPlanViewModel = ViewModelProviders.of((FragmentActivity) ctx)
+                .get(PlanViewModel.class);
+        mPlanViewModel.insert(p);
+
+        /*
         DialogFragment fragment = new PlanFragment();
-        fragment.show(mFragmentManager, "");
+        fragment.show(mFragmentManager, "");*/
     }
 
     /**
