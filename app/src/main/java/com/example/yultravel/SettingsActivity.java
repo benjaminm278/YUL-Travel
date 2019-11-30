@@ -75,26 +75,23 @@ public class SettingsActivity extends AppCompatActivity implements
     }
 
     public static class HeaderFragment extends PreferenceFragmentCompat {
-
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.header_preferences, rootKey);
         }
     }
 
-    public static class MessagesFragment extends PreferenceFragmentCompat {
-
+    public static class ProfileFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.messages_preferences, rootKey);
+            setPreferencesFromResource(R.xml.profile_preferences, rootKey);
         }
     }
 
-    public static class SyncFragment extends PreferenceFragmentCompat {
-
+    public static class NotificationsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.sync_preferences, rootKey);
+            setPreferencesFromResource(R.xml.notification_preferences, rootKey);
         }
     }
 }

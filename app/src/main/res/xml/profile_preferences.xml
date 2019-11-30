@@ -14,19 +14,23 @@
   ~ limitations under the License.
   -->
 
-<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditTextPreference
+        android:id="@+id/nameEditTextPref"
         app:key="signature"
-        app:title="@string/signature_title"
+        app:title="Name"
         app:useSimpleSummaryProvider="true" />
 
     <ListPreference
+        android:id="@+id/countryCheckBoxPref"
         app:defaultValue="reply"
         app:entries="@array/reply_entries"
         app:entryValues="@array/reply_values"
         app:key="reply"
-        app:title="@string/reply_title"
+        app:title="Country"
         app:useSimpleSummaryProvider="true" />
+    <MultiSelectListPreference android:title="Interests" />
 
-</androidx.preference.PreferenceScreen>
+</PreferenceScreen>
