@@ -9,12 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class MoreDirectionsActivity extends AppCompatActivity {
+public class MoreDirectionsActivity extends HomeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
