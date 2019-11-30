@@ -119,7 +119,8 @@
                 android:id="@+id/button2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
+                android:layout_marginStart="8dp"
+                android:onClick="openDateFragment"
                 android:text="Choose date"
                 app:layout_constraintBottom_toBottomOf="@+id/textView10"
                 app:layout_constraintStart_toEndOf="@+id/textView10"
@@ -127,15 +128,51 @@
                 app:layout_constraintVertical_bias="0.187" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/addPlanToDBButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:onClick="addPlan"
                 android:text="Add"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#C6FFFFFF"
+                android:src="@drawable/ic_x_symbol"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dateOfPlanTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/textView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+            <TextView
+                android:id="@+id/timeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/dateTextView"
+                app:layout_constraintTop_toBottomOf="@+id/dateTextView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
