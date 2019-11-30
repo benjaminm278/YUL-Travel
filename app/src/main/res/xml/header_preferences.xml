@@ -28,9 +28,9 @@
     <PreferenceCategory app:title="Language" />
 
     <Preference
-        app:fragment="com.example.yultravel.SettingsActivity$MessagesFragment"
+        app:fragment="com.example.yultravel.SettingsActivity$TranslationFragment"
         app:icon="@drawable/messages"
-        app:key="messages_header"
+        app:key="translation_header"
         app:summary="Use the app in another language!"
         app:title="Change language" />
 
@@ -38,7 +38,7 @@
         app:title="Notifications"/>
 
     <Preference
-       app:fragment="com.example.yultravel.SettingsActivity$NotificationsFragment"
+        app:fragment="com.example.yultravel.SettingsActivity$NotificationsFragment"
         app:icon="@drawable/sync"
         app:key="sync_header"
         app:title="Activate/deactivate notifications"

@@ -32,7 +32,6 @@ public class HomeActivity extends AppCompatActivity {
         Intent activityIntent;
 
         switch (view.getId()) {
-
             case R.id.setupActivityButton:
                 activityIntent = new Intent(this, SetupActivity.class);
                 break;

@@ -14,17 +14,15 @@
   ~ limitations under the License.
   -->
 
-<androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <SwitchPreferenceCompat
-        app:key="sync"
-        app:title="@string/sync_title" />
+    <ListPreference
+        android:defaultValue="false"
+        android:entries="@array/interest_entries"
+        android:entryValues="@array/interest_values"
+        android:key="list_preference_1"
+        android:title="Plan reminder"
+        app:summary="Be notified at a specific time before a plan" />
 
-    <SwitchPreferenceCompat
-        app:dependency="sync"
-        app:key="attachment"
-        app:summaryOff="@string/attachment_summary_off"
-        app:summaryOn="@string/attachment_summary_on"
-        app:title="@string/attachment_title" />
-
-</androidx.preference.PreferenceScreen>
+</PreferenceScreen>

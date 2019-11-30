@@ -47,7 +47,7 @@
                     android:fontFamily="@font/fredoka_one"
                     android:gravity="center"
                     android:rotation="-9"
-                    android:text="Welcome to \nMontréal!"
+                    android:text="Welcome to \nMTL!"
                     android:textColor="#FFFFFF"
                     android:textSize="50dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +61,7 @@
                 android:id="@+id/setupActivityButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="openActivity"
                 android:text="@string/setup_application" />
 
             <androidx.constraintlayout.widget.ConstraintLayout

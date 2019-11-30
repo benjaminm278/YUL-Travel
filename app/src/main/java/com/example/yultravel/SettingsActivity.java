@@ -94,4 +94,11 @@ public class SettingsActivity extends AppCompatActivity implements
             setPreferencesFromResource(R.xml.notification_preferences, rootKey);
         }
     }
+
+    public static class TranslationFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.translation_preferences, rootKey);
+        }
+    }
 }

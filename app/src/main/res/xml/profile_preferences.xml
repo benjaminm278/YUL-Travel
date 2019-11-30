@@ -25,12 +25,18 @@
 
     <ListPreference
         android:id="@+id/countryCheckBoxPref"
-        app:defaultValue="reply"
+        android:layout_height="match_parent"
+        android:defaultValue="false"
         app:entries="@array/reply_entries"
         app:entryValues="@array/reply_values"
         app:key="reply"
         app:title="Country"
         app:useSimpleSummaryProvider="true" />
-    <MultiSelectListPreference android:title="Interests" />
+    <ListPreference
+        android:defaultValue="1"
+        android:entries="@array/interest_entries"
+        android:entryValues="@array/interest_values"
+        android:key="list_preference_1"
+        android:title="Interests" />
 
 </PreferenceScreen>
