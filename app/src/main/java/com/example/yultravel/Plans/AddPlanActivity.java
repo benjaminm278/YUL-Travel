@@ -5,6 +5,7 @@ import androidx.fragment.app.DialogFragment;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -26,6 +27,7 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     private TextView dateTxtView;
     private TextView timeTxtView;
     public final String DATE_PICKER_TAG = "datePicker";
+    public final String TIME_PICKER_TAG = "timePicker";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,19 +67,20 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
         // Get plan details
         EditText e = findViewById(R.id.nameEditText);
         String name = e.getText().toString();
+
         EditText locationEditTxt = findViewById(R.id.locationEditText);
         String location = locationEditTxt.getText().toString();
 
+        String date = dateTxtView.getText().toString();
+
         // Verify if plan details are valid
-
-        // If so, create plan object,
-
-        // Else don't add plan
-    }
-
-    public void openDateFragment(View view) {
-        DialogFragment d = new DatePickerFragment();
-        d.show(getSupportFragmentManager(), DATE_PICKER_TAG);
+        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(location) || TextUtils.isEmpty(date)) {
+            Toast.makeText(this, "All fields must be filled to create a plan!",
+                    Toast.LENGTH_SHORT).show();
+        }
+        else {
+            // Valid
+        }
     }
 
     public void processDatePickerResult(int year, int month, int day) {
@@ -108,5 +111,24 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
 
         date = newDateFormat;
         dateTxtView.setText(date);
+    }
+
+    public void processTimePickerResult(int hourOfDay, int minute) {
+
+    }
+
+    public void openFragment(View view) {
+        DialogFragment d;
+
+        switch (view.getId()) {
+            case R.id.chooseDateButton:
+                d = new DatePickerFragment();
+                d.show(getSupportFragmentManager(), DATE_PICKER_TAG);
+                break;
+            case R.id.chooseTimeButton:
+                d = new TimePickerFragment();
+                d.show(getSupportFragmentManager(), TIME_PICKER_TAG);
+                break;
+        }
     }
 }

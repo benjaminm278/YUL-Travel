@@ -18,6 +18,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <Button
+                android:id="@+id/chooseTimeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:onClick="openFragment"
+                android:text="Choose\ntime"
+                app:layout_constraintBottom_toBottomOf="@+id/chooseDateButton"
+                app:layout_constraintStart_toEndOf="@+id/chooseDateButton"
+                app:layout_constraintTop_toTopOf="@+id/chooseDateButton" />
+
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
@@ -116,25 +127,26 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/chooseDateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:onClick="openDateFragment"
-                android:text="Choose date"
+                android:layout_marginStart="28dp"
+                android:onClick="openFragment"
+                android:text="Choose\ndate"
                 app:layout_constraintBottom_toBottomOf="@+id/textView10"
                 app:layout_constraintStart_toEndOf="@+id/textView10"
                 app:layout_constraintTop_toTopOf="@+id/textView10"
-                app:layout_constraintVertical_bias="0.187" />
+                app:layout_constraintVertical_bias="0.0" />
 
             <Button
                 android:id="@+id/addPlanToDBButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:onClick="addPlan"
                 android:text="Add"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
 
@@ -161,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="32dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="28dp"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
