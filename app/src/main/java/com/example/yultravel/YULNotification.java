@@ -38,8 +38,8 @@ public class YULNotification {
                 notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         AlarmManager alarmManager = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-        long repeatInterval = 5000;
-        long triggerTime = SystemClock.elapsedRealtime() + repeatInterval;
+        long repeatInterval = 1000;
+        long triggerTime = repeatInterval;
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerTime,
                 repeatInterval, notifyPendingIntent);
     }

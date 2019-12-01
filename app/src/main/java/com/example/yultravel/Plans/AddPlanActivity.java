@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.yultravel.Database.Plan;
 import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.R;
+import com.example.yultravel.YULNotification;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -35,6 +36,9 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plan);
+
+        YULNotification y = new YULNotification(this, "Plan", "This is a test");
+        y.showNotification();
 
         // Spinner code
         Spinner s = findViewById(R.id.activityTypeSpinner);

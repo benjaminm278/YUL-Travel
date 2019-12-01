@@ -70,6 +70,7 @@ public class PlansActivity extends HomeActivity {
      */
     public void openNewActivity(View view) {
         Intent i;
+
         switch (view.getId()) {
             case R.id.addPlanButton:
                 i = new Intent(this, AddPlanActivity.class);
@@ -80,9 +81,6 @@ public class PlansActivity extends HomeActivity {
             default:
                 i = null;
         }
-
-        YULNotification y = new YULNotification(this, "Plan", "This is a test");
-        y.showNotification();
 
         startActivity(i);
     }
