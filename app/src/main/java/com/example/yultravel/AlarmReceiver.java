@@ -25,7 +25,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         mNotificationManager = (NotificationManager)
                 context.getSystemService(context.NOTIFICATION_SERVICE);
         Toast.makeText(context, "Received", Toast.LENGTH_SHORT).show();
-        deliverNotification();
+        //deliverNotification();
     }
 
     public void deliverNotification() {
