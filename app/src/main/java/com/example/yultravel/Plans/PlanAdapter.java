@@ -23,7 +23,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
         TextView title;
          PlanViewHolder( View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.textViewPlan);
+            title = itemView.findViewById(R.id.planNameTextView);
 
         }
     }

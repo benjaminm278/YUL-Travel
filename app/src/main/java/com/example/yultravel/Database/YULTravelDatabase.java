@@ -84,6 +84,7 @@ public abstract class YULTravelDatabase extends RoomDatabase {
             protected Void doInBackground(Void... voids) {
                 pDAO.deleteAll();
                 planDAO.deleteAll();
+
                 for (int i = 0; i < plans.length; i++) {
                     Plan plan = new Plan(plans[i], "Sports"/*, "Mountain",
                             "30/11/2019", "5:20 PM"*/);
