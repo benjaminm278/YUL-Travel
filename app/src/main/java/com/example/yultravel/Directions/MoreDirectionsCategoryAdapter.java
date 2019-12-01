@@ -80,7 +80,8 @@ public class MoreDirectionsCategoryAdapter extends
     private void addToPlans(String location, String address, Context ctx) {
         Toast.makeText(ctx, "Plan added", Toast.LENGTH_SHORT).show();
         // Create a plan object
-        Plan p = new Plan("Visit " + location, "Category", "12/01/2019");
+        Plan p = new Plan("Visit " + location, "Category", "", "12/01/2019",
+                "12:20 pm", true);
         // Store that plan object in the database
         PlanViewModel mPlanViewModel = ViewModelProviders.of((FragmentActivity) ctx)
                 .get(PlanViewModel.class);

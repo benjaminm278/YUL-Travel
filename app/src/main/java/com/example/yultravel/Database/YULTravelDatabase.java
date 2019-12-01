@@ -9,7 +9,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Profile.class, Plan.class}, version = 3, exportSchema = false )
+@Database(entities = {Profile.class, Plan.class}, version = 2, exportSchema = false )
 
 public abstract class YULTravelDatabase extends RoomDatabase {
     // Defines the DAO that works with the room
@@ -77,7 +77,8 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                 planDAO.deleteAll();
 
                 for (int i = 0; i < plans.length; i++) {
-                    Plan plan = new Plan(plans[i], "Sports", "12/01/2019");
+                    Plan plan = new Plan(plans[i], "Sports", "Mont-Royal",
+                            "12/01/2019", "5:12 pm", true);
                     planDAO.insertPlan(plan);
                 }
 

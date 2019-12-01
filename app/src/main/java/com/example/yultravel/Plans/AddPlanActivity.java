@@ -84,7 +84,8 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
             // Valid
             PlanViewModel mPlanViewModel = ViewModelProviders.of(this)
                     .get(PlanViewModel.class);
-            mPlanViewModel.insert(new Plan(name, currentActivityType, "12/01/2019"));
+            mPlanViewModel.insert(new Plan(name, currentActivityType, "", "12/01/2019",
+                    "", true));
             finish();
         }
     }
