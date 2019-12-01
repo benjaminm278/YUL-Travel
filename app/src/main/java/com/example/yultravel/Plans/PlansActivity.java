@@ -82,7 +82,8 @@ public class PlansActivity extends HomeActivity {
         }
 
         YULNotification y = new YULNotification(this,
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE), "Plan", "");
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE), "Plan",
+                "This is a test");
         y.showNotification();
 
         startActivity(i);

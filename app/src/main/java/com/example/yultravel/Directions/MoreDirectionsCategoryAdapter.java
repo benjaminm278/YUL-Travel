@@ -2,9 +2,7 @@ package com.example.yultravel.Directions;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
@@ -21,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.Database.Plan;
 import com.example.yultravel.Database.PlanViewModel;
-import com.example.yultravel.Plans.PlanFragment;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;
@@ -84,8 +80,7 @@ public class MoreDirectionsCategoryAdapter extends
     private void addToPlans(String location, String address, Context ctx) {
         Toast.makeText(ctx, "Plan added", Toast.LENGTH_SHORT).show();
         // Create a plan object
-        Plan p = new Plan("Visit " + location, "Category"/*, location, "1/15/2020",
-                "2:35 PM"*/);
+        Plan p = new Plan("Visit " + location, "Category", "12/01/2019");
         // Store that plan object in the database
         PlanViewModel mPlanViewModel = ViewModelProviders.of((FragmentActivity) ctx)
                 .get(PlanViewModel.class);

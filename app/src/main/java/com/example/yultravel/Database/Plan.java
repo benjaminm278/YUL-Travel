@@ -21,26 +21,25 @@ public class Plan {
     @NonNull
     @ColumnInfo(name ="location")
     private String location;
-
+*/
     @NonNull
-    @ColumnInfo(name ="date")
+    @ColumnInfo(name = "date")
     private String date;
-
+/*
     @NonNull
     @ColumnInfo(name ="time")
     private String time;
 
-    /*
     @NonNull
     @ColumnInfo(name ="notifyInAdvance")
     private boolean notifyInAdvance;*/
 
-    public Plan(@NonNull String title, String type/*, @NonNull String location,
-                @NonNull String date, @NonNull String time*/) {
+    public Plan(@NonNull String title, String type, /*@NonNull String location,*/
+                String date/*, @NonNull String time*/) {
         this.title = title;
-        this.type = type;/*
-        this.location = location;
-        this.date = date;
+        this.type = type;
+        //this.location = location;
+        this.date = date;/*
         this.time = time;
         //this.notifyInAdvance = notifyInAdvance;*/
     }
@@ -56,12 +55,12 @@ public class Plan {
     /*
     public String getLocation() {
         return this.location;
-    }
+    }*/
 
     public String getDate() {
         return this.date;
     }
-
+/*
     public String getTime() {
         return this.time;
     }

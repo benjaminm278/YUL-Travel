@@ -4,15 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -60,9 +57,7 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+    public void onNothingSelected(AdapterView<?> parent) {}
 
     /**
      * Adds plan to database after verification
@@ -89,7 +84,7 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
             // Valid
             PlanViewModel mPlanViewModel = ViewModelProviders.of(this)
                     .get(PlanViewModel.class);
-            mPlanViewModel.insert(new Plan(name, currentActivityType/*, location, date, time*/));
+            mPlanViewModel.insert(new Plan(name, currentActivityType, "12/01/2019"));
             finish();
         }
     }
