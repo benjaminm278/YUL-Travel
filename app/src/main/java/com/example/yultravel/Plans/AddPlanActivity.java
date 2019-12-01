@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -19,6 +18,7 @@ import android.widget.Toast;
 import com.example.yultravel.Database.Plan;
 import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.R;
+import com.example.yultravel.YULNotification;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,8 +37,11 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plan);
 
+        YULNotification y = new YULNotification(this, "Plan", "This is a test");
+        y.showNotification();
+
         // Spinner code
-        Spinner s = (Spinner) findViewById(R.id.activityTypeSpinner);
+        Spinner s = findViewById(R.id.activityTypeSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.activity_types, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -58,9 +61,7 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     }
 
     @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
+    public void onNothingSelected(AdapterView<?> parent) {}
 
     /**
      * Adds plan to database after verification
@@ -87,7 +88,8 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
             // Valid
             PlanViewModel mPlanViewModel = ViewModelProviders.of(this)
                     .get(PlanViewModel.class);
-            mPlanViewModel.insert(new Plan(name, currentActivityType/*, location, date, time*/));
+            mPlanViewModel.insert(new Plan(name, currentActivityType, "", "12/01/2019",
+                    "", true));
             finish();
         }
     }

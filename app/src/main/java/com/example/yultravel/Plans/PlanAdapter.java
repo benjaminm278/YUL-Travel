@@ -21,16 +21,23 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
 
     public static class PlanViewHolder extends RecyclerView.ViewHolder{
         TextView title;
+        TextView dateAndTime;
          PlanViewHolder( View itemView) {
             super(itemView);
-            title = itemView.findViewById(R.id.textViewPlan);
-
+            title = itemView.findViewById(R.id.planNameTextView);
+            dateAndTime = itemView.findViewById(R.id.planDateAndTimeTextView);
         }
     }
-    PlanAdapter(Context context) {
+
+    /**
+     * Default constructor for plan recyclerview
+     * @param context
+     */
+    public PlanAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
 
     }
+
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         super.onAttachedToRecyclerView(recyclerView);
@@ -44,7 +51,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
 
     @Override
     public void onBindViewHolder(PlanViewHolder planViewHolder, int i) {
-            planViewHolder.title.setText(mPlans.get(i).getTitle());
+        planViewHolder.title.setText(mPlans.get(i).getTitle());
+        planViewHolder.dateAndTime.setText(mPlans.get(i).getDate() + " at " + mPlans.get(i).getTime());
     }
 
     public void setPlans(List<Plan> plans){

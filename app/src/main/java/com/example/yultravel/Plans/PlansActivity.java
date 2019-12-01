@@ -1,6 +1,7 @@
 package com.example.yultravel.Plans;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,11 +21,12 @@ import com.example.yultravel.Database.Plan;
 import com.example.yultravel.Database.PlanViewModel;
 import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
+import com.example.yultravel.Spots.SpotsActivity;
+import com.example.yultravel.YULNotification;
 
 import java.util.List;
 
 public class PlansActivity extends HomeActivity {
-    RecyclerView recyclerView;
     private PlanViewModel mPlanViewModel;
     public static final int NEW_PLAN_ACTIVITY_REQUEST_CODE = 1;
 
@@ -68,15 +70,18 @@ public class PlansActivity extends HomeActivity {
      */
     public void openNewActivity(View view) {
         Intent i;
+
         switch (view.getId()) {
             case R.id.addPlanButton:
                 i = new Intent(this, AddPlanActivity.class);
+                break;
+            case R.id.mtlEventsButton:
+                i = new Intent(this, SpotsActivity.class);
                 break;
             default:
                 i = null;
         }
 
-        Toast.makeText(this, "Clicked", Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 }

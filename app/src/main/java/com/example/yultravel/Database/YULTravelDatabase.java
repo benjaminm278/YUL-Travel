@@ -9,9 +9,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 @Database(entities = {Profile.class, Plan.class}, version = 2, exportSchema = false )
 
 public abstract class YULTravelDatabase extends RoomDatabase {
@@ -34,15 +31,9 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                     // Create database
                     INSTANCE = Room.databaseBuilder(ctx.getApplicationContext(),
                             YULTravelDatabase.class, "YUL_database")
-                          .fallbackToDestructiveMigration() // Wipes and rebuilds instead of migrating
+                            .fallbackToDestructiveMigration() // Wipes and rebuilds instead of migrating
                             .addCallback(sRoomDB)
                             .build();
-                    /*
-                    INSTANCE = Room.databaseBuilder(ctx.getApplicationContext(),
-                            YULTravelDatabase.class,"plan_database")
-                    .fallbackToDestructiveMigration()
-                    .addCallback(sRoomDB)
-                    .build();*/
                 }
             }
         }
@@ -83,12 +74,15 @@ public abstract class YULTravelDatabase extends RoomDatabase {
             @Override
             protected Void doInBackground(Void... voids) {
                 pDAO.deleteAll();
-                planDAO.deleteAll();
+                //planDAO.deleteAll();
+
+                /*
                 for (int i = 0; i < plans.length; i++) {
-                    Plan plan = new Plan(plans[i], "Sports"/*, "Mountain",
-                            "30/11/2019", "5:20 PM"*/);
+                    Plan plan = new Plan(plans[i], "Sports", "Mont-Royal",
+                            "12/01/2019", "5:12 pm", true);
                     planDAO.insertPlan(plan);
-                }
+                }*/
+
                 return null;
             }
         }

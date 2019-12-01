@@ -14,7 +14,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".Plans.AddPlanActivity"></activity>
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="false"></receiver>
+
+        <activity android:name=".Plans.AddPlanActivity" />
         <activity android:name=".Directions.MoreDirectionsActivity" />
         <activity android:name=".Spots.MoreSpotsActivity" />
         <activity
