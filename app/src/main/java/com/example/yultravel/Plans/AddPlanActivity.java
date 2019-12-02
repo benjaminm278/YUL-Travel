@@ -15,8 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.yultravel.Database.Plan;
-import com.example.yultravel.Database.PlanViewModel;
+import com.example.yultravel.Database.Plan.Plan;
+import com.example.yultravel.Database.Plan.PlanViewModel;
 import com.example.yultravel.R;
 import com.example.yultravel.YULNotification;
 

@@ -1,4 +1,4 @@
-package com.example.yultravel.Database;
+package com.example.yultravel.Database.Plan;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -6,7 +6,7 @@ import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 
-import com.example.yultravel.Database.Plan;
+import com.example.yultravel.Database.Plan.Plan;
 
 import java.util.List;
 

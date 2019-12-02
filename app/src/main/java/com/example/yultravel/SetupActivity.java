@@ -12,8 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.example.yultravel.Database.Profile;
-import com.example.yultravel.Database.ProfileViewModel;
+import com.example.yultravel.Database.Profile.Profile;
+import com.example.yultravel.Database.Profile.ProfileViewModel;
 
 import java.util.List;
 

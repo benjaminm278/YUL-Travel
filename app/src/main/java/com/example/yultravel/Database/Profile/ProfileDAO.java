@@ -1,4 +1,4 @@
-package com.example.yultravel.Database;
+package com.example.yultravel.Database.Profile;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

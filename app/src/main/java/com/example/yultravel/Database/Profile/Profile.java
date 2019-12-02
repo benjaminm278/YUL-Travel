@@ -1,4 +1,4 @@
-package com.example.yultravel.Database;
+package com.example.yultravel.Database.Profile;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
