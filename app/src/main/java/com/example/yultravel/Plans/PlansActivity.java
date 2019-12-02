@@ -1,28 +1,19 @@
 package com.example.yultravel.Plans;
 
-import android.annotation.SuppressLint;
-import android.app.NotificationManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yultravel.Database.Plan;
-import com.example.yultravel.Database.PlanViewModel;
+import com.example.yultravel.Database.Plan.Plan;
+import com.example.yultravel.Database.Plan.PlanViewModel;
 import com.example.yultravel.HomeActivity;
 import com.example.yultravel.R;
 import com.example.yultravel.Spots.SpotsActivity;
-import com.example.yultravel.YULNotification;
 
 import java.util.List;
 

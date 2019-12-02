@@ -16,8 +16,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yultravel.Database.Plan;
-import com.example.yultravel.Database.PlanViewModel;
+import com.example.yultravel.Database.Plan.Plan;
+import com.example.yultravel.Database.Plan.PlanViewModel;
 import com.example.yultravel.R;
 
 import java.util.ArrayList;

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.yultravel.Database.Plan;
+import com.example.yultravel.Database.Plan.Plan;
 import com.example.yultravel.R;
 
 import java.util.List;

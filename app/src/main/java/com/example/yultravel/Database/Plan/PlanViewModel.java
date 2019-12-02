@@ -1,7 +1,6 @@
-package com.example.yultravel.Database;
+package com.example.yultravel.Database.Plan;
 
 import android.app.Application;
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
