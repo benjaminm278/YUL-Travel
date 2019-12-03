@@ -4,136 +4,252 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#4DFAF6F6"
     tools:context=".HomeActivity">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/CaptionPicture"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/mont_royal_view"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:layout_height="258dp">
+
+                <ImageView
+                    android:id="@+id/headerBackgroundImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:scaleType="fitXY"
+                    android:scaleY="1.3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/confetti_background" />
+
+                <TextView
+                    android:id="@+id/HomeHeaderTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginRight="48dp"
+                    android:fontFamily="@font/fredoka_one"
+                    android:gravity="center"
+                    android:rotation="-9"
+                    android:text="Welcome to \nMTL!"
+                    android:textColor="#FFFFFF"
+                    android:textSize="50dp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/headerBackgroundImageView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <Button
                 android:id="@+id/setupActivityButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="8dp"
                 android:onClick="openActivity"
                 android:text="@string/setup_application" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="8dp">
 
-                <!--         <include
-                    android:id="@+id/include5"
-                    layout="@layout/home_weather_cardview"
-                    app:layout_constraintStart_toStartOf="@+id/spotsImageButton"
-                    app:layout_constraintTop_toTopOf="parent" />  -->
-
-                <ImageButton
-                    android:id="@+id/plansImageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/weatherCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:contentDescription="@string/plans"
-                    android:onClick="openActivity"
-                    android:src="@drawable/ic_plan"
+                    android:layout_marginEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/include5"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:srcCompat="@drawable/ic_plan" />
-
-                <ImageButton
-                    android:id="@+id/spotsImageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:background="@drawable/spots"
-                    android:contentDescription="@string/spots"
-                    android:onClick="openActivity"
-                    app:layout_constraintEnd_toEndOf="@+id/include5"
-                    app:layout_constraintStart_toStartOf="@+id/include5"
-                    app:layout_constraintTop_toTopOf="@+id/directionsImageButton"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <ImageButton
-                    android:id="@+id/directionsImageButton"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/direction_arrow"
-                    android:contentDescription="@string/directions"
-                    android:onClick="openActivity"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/plansImageButton"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="@+id/plansImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/plansImageButton"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <TextView
-                    android:id="@+id/PlansLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/plans"
-                    app:layout_constraintStart_toStartOf="@+id/plansImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/plansImageButton" />
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/directions"
-                    app:layout_constraintStart_toStartOf="@+id/directionsImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/directionsImageButton" />
-
-                <TextView
-                    android:id="@+id/SpotsLable"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/spots"
-                    app:layout_constraintStart_toStartOf="@+id/spotsImageButton"
-                    app:layout_constraintTop_toBottomOf="@+id/spotsImageButton" />
-
-                <ImageButton
-                    android:id="@+id/include5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="openActivity"
-                    app:layout_constraintBottom_toTopOf="@+id/spotsImageButton"
-                    app:layout_constraintEnd_toStartOf="@+id/plansImageButton"
-                    app:layout_constraintHorizontal_bias="0.368"
+                    app:layout_constraintHorizontal_bias="0.25"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.181"
-                    app:srcCompat="@drawable/weather"
-                    tools:srcCompat="@drawable/weather" />
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/weatherImageButton"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:background="#FFFFFF"
+                            android:onClick="openActivity"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/weather_flat_icon"
+                            tools:srcCompat="@drawable/weather_flat_icon" />
+
+                        <TextView
+                            android:id="@+id/weatherLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/weather"
+                            android:textColor="#DC776D6D"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.507"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/weatherImageButton" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/planCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="32dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.4"
+                    app:layout_constraintStart_toEndOf="@+id/weatherCardView"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/plansImageButton"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="#35A5F5"
+                            android:onClick="openActivity"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/plans_flat_icon"
+                            tools:srcCompat="@drawable/plans_flat_icon" />
+
+                        <TextView
+                            android:id="@+id/plansLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/plans"
+                            android:textColor="#DC776D6D"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.507"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/plansImageButton" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/spotCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="@+id/weatherCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/weatherCardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/spotsImageButton"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:background="#FFFFFF"
+                            android:onClick="openActivity"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/city_flat_icon" />
+
+                        <TextView
+                            android:id="@+id/spotsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="Hot Spots"
+                            android:textColor="#DC776D6D"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.507"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/spotsImageButton" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/directionCardView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/planCardView"
+                    app:layout_constraintTop_toBottomOf="@+id/planCardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/directionsImageButton"
+                            android:layout_width="160dp"
+                            android:layout_height="160dp"
+                            android:background="#F5DF4D"
+                            android:onClick="openActivity"
+                            android:scaleType="fitCenter"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/map_flat_icon" />
+
+                        <TextView
+                            android:id="@+id/directionsLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/directions"
+                            android:textColor="#DC776D6D"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.507"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/directionsImageButton" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
