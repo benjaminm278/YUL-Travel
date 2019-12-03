@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundPink"
     tools:context=".Plans.PlansActivity">
 
     <com.google.android.material.tabs.TabLayout
@@ -19,10 +20,11 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/spotpager"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@id/spotTab_layout"/>
+        android:layout_below="@id/spotTab_layout" />
 
 </RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4DFAF6F6"
+    android:background="@color/backgroundPink"
     tools:context=".HomeActivity">
 
     <ScrollView
@@ -53,18 +53,10 @@
                     android:textSize="50dp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/headerBackgroundImageView" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <Button
-                android:id="@+id/setupActivityButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:onClick="openActivity"
-                android:text="@string/setup_application" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
