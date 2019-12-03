@@ -1,6 +1,9 @@
 package com.example.yultravel;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +16,7 @@ public class SettingsActivity extends AppCompatActivity implements
         PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
 
     private static final String TITLE_TAG = "settingsActivityTitle";
+    private static final String KEY_PREF_LANGUAGE_CHOICE = "language_list_preference";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,25 @@ public class SettingsActivity extends AppCompatActivity implements
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        //
+        androidx.preference.PreferenceManager
+                .setDefaultValues(this, R.xml.header_preferences, false);
+        SharedPreferences sharedPref = androidx.preference.PreferenceManager
+                .getDefaultSharedPreferences(this);
+        String x = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "English");
+        Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
+        /*
+        Boolean switchPref = sharedPref.getBoolean(SettingsActivity.KEY_PREF_NOTIF_UPCOMING_SWITCH,
+                true);
+        String notifPref = sharedPref.getString("notify_frequency", "0");
+        Toast.makeText(this, (switchPref ? "You will be notified of upcoming events"
+                : "The app will be quiet like a good dog") + "-" + notifPref, Toast.LENGTH_SHORT).show();
+
+        // Sets default values
+        /*
+        PreferenceManager.setDefaultValues(this, R.xml.messages_preferences, false);
+        PreferenceManager.setDefaultValues(this, R.xml.sync_preferences, false);*/
     }
 
     @Override
