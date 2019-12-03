@@ -81,13 +81,6 @@ public class SettingsActivity extends AppCompatActivity implements
         }
     }
 
-    public static class ProfileFragment extends PreferenceFragmentCompat {
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            setPreferencesFromResource(R.xml.profile_preferences, rootKey);
-        }
-    }
-
     public static class NotificationsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
