@@ -17,6 +17,7 @@ public class SettingsActivity extends AppCompatActivity implements
 
     private static final String TITLE_TAG = "settingsActivityTitle";
     private static final String KEY_PREF_LANGUAGE_CHOICE = "language_list_preference";
+    private static final String KEY_PREF_PLAN_NOTIF = "key_pref_plan_notif";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,11 @@ public class SettingsActivity extends AppCompatActivity implements
                 .setDefaultValues(this, R.xml.header_preferences, false);
         SharedPreferences sharedPref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(this);
-        String x = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "English");
-        Toast.makeText(this, x, Toast.LENGTH_SHORT).show();
+        String lang = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "English");
+        Toast.makeText(this, lang, Toast.LENGTH_SHORT).show();
+
+        String planNotif = sharedPref.getString(KEY_PREF_PLAN_NOTIF, "0");
+        Toast.makeText(this, planNotif + "", Toast.LENGTH_SHORT).show();
         /*
         Boolean switchPref = sharedPref.getBoolean(SettingsActivity.KEY_PREF_NOTIF_UPCOMING_SWITCH,
                 true);
