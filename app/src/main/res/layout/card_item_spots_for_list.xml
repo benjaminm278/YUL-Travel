@@ -26,7 +26,7 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="@+id/positionOfSpotCardTextView"
                 app:layout_constraintTop_toBottomOf="@+id/titleOfSpot"
-                app:srcCompat="@drawable/mont_royal_view" />
+                 />
 
             <TextView
                 android:id="@+id/titleOfSpot"

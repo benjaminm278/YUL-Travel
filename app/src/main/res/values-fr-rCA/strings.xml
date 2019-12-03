@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">YUL Travel</string>
+    <string name="welcomeTitle">Bienevenue a Montreal !</string>
+    <string name="hot_spots">Tourisme</string>
+    <string name="weather">Météo</string>
+    <string name="all_time_hot_spots">Places préférés de tous les temps</string>
+</resources>
