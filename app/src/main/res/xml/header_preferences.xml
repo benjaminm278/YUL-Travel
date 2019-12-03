@@ -15,15 +15,6 @@
   -->
 
 <androidx.preference.PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
-    <PreferenceCategory
-        app:title="Account"/>
-
-    <Preference
-        app:fragment="com.example.yultravel.SettingsActivity$ProfileFragment"
-        app:icon="@drawable/messages"
-        app:key="profile_header"
-        app:summary="Edit the information you provided in the setup"
-        app:title="Edit profile" />
 
     <PreferenceCategory app:title="Language" />
 
