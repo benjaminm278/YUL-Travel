@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -69,6 +70,10 @@ public class SpotsEventfulAPI {
                         queue.stop();
                     }
                 });
+            jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                    DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
             queue.add(jsonObjReq);
         }

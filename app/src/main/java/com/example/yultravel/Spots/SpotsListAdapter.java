@@ -105,7 +105,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         holder.addressText = spotArrayList.get(i).getAddress();
         Picasso.with(ctx)
                 .load(spotArrayList.get(i).getImgUrl())
-                .resize(600,400)
+                .fit()
                 .into(holder.imageView);
         Log.i("GetimgURL",spotArrayList.get(i).getImgUrl());
     }
