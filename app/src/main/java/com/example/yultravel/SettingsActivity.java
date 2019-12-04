@@ -8,7 +8,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -51,10 +50,10 @@ public class SettingsActivity extends AppCompatActivity implements
         SharedPreferences sharedPref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(this);
         String lang = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "english");
-        Toast.makeText(this, lang, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, lang, Toast.LENGTH_SHORT).show();
 
         String planNotif = sharedPref.getString(KEY_PREF_PLAN_NOTIF, "0");
-        //Toast.makeText(this, planNotif + "", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, planNotif + "", Toast.LENGTH_SHORT).show();
         /*
         Boolean switchPref = sharedPref.getBoolean(SettingsActivity.KEY_PREF_NOTIF_UPCOMING_SWITCH,
                 true);
@@ -115,20 +114,10 @@ public class SettingsActivity extends AppCompatActivity implements
         }
     }
 
-    public static class TranslationFragment extends PreferenceFragmentCompat implements
-            SharedPreferences.OnSharedPreferenceChangeListener {
+    public static class TranslationFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.translation_preferences, rootKey);
-        }
-
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            Preference preference = findPreference(key);
-
-            if (key.equals("english")) {
-                preference.setSummary(((ListPreference) preference).getEntry());
-            }
         }
     }
 }
