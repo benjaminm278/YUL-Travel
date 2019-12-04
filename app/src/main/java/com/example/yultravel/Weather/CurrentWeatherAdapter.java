@@ -24,13 +24,11 @@ public class CurrentWeatherAdapter extends RecyclerView.Adapter<CurrentWeatherAd
     public static class CurrentWeatherViewHolder extends RecyclerView.ViewHolder{
         CurrentWeatherAdapter adapter;
        TextView currentTemp;
-       TextView currentWeather;
        TextView description;
         ImageView imageView;
         CurrentWeatherViewHolder(View itemView, CurrentWeatherAdapter adapter) {
             super(itemView);
             currentTemp =itemView.findViewById(R.id.textViewCurrentTemp);
-            currentWeather = itemView.findViewById(R.id.textViewCurrentWeather);
             description = itemView.findViewById(R.id.textViewDescription);
             imageView= itemView.findViewById(R.id.imageViewCurrentWeather);
             this.adapter =adapter;
@@ -55,7 +53,6 @@ public class CurrentWeatherAdapter extends RecyclerView.Adapter<CurrentWeatherAd
     @Override
     public void onBindViewHolder(CurrentWeatherViewHolder currentWeatherViewHolder, int i) {
         currentWeatherViewHolder.currentTemp.setText( currentWeatherArrayList.get(i).getCurrentTemp());
-        currentWeatherViewHolder.currentWeather.setText(currentWeatherArrayList.get(i).getWeatherCondition());
         currentWeatherViewHolder.description.setText(currentWeatherArrayList.get(i).getDescription());
          Picasso.with(context)
                 .load(currentWeatherArrayList.get(i).getCurrentImgUrl())
