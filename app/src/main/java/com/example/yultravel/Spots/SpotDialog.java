@@ -9,6 +9,11 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.yultravel.Database.Plan.Plan;
+import com.example.yultravel.Database.Plan.PlanViewModel;
 import com.example.yultravel.R;
 
 public class SpotDialog {
@@ -19,7 +24,7 @@ public class SpotDialog {
         this.ctx = ctx;
     }
 
-    public void setSpotsDialog(String title, final String description, final String link, String address) {
+    public void setSpotsDialog(final String title, final String description, final String link, final String address) {
         // Creates a new dialog object
         dialog = new Dialog(ctx);
         dialog.setContentView(R.layout.spots_dialog);
@@ -60,8 +65,15 @@ public class SpotDialog {
         dialog.findViewById(R.id.bookmarkButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Add bookmark
-                Toast.makeText(ctx, "Click to bookmark", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ctx, "Plan added", Toast.LENGTH_SHORT).show();
+
+                // Create a plan object
+                Plan p = new Plan(title, "Category", address, "12/05/2019",
+                        "12:20 pm", true);
+                // Store that plan object in the database
+                PlanViewModel mPlanViewModel = ViewModelProviders.of((FragmentActivity) ctx)
+                        .get(PlanViewModel.class);
+                mPlanViewModel.insert(p);
             }
         });
     }
