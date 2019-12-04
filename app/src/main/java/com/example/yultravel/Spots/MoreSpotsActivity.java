@@ -34,7 +34,7 @@ public class MoreSpotsActivity extends AppCompatActivity {
         RecyclerView eventsRecyclerView = findViewById(R.id.listOfEventsRecyclerView);
         SpotsEventfulAPI sAPI = new SpotsEventfulAPI(this);
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 20, 1);
+        sAPI.getResponseFromEventfulAPI(eventsRecyclerView, dateRange, 10, 1);
         TextView t = findViewById(R.id.loadingTextView);
         t.setText("Loading done");
     }

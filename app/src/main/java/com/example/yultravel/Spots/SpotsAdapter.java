@@ -42,7 +42,7 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         public void onClick(View v) {
             // Open dialog
             SpotDialog s = new SpotDialog(context);
-            s.setSpotsDialog(title.getText().toString(), description, url, address);
+            s.setSpotsDialog(title.getText().toString(), description,url , address);
             s.openSpotsDialog();
         }
     }
@@ -91,9 +91,11 @@ public class SpotsAdapter extends RecyclerView.Adapter<SpotsAdapter.SpotsViewHol
         SpotsViewHolder.url = spotArrayList.get(i).getURL();
         SpotsViewHolder.address = spotArrayList.get(i).getAddress();
         SpotsViewHolder.description = spotArrayList.get(i).getDescription();
-        Picasso.with(context)
+
+                Picasso.with(context)
                 .load(spotArrayList.get(i).getImgUrl())
                 .resize(600,400)
+
                 .into(SpotsViewHolder.imageView);
 
     }

@@ -2,15 +2,18 @@ package com.example.yultravel.Spots;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.yultravel.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,7 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
 
     public static class SpotsListViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
+        ImageView imageView;
         SpotsListAdapter adapter;
         TextView title;
         TextView description;
@@ -31,12 +35,14 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         Context ctx;
         Dialog myDialog;
 
+
         public SpotsListViewHolder(Context ctx, View itemView, SpotsListAdapter adapter) {
             super(itemView);
             this.adapter = adapter;
             title = itemView.findViewById(R.id.titleOfSpot);
             description = itemView.findViewById(R.id.eventDescriptionTextView);
             spotPosition = itemView.findViewById(R.id.positionOfSpotCardTextView);
+            imageView = itemView.findViewById(R.id.CardPhoto);
 
             this.ctx = ctx;
 
@@ -97,6 +103,11 @@ public class SpotsListAdapter extends RecyclerView.Adapter<SpotsListAdapter.Spot
         holder.spotPosition.setText(i + 1 + "");
         holder.url = spotArrayList.get(i).getURL();
         holder.addressText = spotArrayList.get(i).getAddress();
+        Picasso.with(ctx)
+                .load(spotArrayList.get(i).getImgUrl())
+                .fit()
+                .into(holder.imageView);
+        Log.i("GetimgURL",spotArrayList.get(i).getImgUrl());
     }
 
     /**
