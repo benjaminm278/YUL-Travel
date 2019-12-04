@@ -98,7 +98,7 @@ public class SpotsEventfulAPI {
                 JSONObject imgObj = listOfEvents.getJSONObject("image");
                 JSONObject imgObjMed = imgObj.getJSONObject("medium");
                 String imgUrl = "http:" + imgObjMed.getString("url");
-                Log.d("IMG",imgUrl);
+                Log.d("IMG", imgUrl);
 
                 spotArrayList.add(new Spot(eventTitle, eventDesc, url, address,imgUrl));
             }

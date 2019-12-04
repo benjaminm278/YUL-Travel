@@ -51,7 +51,6 @@ public class SpotDialog {
         dialog.findViewById(R.id.visitEventfulButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ctx, "Click to eventful.com", Toast.LENGTH_SHORT).show();
                 dialog.dismiss();
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
                 ctx.startActivity(i);

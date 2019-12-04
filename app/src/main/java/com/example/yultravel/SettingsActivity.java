@@ -2,7 +2,6 @@ package com.example.yultravel;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
@@ -50,8 +49,8 @@ public class SettingsActivity extends AppCompatActivity implements
                 .setDefaultValues(this, R.xml.header_preferences, false);
         SharedPreferences sharedPref = androidx.preference.PreferenceManager
                 .getDefaultSharedPreferences(this);
-        String lang = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "English");
-        Toast.makeText(this, lang, Toast.LENGTH_SHORT).show();
+        String lang = sharedPref.getString(KEY_PREF_LANGUAGE_CHOICE, "english");
+        //Toast.makeText(this, lang, Toast.LENGTH_SHORT).show();
 
         String planNotif = sharedPref.getString(KEY_PREF_PLAN_NOTIF, "0");
         Toast.makeText(this, planNotif + "", Toast.LENGTH_SHORT).show();
