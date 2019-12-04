@@ -1,6 +1,7 @@
 package com.example.yultravel.Plans;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,17 +16,31 @@ import com.example.yultravel.R;
 import java.util.List;
 
 public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder> {
-
+    final Context context;
     LayoutInflater mInflater;
     List<Plan> mPlans;
 
-    public static class PlanViewHolder extends RecyclerView.ViewHolder{
+    public static class PlanViewHolder extends RecyclerView.ViewHolder implements
+            View.OnClickListener {
+        Context ctx;
         TextView title;
         TextView dateAndTime;
-         PlanViewHolder( View itemView) {
+
+        public PlanViewHolder(View itemView, Context ctx) {
             super(itemView);
             title = itemView.findViewById(R.id.planNameTextView);
             dateAndTime = itemView.findViewById(R.id.planDateAndTimeTextView);
+            this.ctx = ctx;
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            // Open add plan activity
+            Intent i = new Intent(ctx, AddPlanActivity.class);
+            i.putExtra(PlansActivity.PLAN_OPERATION, "Edit");
+            ctx.startActivity(i);
         }
     }
 
@@ -34,8 +49,8 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
      * @param context
      */
     public PlanAdapter(Context context) {
+        this.context = context;
         mInflater = LayoutInflater.from(context);
-
     }
 
     @Override
@@ -46,7 +61,7 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.PlanViewHolder
     @Override
     public PlanViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View mItemView = mInflater.inflate(R.layout.card_item_plan,viewGroup,false);
-        return new PlanViewHolder(mItemView);
+        return new PlanViewHolder(mItemView, context);
     }
 
     @Override

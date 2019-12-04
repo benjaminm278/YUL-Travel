@@ -3,6 +3,7 @@ package com.example.yultravel.Plans;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -19,7 +20,8 @@ import java.util.List;
 
 public class PlansActivity extends HomeActivity {
     private PlanViewModel mPlanViewModel;
-    public static final int NEW_PLAN_ACTIVITY_REQUEST_CODE = 1;
+    public static final String PLAN_OPERATION = "op";
+    public static final int PLAN_REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +67,25 @@ public class PlansActivity extends HomeActivity {
         switch (view.getId()) {
             case R.id.addPlanButton:
                 i = new Intent(this, AddPlanActivity.class);
+                i.putExtra(PLAN_OPERATION, "Add");
+                startActivityForResult(i, PLAN_REQUEST_CODE);
                 break;
             case R.id.mtlEventsButton:
                 i = new Intent(this, SpotsActivity.class);
+                startActivity(i);
                 break;
             default:
-                i = null;
+                i = new Intent();
         }
+    }
 
-        startActivity(i);
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PLAN_REQUEST_CODE && resultCode == RESULT_OK) {
+            Toast.makeText(this, "Success", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(this, "F", Toast.LENGTH_LONG).show();
+        }
     }
 }

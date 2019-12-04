@@ -1,9 +1,5 @@
 package com.example.yultravel.Plans;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +10,10 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.example.yultravel.Database.Plan.Plan;
 import com.example.yultravel.Database.Plan.PlanViewModel;
@@ -29,6 +29,7 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     private String date;
     private TextView dateTxtView;
     private TextView timeTxtView;
+    private TextView header;
     public final String DATE_PICKER_TAG = "datePicker";
     public final String TIME_PICKER_TAG = "timePicker";
 
@@ -36,6 +37,10 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_plan);
+
+        String op = getIntent().getStringExtra(PlansActivity.PLAN_OPERATION);
+        header = findViewById(R.id.planHeader);
+        header.setText(op + " plan");
 
         YULNotification y = new YULNotification(this, "Plan", "This is a test");
         y.showNotification();
@@ -88,8 +93,16 @@ public class AddPlanActivity extends AppCompatActivity implements AdapterView.On
             // Valid
             PlanViewModel mPlanViewModel = ViewModelProviders.of(this)
                     .get(PlanViewModel.class);
-            mPlanViewModel.insert(new Plan(name, currentActivityType, "", "12/01/2019",
-                    "", true));
+
+            if (getIntent().getStringExtra(PlansActivity.PLAN_OPERATION).equals("Add")) {
+                mPlanViewModel.insert(new Plan(name, currentActivityType, "", "12/01/2019",
+                        "", true));
+            }
+            else if (getIntent().getStringExtra(PlansActivity.PLAN_OPERATION).equals("Edit")) {
+                ;
+            }
+
+            setResult(RESULT_OK);
             finish();
         }
     }

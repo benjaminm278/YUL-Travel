@@ -54,12 +54,6 @@ public class SettingsActivity extends AppCompatActivity implements
 
         String planNotif = sharedPref.getString(KEY_PREF_PLAN_NOTIF, "0");
         Toast.makeText(this, planNotif + "", Toast.LENGTH_SHORT).show();
-        /*
-        Boolean switchPref = sharedPref.getBoolean(SettingsActivity.KEY_PREF_NOTIF_UPCOMING_SWITCH,
-                true);
-        String notifPref = sharedPref.getString("notify_frequency", "0");
-        Toast.makeText(this, (switchPref ? "You will be notified of upcoming events"
-                : "The app will be quiet like a good dog") + "-" + notifPref, Toast.LENGTH_SHORT).show();
 
         // Sets default values
         /*
