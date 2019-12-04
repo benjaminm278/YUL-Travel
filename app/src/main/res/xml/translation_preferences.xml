@@ -4,5 +4,6 @@
         android:entries="@array/lang_entries"
         android:entryValues="@array/lang_values"
         android:key="language_list_preference"
-        android:title="List preference" />
+        android:summary="Currently in %s"
+        android:title="Languages" />
 </PreferenceScreen>
