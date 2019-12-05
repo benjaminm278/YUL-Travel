@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/backgroundPink"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -33,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="16dp"
-                android:text="[Plan name]"
+                android:text="@string/plan_name_default"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -44,7 +45,7 @@
                 android:id="@+id/planDateAndTimeTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[Date and time]"
+                android:text="@string/date_and_time_default"
                 app:layout_constraintStart_toStartOf="@+id/planNameTextView"
                 app:layout_constraintTop_toBottomOf="@+id/planNameTextView" />
         </androidx.constraintlayout.widget.ConstraintLayout>

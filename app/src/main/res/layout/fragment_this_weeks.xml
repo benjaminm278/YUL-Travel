@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundPink"
     tools:context=".Spots.ThisWeeksFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,8 +11,7 @@
         android:id="@+id/include2"
         layout="@layout/this_week_spots_section"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
 
 </FrameLayout>
