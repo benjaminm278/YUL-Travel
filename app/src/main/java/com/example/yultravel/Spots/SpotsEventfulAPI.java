@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -69,6 +70,10 @@ public class SpotsEventfulAPI {
                         queue.stop();
                     }
                 });
+            jsonObjReq.setRetryPolicy(new DefaultRetryPolicy(
+                    DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2,
+                    DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                    DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
             queue.add(jsonObjReq);
         }
@@ -98,7 +103,7 @@ public class SpotsEventfulAPI {
                 JSONObject imgObj = listOfEvents.getJSONObject("image");
                 JSONObject imgObjMed = imgObj.getJSONObject("medium");
                 String imgUrl = "http:" + imgObjMed.getString("url");
-                Log.d("IMG",imgUrl);
+                Log.d("IMG", imgUrl);
 
                 spotArrayList.add(new Spot(eventTitle, eventDesc, url, address,imgUrl));
             }

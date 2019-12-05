@@ -18,10 +18,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ListPreference
-        android:defaultValue="false"
-        android:entries="@array/interest_entries"
-        android:entryValues="@array/interest_values"
-        android:key="list_preference_1"
+        android:entries="@array/plan_notif_entries"
+        android:entryValues="@array/plan_notif_values"
+        android:key="key_pref_plan_notif"
         android:title="Plan reminder"
         app:summary="Be notified at a specific time before a plan" />
 

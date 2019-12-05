@@ -99,7 +99,7 @@ public class CurrentWeatherFragment extends Fragment {
             double newTemp =temp-273.15;
             Math.round(newTemp);
             Log.d("FASA",String.valueOf(temp));
-            currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(Math.round(newTemp))+" \u2103",imageUri,weather));
+            currentWeatherArrayList.add(new CurrentWeather(description,String.valueOf(Math.round(newTemp))+"\u2103",imageUri));
             CurrentWeatherAdapter adapter = new CurrentWeatherAdapter(getContext(),currentWeatherArrayList);
             currentRecyclerView.setAdapter(adapter);
 

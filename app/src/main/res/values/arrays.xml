@@ -10,20 +10,30 @@
         <item>reply_all</item>
     </string-array>
 
-    <string-array name="interest_entries">
-        <item>Sports</item>
-        <item>Nature</item>
-        <item>Food</item>
-        <item>Comedy</item>
-        <item>Sight seeing</item>
+    <string-array name="plan_notif_entries">
+        <item>Don\'t notify me in advance</item>
+        <item>10 min</item>
+        <item>20 min</item>
+        <item>30 min</item>
+        <item>40 min</item>
+        <item>50 min</item>
+        <item>1 hour</item>
+        <item>1 hour 10 min</item>
+        <item>1 hour 20 min</item>
+        <item>1 hour 30 min</item>
     </string-array>
 
-    <string-array name="interest_values">
-        <item>sports</item>
-        <item>nature</item>
-        <item>food</item>
-        <item>comedy</item>
-        <item>sight_seeing</item>
+    <string-array name="plan_notif_values">
+        <item>0</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
     </string-array>
 
     <string-array name="lang_entries">

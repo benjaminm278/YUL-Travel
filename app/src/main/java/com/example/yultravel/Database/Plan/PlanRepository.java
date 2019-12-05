@@ -44,4 +44,39 @@ public class PlanRepository {
             return null;
         }
     }
+    public void deleteAll()  {
+        new YULTravelDatabase.deleteAllPlansAsyncTask(mPlanDAO).execute();
+    }
+    private static class deletePlanAsyncTask extends AsyncTask<Plan,Void,Void>{
+        private PlanDAO mAsyncTaskDao;
+        deletePlanAsyncTask(PlanDAO planDAO){
+            mAsyncTaskDao = planDAO;
+        }
+
+        @Override
+        protected Void doInBackground(Plan... plans) {
+            mAsyncTaskDao.deletePlan(plans[0]);
+            return null;
+        }
+
+    } public void deletePlan(Plan plan){
+        new deletePlanAsyncTask(mPlanDAO).execute(plan);
+    }
+
+    private static  class updatePlanAsyncTask extends AsyncTask<Plan,Void,Void>{
+        private  PlanDAO mAsyncTaskDao;
+        updatePlanAsyncTask(PlanDAO dao){
+            mAsyncTaskDao=dao;
+        }
+        @Override
+        protected Void doInBackground(Plan... plans) {
+            mAsyncTaskDao.deletePlan(plans[0]);
+            return null;
+        }
+
+    }
+    public void updatePlan(Plan plan){
+        new updatePlanAsyncTask(mPlanDAO).execute(plan);
+    }
+
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <MultiSelectListPreference
-        android:defaultValue="@array/preloaded_fonts"
+    <ListPreference
         android:entries="@array/lang_entries"
         android:entryValues="@array/lang_values"
-        android:key="multi_select_list_preference_1"
-        android:title="Select language" />
+        android:key="language_list_preference"
+        android:summary="Currently in %s"
+        android:title="Languages" />
 </PreferenceScreen>

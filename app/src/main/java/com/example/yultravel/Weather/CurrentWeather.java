@@ -6,11 +6,11 @@ public class CurrentWeather {
     private String currentImgUrl;
     String weatherCondition;
 
-    public CurrentWeather(String description,String temp,String imgUrl, String weatherCondition){
+    public CurrentWeather(String description,String temp,String imgUrl){
         this.description=description;
         this.currentTemp=temp;
         this.currentImgUrl=imgUrl;
-        this.weatherCondition=weatherCondition;
+
     }
 
     public String getDescription() {
@@ -41,7 +41,5 @@ public class CurrentWeather {
         return weatherCondition;
     }
 
-    public void setWeatherCondition(String weatherCondition) {
-        this.weatherCondition = weatherCondition;
-    }
+
 }
