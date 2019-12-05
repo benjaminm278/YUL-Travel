@@ -87,11 +87,30 @@ public abstract class YULTravelDatabase extends RoomDatabase {
                             "12/01/2019", "5:12 pm", true);
                     planDAO.insertPlan(plan);
                 }*/
+                if(planDAO.getAnyPlan().length<1){
+                    for (int i=0; i<=plans.length-1;i++){
+                        Plan plan = new Plan(plans[i],"","","","",true);
+                        planDAO.insertPlan(plan);
+                    }
+                }
 
                 return null;
             }
         }
     };
+    public static class deleteAllPlansAsyncTask extends AsyncTask<Void, Void, Void> {
+        private PlanDAO mAsyncTaskDao;
+
+        public deleteAllPlansAsyncTask(PlanDAO dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            mAsyncTaskDao.deleteAll();
+            return null;
+        }
+    }
 
     public abstract ProfileDAO ProfileDAO();
     public abstract PlanDAO PlanDAO();

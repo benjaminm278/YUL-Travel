@@ -24,4 +24,7 @@ public class PlanViewModel extends AndroidViewModel {
     public void insert(Plan plan){
         mRepository.insertPlan(plan);
     }
+    public void deleteAll() {mRepository.deleteAll();}
+    public void deletPlan(Plan plan){mRepository.deletePlan(plan); }
+    public void updatePlan(Plan plan){mRepository.updatePlan(plan);}
 }

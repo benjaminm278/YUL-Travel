@@ -5,4 +5,5 @@
     <string name="hot_spots">Tourisme</string>
     <string name="weather">Météo</string>
     <string name="all_time_hot_spots">Places préférés de tous les temps</string>
+    <string name="clear_all_data">delete All</string>
 </resources>

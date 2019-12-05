@@ -1,11 +1,16 @@
 package com.example.yultravel.Plans;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,7 +32,7 @@ public class PlansActivity extends HomeActivity {
         setContentView(R.layout.activity_plans);
 
         // RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.recyclerview);
+        final RecyclerView recyclerView = findViewById(R.id.recyclerview);
         final PlanAdapter adapter = new PlanAdapter(this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -40,6 +45,24 @@ public class PlansActivity extends HomeActivity {
                 adapter.setPlans(plans);
             }
         });
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                Plan myPlan = adapter.getPlanAtPosition(position);
+                String plan = myPlan.getTitle();
+               Toast.makeText(PlansActivity.this,"Deleting: "+plan ,Toast.LENGTH_LONG).show();
+                mPlanViewModel.deletPlan(myPlan);
+
+            }
+        });
+        helper.attachToRecyclerView(recyclerView);
+
     }
 
     /*
@@ -74,5 +97,22 @@ public class PlansActivity extends HomeActivity {
         }
 
         startActivity(i);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.clear_data) {
+            // Add a toast just for confirmation
+            Toast.makeText(this, "Clearing the data...",
+                    Toast.LENGTH_SHORT).show();
+
+            // Delete the existing data
+            mPlanViewModel.deleteAll();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+
     }
 }
