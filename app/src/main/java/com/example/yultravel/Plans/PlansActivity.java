@@ -103,6 +103,7 @@ public class PlansActivity extends HomeActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        /*
         if (id == R.id.clear_data) {
             // Add a toast just for confirmation
             Toast.makeText(this, "Clearing the data...",
@@ -112,6 +113,7 @@ public class PlansActivity extends HomeActivity {
             mPlanViewModel.deleteAll();
             return true;
         }
+        */
         return super.onOptionsItemSelected(item);
 
     }

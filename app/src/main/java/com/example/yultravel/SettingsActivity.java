@@ -27,7 +27,8 @@ public class SettingsActivity extends AppCompatActivity implements
                     .beginTransaction()
                     .replace(R.id.settings, new HeaderFragment())
                     .commit();
-        } else {
+        }
+        else {
             setTitle(savedInstanceState.getCharSequence(TITLE_TAG));
         }
         getSupportFragmentManager().addOnBackStackChangedListener(
