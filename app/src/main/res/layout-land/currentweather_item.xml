@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:cardUseCompatPadding="true"
+    tools:ignore="MissingConstraints"
+    tools:layout_editor_absoluteX="3dp"
+    tools:layout_editor_absoluteY="0dp">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#28D2F0">
+
+        <TextView
+            android:id="@+id/textViewCurrentTemp"
+            android:layout_width="208dp"
+            android:layout_height="119dp"
+            android:layout_below="@+id/imageViewCurrentWeather"
+            android:layout_alignStart="@+id/imageViewCurrentWeather"
+            android:layout_alignEnd="@+id/imageViewCurrentWeather"
+            android:layout_marginStart="196dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="31dp"
+            android:text="1"
+            android:textColor="#FFFFFF"
+            android:textSize="108dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="103dp" />
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="200dp"
+            android:layout_height="62dp"
+            android:layout_below="@+id/textViewCurrentWeather"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="94dp"
+            android:text="Description"
+            android:textColor="#FFFFFF"
+            android:textSize="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.468"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewCurrentTemp" />
+
+        <ImageView
+            android:id="@+id/imageViewCurrentWeather"
+            android:layout_width="435dp"
+            android:layout_height="56dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="135dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="156dp"
+            app:layout_constraintBottom_toTopOf="@+id/textViewTemp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.453"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.809" />
+
+        <TextView
+            android:id="@+id/textViewCurrentWeather"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewCurrentTemp"
+            android:layout_alignStart="@+id/textViewCurrentTemp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="-199dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginEnd="83dp"
+            android:text="Weather"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewCurrentTemp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/textViewCurrentTemp"
+            android:text="°"
+            android:textSize="36sp" />
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>
